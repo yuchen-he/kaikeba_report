@@ -42,5 +42,6 @@ def merge_sort(unsorted_array):
 
 if __name__ == '__main__':
 	a = [3, 9, 5, 4, 23, 63, 34, 12, 43, 55, 10, 3, 9, 5, 4, 7, 10, 35]
-	# a = [3, 9, 5, 4, 7, 10, 35]
+	a = np.random.randn(50)
+	print(sorted(a))
 	print(merge_sort(a))
