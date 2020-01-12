@@ -1,0 +1,7 @@
+from augmentation import *
+
+# set a margin for random.randint to generate random values for augmentation
+random_margin = 30
+img_orig = cv2.imread('./lenna.jpg', 1)
+img_aug = data_augmentation(img_orig, random_margin)
+show_img(img_aug)
