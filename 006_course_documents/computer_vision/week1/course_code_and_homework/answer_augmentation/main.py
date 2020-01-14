@@ -1,4 +1,5 @@
 from augmentation import *
+import cv2
 
 # set a margin for random.randint to generate random values for augmentation
 random_margin = 30
