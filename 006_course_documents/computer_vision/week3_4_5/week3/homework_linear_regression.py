@@ -53,23 +53,31 @@ def eval_loss(w,b,x_list,y_list):
 def train_batch(x_list, y_list, batch_size, lr, num_epoch):
     w = 0
     b = 0
+    loss_min = 100000
+    i_optimum = 0
     
     for i in range(num_epoch):
         batch_idxs = np.random.choice(len(x_list), batch_size)
         x_batch    = x_list[batch_idxs]
         y_batch_gt = y_list[batch_idxs]
         w, b = cal_step_gradient(x_batch, y_batch_gt, w, b ,lr)
+        loss = eval_loss(w,b,x_list,y_list)
+        print("step:{}, loss:{}".format(i, loss)) 
         print('w:{0},b:{1}'.format(w,b))
-        print("loss: {}".format(eval_loss(w,b,x_list,y_list)))
         
         # Show liner model at present
-        plt.pause(0.1)
-        try:
-            ax.lines.remove(lines[0])
-        except Exception:
-            pass
-        lines = ax.plot(np.array([0,99]), inference(w, b, np.array([0,99])), 'r-', label='Loss={}'.format(eval_loss(w,b,x_list,y_list)), lw=5)
-        ax.legend()
+        if loss < loss_min:
+            loss_min = loss
+            i_optimum = i
+            plt.pause(0.1)
+            try:
+                ax.lines.remove(lines[0])
+            except Exception:
+                pass
+            lines = ax.plot(np.array([0,99]), inference(w, b, np.array([0,99])), 'r-', label='Step={}'.format(i), lw=5)
+            ax.legend()
+
+    print("optimum_step:{}, loss:{}".format(i_optimum, loss_min))
     return w, b
 
 x_list, y_list = gen_data()
