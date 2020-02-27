@@ -1,10 +1,11 @@
 import cv2
 import matplotlib.pyplot as plt
 import numpy as np
+import pdb
 
 
 class Object_tracking(object):
-    def __init__(self, ransac_tolerate, bbox_color, bbox_thickness):
+    def __init__(self, bbox_color, bbox_thickness, ransac_tolerate, minimum_match_point):
         self.sift = cv2.xfeatures2d.SURF_create()
 
         # parameters for draw bbox
@@ -16,6 +17,7 @@ class Object_tracking(object):
         self.index_params  = dict(algorithm = self.FLANN_INDEX_KDTREE, trees = 5)
         self.search_params = dict(checks = 50)
         self.flann = cv2.FlannBasedMatcher(self.index_params, self.search_params)
+        self.MIN_MATCH_COUNT = minimum_match_point
 
         # parameters for ransac
         self.tolerate = ransac_tolerate
@@ -23,7 +25,11 @@ class Object_tracking(object):
     def draw_bbox(self, img, bbox):
         # Draw a bbox on to a image (in BGR format)
         # return: image with bbox
-        img_bbox = cv2.polylines(img, [np.int32(bbox)], True, self.bbox_color, self.bbox_thickness, cv2.LINE_AA)
+        if bbox is None:
+            error_msg = 'NOT ENOUGH MATCH FOUND !!!'
+            img_bbox = cv2.putText(img, error_msg, (500, 100), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 3)
+        else:
+            img_bbox = cv2.polylines(img, [np.int32(bbox)], True, self.bbox_color, self.bbox_thickness, cv2.LINE_AA)
         return img_bbox
 
 
@@ -42,7 +48,7 @@ class Object_tracking(object):
     
         # Detect the keypoints and return them
         # import pdb; pdb.set_trace()
-        lt, rt, lb, rb = bbox_orig.reshape(-1, 2)
+        lt, rt, rb, lb = bbox_orig.reshape(-1, 2)
         shift = self.bbox_thickness
         frame_crop = frame[(lt[1]+shift):(lb[1]-shift), (lt[0]+shift):(rt[0]-shift)]
         # cv2.imwrite('frame_crop_1st.jpg', frame_crop)
@@ -79,31 +85,35 @@ class Object_tracking(object):
         #     match_points_pre.append((int(x1), int(y1)))
         #     match_points_this.append((int(x2), int(y2)))
 
-        match_points_src = np.float32([ kp_orig[m[0].queryIdx].pt for m in good ]).reshape(-1,1,2)
-        match_points_dst = np.float32([ kp[m[0].trainIdx].pt for m in good ]).reshape(-1,1,2)
+        if len(good)>self.MIN_MATCH_COUNT:
+            match_points_src = np.float32([ kp_orig[m[0].queryIdx].pt for m in good ]).reshape(-1,1,2)
+            match_points_dst = np.float32([ kp[m[0].trainIdx].pt for m in good ]).reshape(-1,1,2)
 
-        # RANSAC to refine the matched points
-        # mask is a mask of 1/0 represents matched or mismatched
-        # M, mask = self.ransac_match(match_points_src, match_points_dst)
-        M, mask = cv2.findHomography(match_points_src, match_points_dst, cv2.RANSAC, self.tolerate)
-        matchesMask = mask.ravel().tolist()
+            # RANSAC to refine the matched points
+            # mask is a mask of 1/0 represents matched or mismatched
+            # M, mask = self.ransac_match(match_points_src, match_points_dst)
+            M, mask = cv2.findHomography(match_points_src, match_points_dst, cv2.RANSAC, self.tolerate)
+            matchesMask = mask.ravel().tolist()
 
-        # Perspective transform from the original bbox
-        # import pdb; pdb.set_trace()
-        h,w = frame_crop_first.shape[0], frame_crop_first.shape[1]
-        bbox_first = np.float32([[1,1], [w-1,1], [1,h-1], [w-1,h-1]]).reshape(-1,1,2)
-        bbox_tracked = cv2.perspectiveTransform(bbox_first, M)
+            # Perspective transform from the original bbox
+            h,w = frame_crop_first.shape[0], frame_crop_first.shape[1]
+            bbox_first = np.float32([[1,1], [w-1,1], [w-1,h-1], [1,h-1]]).reshape(-1,1,2)
+            bbox_tracked = cv2.perspectiveTransform(bbox_first, M)
+        else:
+            print('Not enough matches are found - {0}/{1}'.format(len(good), self.MIN_MATCH_COUNT))
+            bbox_tracked = None
+
         return bbox_tracked
 
 
-def main(video_input_path, bbox_orig, video_output_path):
+def main(video_input_path, bbox_orig, video_output_path): 
     
     video_input = cv2.VideoCapture(video_input_path)
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
     out = cv2.VideoWriter(video_output_path, fourcc, 30.0, (1280, 720))
 
     count = 1
-    obj_track = Object_tracking(ransac_tolerate=3, bbox_color=(0, 255, 255), bbox_thickness=3)
+    obj_track = Object_tracking(bbox_color=(0, 255, 255), bbox_thickness=3, ransac_tolerate=3, minimum_match_point=10)
     print('Generating tracked video to {}'.format(video_output_path))
     while(True):
         ret, frame = video_input.read()
