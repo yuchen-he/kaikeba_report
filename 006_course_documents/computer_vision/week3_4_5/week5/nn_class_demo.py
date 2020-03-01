@@ -1,3 +1,9 @@
+"""
+Class task: understand the following
+a. gradient creation and back propagation process
+b. numpy method of matrix manipulations
+c. regularization method of L2 in neural network
+"""
 import numpy as np
 from matplotlib import pyplot as plt
 import sklearn.datasets
