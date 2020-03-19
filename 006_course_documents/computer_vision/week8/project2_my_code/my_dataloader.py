@@ -5,7 +5,8 @@ import numpy as np
 import cv2
 from PIL import Image
 import argparse
-from utils.parse_config import my_args_parser
+from utils.utils import my_args_parser
+import pdb
 
 import torch
 from torchvision import transforms
@@ -31,6 +32,14 @@ def channel_norm(img):
     pixels = (img - mean) / (std + 0.0000001)
     return pixels
 
+def convert_landmarks(landmarks, input_size, orig_face_size):
+    # Convert positions of landmarks(ndarrays) in sample to be consistent with image_after_Normalize.
+    # Output: shape should be (42, ) not (21, 2)
+    # Resize
+    w, h = orig_face_size
+    expand_w, expand_h = input_size / w, input_size / h
+    landmarks *= np.array([expand_w, expand_h]).astype(np.float32)
+    return landmarks
 
 class Normalize(object):
     """
@@ -40,23 +49,61 @@ class Normalize(object):
     """
 
     def __call__(self, sample):
-        image, landmarks = sample['image'], sample['landmarks']
+        img_crop, landmarks_orig = sample['image'], sample['landmarks']
         image = np.asarray(
-            image.resize((input_size, input_size), Image.BILINEAR),
+            img_crop.resize((input_size, input_size), Image.BILINEAR),
             dtype=np.float32)  # Image.ANTIALIAS)
+        # img normalize
         image = channel_norm(image)
+        # gt normalize
+        # landmarks = np.array(landmarks_orig).astype(np.float32)
+        landmarks = convert_landmarks(landmarks_orig, input_size, img_crop.size)
+        # Normalize
+        landmarks = channel_norm(landmarks)
+        # landmarks = landmarks.flatten()
         return {'image': image,
                 'landmarks': landmarks
                 }
 
+class Rotation(object):
+    """
+        Input: resized_img (ndarrays); converted_landmarks (ndarrays with shape of (21,2))
+    """
+
+    def __call__(self, sample):
+        image, landmarks = sample['image'], sample['landmarks']
+        angle = np.random.random_integers(-20, 20)
+        mat = cv2.getRotationMatrix2D((image.shape[0]//2, image.shape[1]//2), angle, 1)
+        image = cv2.warpAffine(image, mat, (image.shape[0], image.shape[1]))
+
+        # landmarks = convert_landmarks(landmarks, input_size, orig_size)
+        landmarks_rotate = []
+        for landmark in landmarks:
+            landmark = (mat[0][0]*landmark[0]+mat[0][1]*landmark[1]+mat[0][2],
+                        mat[1][0]*landmark[0]+mat[1][1]*landmark[1]+mat[1][2])
+            landmarks_rotate.append(landmark)
+        return {'image': image,
+                'landmarks': landmarks_rotate
+                }
+
+class Flip(object):
+    """
+        Input: ndarrays
+    """
+
+    def __call__(self, sample):
+        image, landmarks = sample['image'], sample['landmarks']
+
+        return {'image': image,
+                'landmarks': landmarks
+                }
 
 class ToTensor(object):
     """
         Convert ndarrays in sample to Tensors.
         Tensors channel sequence: N x C x H x W
     """
-    # //todo: need to confirm  -> has been confirmed
-    # Actually the output here is only (C* x H x W),
+    # Actually the output here is only (C x H x W),
     # the batch_size "N" will be added automatically by torch.utils.data.DataLoader()
 
     def __call__(self, sample):
@@ -66,23 +113,11 @@ class ToTensor(object):
         # torch image: C X H X W
         # image = image.transpose((2, 0, 1))
         image = np.expand_dims(image, axis=0)
+        # change (21, 2) -> (42,)
+        landmarks = np.array(landmarks).astype(np.float32)
+        landmarks = landmarks.flatten()
         return {'image': torch.from_numpy(image),
                 'landmarks': torch.from_numpy(landmarks)}
-
-
-def convert_landmarks(landmarks, input_size, orig_face_size):
-    # Convert positions of landmarks(ndarrays) in sample to be consistent with image_after_Normalize.
-    # Output: shape should be (42, ) not (21, 2)
-    # Resize
-    w, h = orig_face_size
-    expand_w, expand_h = input_size / w, input_size / h
-    landmarks *= np.array([expand_w, expand_h]).astype(np.float32)
-
-    # Normalize
-    landmarks = channel_norm(landmarks)
-    landmarks = landmarks.flatten()
-    return landmarks
-
 
 class FaceLandmarksDataset(Dataset):
     def __init__(self, args, lines, transformer=None):
@@ -100,41 +135,71 @@ class FaceLandmarksDataset(Dataset):
         '''
 
         image_path, bbox, landmarks = parse_oneline(self.lines[index])
+        # print("img_path: ", image_path)
         img = Image.open(image_path).convert('L')  # gray_scale (for calculating mean & std)
         img_crop = img.crop(tuple(bbox))  # img.crop(tuple(x1,y1,x2,y2))
-        landmarks = np.array(landmarks).astype(np.float32)
-        landmarks = convert_landmarks(landmarks, self.args.input_size, img_crop.size)
 
-        single_sample = {
-            'image': img_crop,
-            'landmarks': landmarks
-        }
-        single_sample = self.transformer(single_sample)
+        if self.args.phase == 'Test' or self.args.phase == 'test':  # test only ToTensor()
+            img_resize = np.asarray(
+                img_crop.resize((input_size, input_size), Image.BILINEAR),
+                dtype=np.float32)
+            landmarks = convert_landmarks(landmarks, input_size, img_crop.size)
+            single_sample = {
+                'image': img_resize,
+                'landmarks': landmarks
+            }
+            single_sample = self.transformer(single_sample)
+        else:
+            if self.args.no_normalize:  # train without normalize
+                img_resize = np.asarray(
+                    img_crop.resize((input_size, input_size), Image.BILINEAR),
+                    dtype=np.float32)
+                landmarks = convert_landmarks(landmarks, input_size, img_crop.size)
+                single_sample = {
+                    'image': img_resize,
+                    'landmarks': landmarks
+                }
+                single_sample = self.transformer(single_sample)
+            else:        # train with normalize
+                single_sample = {
+                    'image': img_crop,
+                    'landmarks': landmarks
+                }
+                single_sample = self.transformer(single_sample)
+
+
         return single_sample
-
 
 def load_data(args, phase):
     '''
     :param args:
     :return dataset: a instance of class FaceLandmarksDataset(), which will be used by torch.DataLoader
     '''
-    if phase == 'Train' or 'train':
-        data_path = args.train_set_path
-        with open(data_path, 'r') as f:
-            lines = f.readlines()
-        # //todo: also add some augmentations to compare the results (using week1 code)
-        transformer = transforms.Compose([
-            Normalize(),
-            ToTensor()
-        ])
-    elif phase == 'Test' or 'test':
+
+    if phase == 'Test' or phase == 'test':
         data_path = args.test_set_path
         with open(data_path, 'r') as f:
             lines = f.readlines()
         transformer = transforms.Compose([
-            Normalize(),
             ToTensor()
         ])
+    else:
+        data_path = args.train_set_path
+        with open(data_path, 'r') as f:
+            lines = f.readlines()
+
+        if not args.no_normalize:
+            transformer = transforms.Compose([
+                Normalize(),
+                Rotation(),
+                ToTensor()
+            ])
+        else:
+            transformer = transforms.Compose([
+                Rotation(),
+                ToTensor()
+            ])
+
     dataset = FaceLandmarksDataset(args, lines, transformer)
     return dataset
 
@@ -154,12 +219,12 @@ if __name__ == '__main__':
         img = sample['image']
         landmarks = sample['landmarks']       # shape = (42,)
 
-        # need to supress the function channel_norm(), since it will normalize the pixels to around 1 (not 0~255)
+        # need to supress Normalize, since it will normalize the pixels to around 1 (not 0~255)
         img = np.squeeze(np.array(img, dtype=np.uint8))
         landmarks = landmarks.reshape(21, 2)
         for landmark in landmarks:
             landmark = np.uint8(landmark).tolist()
-            img = cv2.circle(img, tuple(landmark), 5, (0, 0, 255), 1)
+            img = cv2.circle(img, tuple(landmark), 3, (0, 0, 255), -1)
         cv2.imshow("face_landmarks", img)
         key = cv2.waitKey()
         if key == 27:

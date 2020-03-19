@@ -1,27 +1,46 @@
 from __future__ import print_function
 import os
 import argparse
+import time
 import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data.sampler import SubsetRandomSampler
 
+
+try:
+    from tensorboardX import SummaryWriter
+    USE_TENSORBOARDX = True
+    print('Use tensorboardX!')
+except:
+    USE_TENSORBOARDX = False
+    print('TensorboardX is not exsit')
+
+
 from networks.network_stage1 import Net_Original
 import my_dataloader
-from utils.parse_config import my_args_parser
+from utils import utils
+from my_predictor import predictor
 import pdb
 
 
-def train(args, train_loader, valid_loader, model, my_criterion, optimizer, device):
+def train(args, train_loader, valid_loader, model, my_criterion, optimizer, device, logger, tf_writer):
     num_epoch = args.epochs
     save_path = args.save_directory
     loss_best = 1e10
-    total_step = int(len(train_loader) / args.batch_size * num_epoch)
-    curr_step = 0
+    # total_step = int(len(train_loader) / args.batch_size * num_epoch)
 
+    # finetune
+    if args.is_finetune:
+        pass
+
+    logger.info("Please check your configs:\n{}".format(args))
+    model.to(device)
     for epoch_id in range(num_epoch):
-        # train_losses = 0
+        train_losses = 0
         valid_losses = 0
+        train_step = 0
+        val_step = 0
 
         ########################
         ### training process ###
@@ -29,6 +48,7 @@ def train(args, train_loader, valid_loader, model, my_criterion, optimizer, devi
 
         model.train()
         for batch_idx, batch in enumerate(train_loader):
+            train_step += 1
 
             # ground truth
             input_img = batch['image'].to(device)  # input_img shape: N x C x H x W
@@ -43,20 +63,22 @@ def train(args, train_loader, valid_loader, model, my_criterion, optimizer, devi
             # print(f"output_size: {output.size()}")
 
             # calculate loss and back propagation
-            train_losses = my_criterion(output, landmarks_gt)
-            train_losses.backward()
+            train_loss = my_criterion(output, landmarks_gt)
+            train_loss.backward()
             optimizer.step()
+            train_losses += train_loss.item()
 
-            # show log info
+            # save logs
             if batch_idx % args.log_interval == 0:
-                print('Train Epoch: {} [{}/{} ({:.0f}%)]\t train_loss: {:.6f}'.format(
+                logger.info("Epoch:{} [{}/{} ({:.0f}%)]\t train_loss: {:.6f}".format(
                     epoch_id,
                     batch_idx * len(input_img),
                     len(train_loader.dataset),
                     100. * batch_idx / len(train_loader),
-                    train_losses.item()
-                )
-                )
+                    train_loss.item()
+                ))
+        train_losses /= 1.0*train_step
+
 
         ########################
         ## validation process ##
@@ -64,8 +86,6 @@ def train(args, train_loader, valid_loader, model, my_criterion, optimizer, devi
 
         model.eval()
         with torch.no_grad():
-            val_step = 0
-
             for batch_idx, batch in enumerate(valid_loader):
                 val_step += 1
                 input_img = batch['image'].to(device)  # input_img shape: N x C x H x W
@@ -75,8 +95,9 @@ def train(args, train_loader, valid_loader, model, my_criterion, optimizer, devi
                 valid_losses += valid_loss.item()
 
             valid_losses /= val_step * 1.0
-            print('Valid: pts_loss: {:.6f}'.format(valid_losses))
-            print('====================================================')
+            # save logs per epoch
+            logger.info('Evaluation loss: {:.6f}'.format(valid_losses))
+            logger.info('====================================================')
 
         # save model only when loss_best
         if valid_losses <= loss_best:
@@ -85,11 +106,46 @@ def train(args, train_loader, valid_loader, model, my_criterion, optimizer, devi
                 saved_model_name = os.path.join(save_path, 'model_best.pth')
                 torch.save(model.state_dict(), saved_model_name)
 
+        # save tensorboardX info
+        tf_writer.add_scalar("train_loss", train_losses, epoch_id)
+        tf_writer.add_scalar("val_loss",  valid_losses, epoch_id)
+
     return train_losses, loss_best
 
 
-# test(model, valid_loader)
-# finetune()
+def test(args, valid_loader, model, my_criterion, device):
+    val_step = 0
+    valid_losses = 0
+    batch_time = 0
+
+    utils.load_state(args.trained_model_path, model)
+    model.to(device)
+    # same with eval code
+    with torch.no_grad():
+        for batch_idx, batch in enumerate(valid_loader):
+            val_step += 1
+            torch.cuda.synchronize()
+            start_time = time.time()
+
+            # process image
+            input_img = batch['image'].to(device)  # input_img shape: N x C x H x W
+            landmarks_gt = batch['landmarks'].to(device)
+            output = model(input_img)
+            valid_loss = my_criterion(output, landmarks_gt)
+
+            # loss calculation
+            valid_losses += valid_loss.item()
+
+            # batch time calculate
+            torch.cuda.synchronize()
+            batch_process_t = time.time() - start_time
+            batch_time += batch_process_t
+
+        valid_losses /= val_step * 1.0
+        batch_time /= val_step*1.0
+        print('Evaluation loss: {:.6f}\nBatch {} process time: {}'.format(
+            valid_losses, args.test_batch_size, batch_time))
+
 
 def main(args):
     torch.manual_seed(args.seed)
@@ -109,7 +165,7 @@ def main(args):
 
     # step3: set networks
     print('===> Step3: Building Model')
-    model = Net_Original().to(device)  # for later stage, change it to be selected by config
+    model = Net_Original()  # for later stage, change it to be selected by config
     print('step3 done!')
 
     # step4: set optimizer
@@ -122,22 +178,29 @@ def main(args):
     # step5: train or test or demo
     if args.phase == 'Train' or args.phase == 'train':
         print('===> Step5: Start Training')
+        logger = utils.create_logger('my_logger', os.path.join(args.save_directory, 'log.txt'))
+        if USE_TENSORBOARDX:
+            tf_writer = SummaryWriter(os.path.join(args.save_directory, 'tensorboard'))
         train_losses, valid_losses = \
-            train(args, train_loader, valid_loader, model, my_criterion, optimizer, device)
+            train(args, train_loader, valid_loader, model, my_criterion, optimizer, device, logger, tf_writer)
         print('====================================================')
+        tf_writer.close()
     elif args.phase == 'Test' or args.phase == 'test':
         print('===> Step5: Test')
-        # how to do test?
+        test(args, valid_loader, model, my_criterion, device)
     elif args.phase == 'Finetune' or args.phase == 'finetune':
         print('===> Step5: Finetune')
-        # how to do finetune?
+        logger = utils.create_logger('my_logger', os.path.join(args.save_directory, 'log.txt'))
+        if USE_TENSORBOARDX:
+            tf_writer = SummaryWriter(os.path.join(args.save_directory, 'tensorboard'))
+        train_losses, valid_losses = \
+            train(args, train_loader, valid_loader, model, my_criterion, optimizer, device, logger, tf_writer)
     elif args.phase == 'Predict' or args.phase == 'predict':
         print('===> Step5: Predict')
-        # how to do predict?
+        predictor(args, model, device)
     print('step5: {} done!'.format(args.phase))
-
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser(description="Face_Landmarks_Detection")
-    args = my_args_parser(argparser)
+    args = utils.my_args_parser(argparser)
     main(args)

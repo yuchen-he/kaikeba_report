@@ -4,7 +4,7 @@ import numpy as np
 import os
 import cv2
 import argparse
-from utils.parse_config import my_args_parser
+from utils.utils import my_args_parser
 import pdb
 
 class Generate_dataset(object):

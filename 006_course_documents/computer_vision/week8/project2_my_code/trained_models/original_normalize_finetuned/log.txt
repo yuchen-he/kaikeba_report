@@ -1,0 +1,606 @@
+[2020-03-18 12:17:13,580] [my_detector_modify.py] [    INFO] The following layers are going to be finetune:
+[2020-03-18 12:17:13,580] [my_detector_modify.py] [    INFO] ip1
+[2020-03-18 12:17:13,580] [my_detector_modify.py] [    INFO] ip2
+[2020-03-18 12:17:13,580] [my_detector_modify.py] [    INFO] ip3
+[2020-03-18 12:17:13,581] [my_detector_modify.py] [    INFO] Please check your configs:
+Namespace(batch_size=64, epochs=100, fine_tune_path='trained_models/model_best.pth', finetune_lr=0.0005, img_path='data/test_imgs', input_size=112, is_finetune=True, log_interval=10, lr=0.0005, momentum=0.5, no_cuda=False, phase='Finetune', save_directory='trained_models', save_model=True, seed=1, test_batch_size=64, test_set_path='./data/test.txt', train_set_path='./data/train.txt', trained_model_path='trained_models/model_best.pth')
+[2020-03-18 12:17:14,125] [my_detector_modify.py] [    INFO] Epoch:0 [0/2508 (0%)]	 train_loss: 0.042619
+[2020-03-18 12:17:17,721] [my_detector_modify.py] [    INFO] Epoch:0 [640/2508 (25%)]	 train_loss: 0.050052
+[2020-03-18 12:17:21,073] [my_detector_modify.py] [    INFO] Epoch:0 [1280/2508 (50%)]	 train_loss: 0.034760
+[2020-03-18 12:17:24,867] [my_detector_modify.py] [    INFO] Epoch:0 [1920/2508 (75%)]	 train_loss: 0.054282
+[2020-03-18 12:17:41,435] [my_detector_modify.py] [    INFO] Evaluation loss: 0.055051
+[2020-03-18 12:17:41,436] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:17:41,775] [my_detector_modify.py] [    INFO] Epoch:1 [0/2508 (0%)]	 train_loss: 0.057687
+[2020-03-18 12:17:45,358] [my_detector_modify.py] [    INFO] Epoch:1 [640/2508 (25%)]	 train_loss: 0.039694
+[2020-03-18 12:17:49,083] [my_detector_modify.py] [    INFO] Epoch:1 [1280/2508 (50%)]	 train_loss: 0.048960
+[2020-03-18 12:17:52,741] [my_detector_modify.py] [    INFO] Epoch:1 [1920/2508 (75%)]	 train_loss: 0.045400
+[2020-03-18 12:18:09,319] [my_detector_modify.py] [    INFO] Evaluation loss: 0.055019
+[2020-03-18 12:18:09,319] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:18:09,691] [my_detector_modify.py] [    INFO] Epoch:2 [0/2508 (0%)]	 train_loss: 0.057754
+[2020-03-18 12:18:13,257] [my_detector_modify.py] [    INFO] Epoch:2 [640/2508 (25%)]	 train_loss: 0.050280
+[2020-03-18 12:18:17,089] [my_detector_modify.py] [    INFO] Epoch:2 [1280/2508 (50%)]	 train_loss: 0.052809
+[2020-03-18 12:18:20,396] [my_detector_modify.py] [    INFO] Epoch:2 [1920/2508 (75%)]	 train_loss: 0.043148
+[2020-03-18 12:18:37,692] [my_detector_modify.py] [    INFO] Evaluation loss: 0.055011
+[2020-03-18 12:18:37,692] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:18:38,056] [my_detector_modify.py] [    INFO] Epoch:3 [0/2508 (0%)]	 train_loss: 0.056430
+[2020-03-18 12:18:41,446] [my_detector_modify.py] [    INFO] Epoch:3 [640/2508 (25%)]	 train_loss: 0.055760
+[2020-03-18 12:18:45,179] [my_detector_modify.py] [    INFO] Epoch:3 [1280/2508 (50%)]	 train_loss: 0.055119
+[2020-03-18 12:18:49,206] [my_detector_modify.py] [    INFO] Epoch:3 [1920/2508 (75%)]	 train_loss: 0.066320
+[2020-03-18 12:19:06,010] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054948
+[2020-03-18 12:19:06,010] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:19:06,353] [my_detector_modify.py] [    INFO] Epoch:4 [0/2508 (0%)]	 train_loss: 0.075005
+[2020-03-18 12:19:10,023] [my_detector_modify.py] [    INFO] Epoch:4 [640/2508 (25%)]	 train_loss: 0.051775
+[2020-03-18 12:19:13,486] [my_detector_modify.py] [    INFO] Epoch:4 [1280/2508 (50%)]	 train_loss: 0.081776
+[2020-03-18 12:19:16,913] [my_detector_modify.py] [    INFO] Epoch:4 [1920/2508 (75%)]	 train_loss: 0.056114
+[2020-03-18 12:19:33,102] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054931
+[2020-03-18 12:19:33,102] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:19:33,526] [my_detector_modify.py] [    INFO] Epoch:5 [0/2508 (0%)]	 train_loss: 0.064993
+[2020-03-18 12:19:36,923] [my_detector_modify.py] [    INFO] Epoch:5 [640/2508 (25%)]	 train_loss: 0.060309
+[2020-03-18 12:19:40,327] [my_detector_modify.py] [    INFO] Epoch:5 [1280/2508 (50%)]	 train_loss: 0.085765
+[2020-03-18 12:19:43,836] [my_detector_modify.py] [    INFO] Epoch:5 [1920/2508 (75%)]	 train_loss: 0.056807
+[2020-03-18 12:20:00,187] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054876
+[2020-03-18 12:20:00,187] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:20:00,562] [my_detector_modify.py] [    INFO] Epoch:6 [0/2508 (0%)]	 train_loss: 0.052514
+[2020-03-18 12:20:04,056] [my_detector_modify.py] [    INFO] Epoch:6 [640/2508 (25%)]	 train_loss: 0.050045
+[2020-03-18 12:20:07,390] [my_detector_modify.py] [    INFO] Epoch:6 [1280/2508 (50%)]	 train_loss: 0.068919
+[2020-03-18 12:20:10,824] [my_detector_modify.py] [    INFO] Epoch:6 [1920/2508 (75%)]	 train_loss: 0.070665
+[2020-03-18 12:20:27,427] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054840
+[2020-03-18 12:20:27,427] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:20:27,755] [my_detector_modify.py] [    INFO] Epoch:7 [0/2508 (0%)]	 train_loss: 0.050735
+[2020-03-18 12:20:31,367] [my_detector_modify.py] [    INFO] Epoch:7 [640/2508 (25%)]	 train_loss: 0.039041
+[2020-03-18 12:20:35,042] [my_detector_modify.py] [    INFO] Epoch:7 [1280/2508 (50%)]	 train_loss: 0.041185
+[2020-03-18 12:20:38,596] [my_detector_modify.py] [    INFO] Epoch:7 [1920/2508 (75%)]	 train_loss: 0.064176
+[2020-03-18 12:20:54,855] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054827
+[2020-03-18 12:20:54,855] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:20:55,170] [my_detector_modify.py] [    INFO] Epoch:8 [0/2508 (0%)]	 train_loss: 0.051819
+[2020-03-18 12:20:58,441] [my_detector_modify.py] [    INFO] Epoch:8 [640/2508 (25%)]	 train_loss: 0.044304
+[2020-03-18 12:21:02,071] [my_detector_modify.py] [    INFO] Epoch:8 [1280/2508 (50%)]	 train_loss: 0.065355
+[2020-03-18 12:21:05,663] [my_detector_modify.py] [    INFO] Epoch:8 [1920/2508 (75%)]	 train_loss: 0.057096
+[2020-03-18 12:21:21,951] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054804
+[2020-03-18 12:21:21,952] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:21:22,297] [my_detector_modify.py] [    INFO] Epoch:9 [0/2508 (0%)]	 train_loss: 0.067824
+[2020-03-18 12:21:25,548] [my_detector_modify.py] [    INFO] Epoch:9 [640/2508 (25%)]	 train_loss: 0.062962
+[2020-03-18 12:21:29,131] [my_detector_modify.py] [    INFO] Epoch:9 [1280/2508 (50%)]	 train_loss: 0.048151
+[2020-03-18 12:21:32,834] [my_detector_modify.py] [    INFO] Epoch:9 [1920/2508 (75%)]	 train_loss: 0.048658
+[2020-03-18 12:21:49,038] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054754
+[2020-03-18 12:21:49,038] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:21:49,371] [my_detector_modify.py] [    INFO] Epoch:10 [0/2508 (0%)]	 train_loss: 0.074835
+[2020-03-18 12:21:52,925] [my_detector_modify.py] [    INFO] Epoch:10 [640/2508 (25%)]	 train_loss: 0.038689
+[2020-03-18 12:21:56,219] [my_detector_modify.py] [    INFO] Epoch:10 [1280/2508 (50%)]	 train_loss: 0.059388
+[2020-03-18 12:21:59,826] [my_detector_modify.py] [    INFO] Epoch:10 [1920/2508 (75%)]	 train_loss: 0.038739
+[2020-03-18 12:22:16,147] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054725
+[2020-03-18 12:22:16,147] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:22:16,583] [my_detector_modify.py] [    INFO] Epoch:11 [0/2508 (0%)]	 train_loss: 0.040089
+[2020-03-18 12:22:19,861] [my_detector_modify.py] [    INFO] Epoch:11 [640/2508 (25%)]	 train_loss: 0.070256
+[2020-03-18 12:22:23,248] [my_detector_modify.py] [    INFO] Epoch:11 [1280/2508 (50%)]	 train_loss: 0.055580
+[2020-03-18 12:22:26,625] [my_detector_modify.py] [    INFO] Epoch:11 [1920/2508 (75%)]	 train_loss: 0.047843
+[2020-03-18 12:22:43,254] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054697
+[2020-03-18 12:22:43,255] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:22:43,607] [my_detector_modify.py] [    INFO] Epoch:12 [0/2508 (0%)]	 train_loss: 0.052581
+[2020-03-18 12:22:47,158] [my_detector_modify.py] [    INFO] Epoch:12 [640/2508 (25%)]	 train_loss: 0.049771
+[2020-03-18 12:22:50,622] [my_detector_modify.py] [    INFO] Epoch:12 [1280/2508 (50%)]	 train_loss: 0.070376
+[2020-03-18 12:22:53,880] [my_detector_modify.py] [    INFO] Epoch:12 [1920/2508 (75%)]	 train_loss: 0.059634
+[2020-03-18 12:23:10,341] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054646
+[2020-03-18 12:23:10,341] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:23:10,723] [my_detector_modify.py] [    INFO] Epoch:13 [0/2508 (0%)]	 train_loss: 0.075764
+[2020-03-18 12:23:14,315] [my_detector_modify.py] [    INFO] Epoch:13 [640/2508 (25%)]	 train_loss: 0.035451
+[2020-03-18 12:23:17,547] [my_detector_modify.py] [    INFO] Epoch:13 [1280/2508 (50%)]	 train_loss: 0.047551
+[2020-03-18 12:23:21,236] [my_detector_modify.py] [    INFO] Epoch:13 [1920/2508 (75%)]	 train_loss: 0.070415
+[2020-03-18 12:23:37,411] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054613
+[2020-03-18 12:23:37,411] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:23:37,831] [my_detector_modify.py] [    INFO] Epoch:14 [0/2508 (0%)]	 train_loss: 0.058601
+[2020-03-18 12:23:41,495] [my_detector_modify.py] [    INFO] Epoch:14 [640/2508 (25%)]	 train_loss: 0.043960
+[2020-03-18 12:23:44,957] [my_detector_modify.py] [    INFO] Epoch:14 [1280/2508 (50%)]	 train_loss: 0.069063
+[2020-03-18 12:23:48,295] [my_detector_modify.py] [    INFO] Epoch:14 [1920/2508 (75%)]	 train_loss: 0.041200
+[2020-03-18 12:24:04,479] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054598
+[2020-03-18 12:24:04,479] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:24:04,868] [my_detector_modify.py] [    INFO] Epoch:15 [0/2508 (0%)]	 train_loss: 0.046408
+[2020-03-18 12:24:08,326] [my_detector_modify.py] [    INFO] Epoch:15 [640/2508 (25%)]	 train_loss: 0.073248
+[2020-03-18 12:24:11,685] [my_detector_modify.py] [    INFO] Epoch:15 [1280/2508 (50%)]	 train_loss: 0.061074
+[2020-03-18 12:24:15,276] [my_detector_modify.py] [    INFO] Epoch:15 [1920/2508 (75%)]	 train_loss: 0.062737
+[2020-03-18 12:24:31,568] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054536
+[2020-03-18 12:24:31,568] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:24:31,956] [my_detector_modify.py] [    INFO] Epoch:16 [0/2508 (0%)]	 train_loss: 0.042742
+[2020-03-18 12:24:35,396] [my_detector_modify.py] [    INFO] Epoch:16 [640/2508 (25%)]	 train_loss: 0.073636
+[2020-03-18 12:24:38,707] [my_detector_modify.py] [    INFO] Epoch:16 [1280/2508 (50%)]	 train_loss: 0.059717
+[2020-03-18 12:24:42,071] [my_detector_modify.py] [    INFO] Epoch:16 [1920/2508 (75%)]	 train_loss: 0.050402
+[2020-03-18 12:24:58,809] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054515
+[2020-03-18 12:24:58,809] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:24:59,182] [my_detector_modify.py] [    INFO] Epoch:17 [0/2508 (0%)]	 train_loss: 0.052347
+[2020-03-18 12:25:02,964] [my_detector_modify.py] [    INFO] Epoch:17 [640/2508 (25%)]	 train_loss: 0.040112
+[2020-03-18 12:25:06,376] [my_detector_modify.py] [    INFO] Epoch:17 [1280/2508 (50%)]	 train_loss: 0.043954
+[2020-03-18 12:25:10,125] [my_detector_modify.py] [    INFO] Epoch:17 [1920/2508 (75%)]	 train_loss: 0.057663
+[2020-03-18 12:25:27,325] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054495
+[2020-03-18 12:25:27,325] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:25:27,818] [my_detector_modify.py] [    INFO] Epoch:18 [0/2508 (0%)]	 train_loss: 0.056904
+[2020-03-18 12:25:31,559] [my_detector_modify.py] [    INFO] Epoch:18 [640/2508 (25%)]	 train_loss: 0.050567
+[2020-03-18 12:25:35,253] [my_detector_modify.py] [    INFO] Epoch:18 [1280/2508 (50%)]	 train_loss: 0.072461
+[2020-03-18 12:25:38,797] [my_detector_modify.py] [    INFO] Epoch:18 [1920/2508 (75%)]	 train_loss: 0.053414
+[2020-03-18 12:25:55,909] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054456
+[2020-03-18 12:25:55,909] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:25:56,302] [my_detector_modify.py] [    INFO] Epoch:19 [0/2508 (0%)]	 train_loss: 0.066405
+[2020-03-18 12:25:59,650] [my_detector_modify.py] [    INFO] Epoch:19 [640/2508 (25%)]	 train_loss: 0.063458
+[2020-03-18 12:26:03,356] [my_detector_modify.py] [    INFO] Epoch:19 [1280/2508 (50%)]	 train_loss: 0.058111
+[2020-03-18 12:26:06,627] [my_detector_modify.py] [    INFO] Epoch:19 [1920/2508 (75%)]	 train_loss: 0.060255
+[2020-03-18 12:26:23,639] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054415
+[2020-03-18 12:26:23,639] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:26:24,040] [my_detector_modify.py] [    INFO] Epoch:20 [0/2508 (0%)]	 train_loss: 0.043449
+[2020-03-18 12:26:27,541] [my_detector_modify.py] [    INFO] Epoch:20 [640/2508 (25%)]	 train_loss: 0.063108
+[2020-03-18 12:26:31,043] [my_detector_modify.py] [    INFO] Epoch:20 [1280/2508 (50%)]	 train_loss: 0.042465
+[2020-03-18 12:26:34,539] [my_detector_modify.py] [    INFO] Epoch:20 [1920/2508 (75%)]	 train_loss: 0.046623
+[2020-03-18 12:26:51,405] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054436
+[2020-03-18 12:26:51,406] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:26:51,799] [my_detector_modify.py] [    INFO] Epoch:21 [0/2508 (0%)]	 train_loss: 0.050844
+[2020-03-18 12:26:55,471] [my_detector_modify.py] [    INFO] Epoch:21 [640/2508 (25%)]	 train_loss: 0.036016
+[2020-03-18 12:26:58,880] [my_detector_modify.py] [    INFO] Epoch:21 [1280/2508 (50%)]	 train_loss: 0.064821
+[2020-03-18 12:27:02,446] [my_detector_modify.py] [    INFO] Epoch:21 [1920/2508 (75%)]	 train_loss: 0.062598
+[2020-03-18 12:27:19,791] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054351
+[2020-03-18 12:27:19,791] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:27:20,206] [my_detector_modify.py] [    INFO] Epoch:22 [0/2508 (0%)]	 train_loss: 0.046793
+[2020-03-18 12:27:23,702] [my_detector_modify.py] [    INFO] Epoch:22 [640/2508 (25%)]	 train_loss: 0.060653
+[2020-03-18 12:27:27,244] [my_detector_modify.py] [    INFO] Epoch:22 [1280/2508 (50%)]	 train_loss: 0.045206
+[2020-03-18 12:27:30,875] [my_detector_modify.py] [    INFO] Epoch:22 [1920/2508 (75%)]	 train_loss: 0.052781
+[2020-03-18 12:27:48,082] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054309
+[2020-03-18 12:27:48,082] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:27:48,464] [my_detector_modify.py] [    INFO] Epoch:23 [0/2508 (0%)]	 train_loss: 0.059875
+[2020-03-18 12:27:52,057] [my_detector_modify.py] [    INFO] Epoch:23 [640/2508 (25%)]	 train_loss: 0.060418
+[2020-03-18 12:27:55,806] [my_detector_modify.py] [    INFO] Epoch:23 [1280/2508 (50%)]	 train_loss: 0.054251
+[2020-03-18 12:27:59,376] [my_detector_modify.py] [    INFO] Epoch:23 [1920/2508 (75%)]	 train_loss: 0.050999
+[2020-03-18 12:28:16,064] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054304
+[2020-03-18 12:28:16,065] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:28:16,378] [my_detector_modify.py] [    INFO] Epoch:24 [0/2508 (0%)]	 train_loss: 0.049407
+[2020-03-18 12:28:19,976] [my_detector_modify.py] [    INFO] Epoch:24 [640/2508 (25%)]	 train_loss: 0.054776
+[2020-03-18 12:28:23,615] [my_detector_modify.py] [    INFO] Epoch:24 [1280/2508 (50%)]	 train_loss: 0.048113
+[2020-03-18 12:28:27,382] [my_detector_modify.py] [    INFO] Epoch:24 [1920/2508 (75%)]	 train_loss: 0.049129
+[2020-03-18 12:28:44,338] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054255
+[2020-03-18 12:28:44,339] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:28:44,656] [my_detector_modify.py] [    INFO] Epoch:25 [0/2508 (0%)]	 train_loss: 0.075571
+[2020-03-18 12:28:48,129] [my_detector_modify.py] [    INFO] Epoch:25 [640/2508 (25%)]	 train_loss: 0.035106
+[2020-03-18 12:28:51,678] [my_detector_modify.py] [    INFO] Epoch:25 [1280/2508 (50%)]	 train_loss: 0.041853
+[2020-03-18 12:28:55,489] [my_detector_modify.py] [    INFO] Epoch:25 [1920/2508 (75%)]	 train_loss: 0.052863
+[2020-03-18 12:29:13,390] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054224
+[2020-03-18 12:29:13,390] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:29:13,818] [my_detector_modify.py] [    INFO] Epoch:26 [0/2508 (0%)]	 train_loss: 0.073509
+[2020-03-18 12:29:17,442] [my_detector_modify.py] [    INFO] Epoch:26 [640/2508 (25%)]	 train_loss: 0.049480
+[2020-03-18 12:29:21,632] [my_detector_modify.py] [    INFO] Epoch:26 [1280/2508 (50%)]	 train_loss: 0.068018
+[2020-03-18 12:29:25,199] [my_detector_modify.py] [    INFO] Epoch:26 [1920/2508 (75%)]	 train_loss: 0.049624
+[2020-03-18 12:29:42,486] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054201
+[2020-03-18 12:29:42,486] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:29:42,799] [my_detector_modify.py] [    INFO] Epoch:27 [0/2508 (0%)]	 train_loss: 0.070284
+[2020-03-18 12:29:46,703] [my_detector_modify.py] [    INFO] Epoch:27 [640/2508 (25%)]	 train_loss: 0.073061
+[2020-03-18 12:29:50,206] [my_detector_modify.py] [    INFO] Epoch:27 [1280/2508 (50%)]	 train_loss: 0.059748
+[2020-03-18 12:29:53,850] [my_detector_modify.py] [    INFO] Epoch:27 [1920/2508 (75%)]	 train_loss: 0.044401
+[2020-03-18 12:30:10,667] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054143
+[2020-03-18 12:30:10,667] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:30:11,090] [my_detector_modify.py] [    INFO] Epoch:28 [0/2508 (0%)]	 train_loss: 0.084912
+[2020-03-18 12:30:14,637] [my_detector_modify.py] [    INFO] Epoch:28 [640/2508 (25%)]	 train_loss: 0.042450
+[2020-03-18 12:30:18,052] [my_detector_modify.py] [    INFO] Epoch:28 [1280/2508 (50%)]	 train_loss: 0.059474
+[2020-03-18 12:30:21,948] [my_detector_modify.py] [    INFO] Epoch:28 [1920/2508 (75%)]	 train_loss: 0.062744
+[2020-03-18 12:30:39,264] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054155
+[2020-03-18 12:30:39,265] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:30:39,556] [my_detector_modify.py] [    INFO] Epoch:29 [0/2508 (0%)]	 train_loss: 0.054805
+[2020-03-18 12:30:42,973] [my_detector_modify.py] [    INFO] Epoch:29 [640/2508 (25%)]	 train_loss: 0.043974
+[2020-03-18 12:30:46,384] [my_detector_modify.py] [    INFO] Epoch:29 [1280/2508 (50%)]	 train_loss: 0.054234
+[2020-03-18 12:30:50,193] [my_detector_modify.py] [    INFO] Epoch:29 [1920/2508 (75%)]	 train_loss: 0.068850
+[2020-03-18 12:31:06,658] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054078
+[2020-03-18 12:31:06,658] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:31:07,034] [my_detector_modify.py] [    INFO] Epoch:30 [0/2508 (0%)]	 train_loss: 0.070998
+[2020-03-18 12:31:10,473] [my_detector_modify.py] [    INFO] Epoch:30 [640/2508 (25%)]	 train_loss: 0.046429
+[2020-03-18 12:31:13,954] [my_detector_modify.py] [    INFO] Epoch:30 [1280/2508 (50%)]	 train_loss: 0.072172
+[2020-03-18 12:31:17,493] [my_detector_modify.py] [    INFO] Epoch:30 [1920/2508 (75%)]	 train_loss: 0.061391
+[2020-03-18 12:31:33,989] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054079
+[2020-03-18 12:31:33,989] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:31:34,372] [my_detector_modify.py] [    INFO] Epoch:31 [0/2508 (0%)]	 train_loss: 0.053149
+[2020-03-18 12:31:37,734] [my_detector_modify.py] [    INFO] Epoch:31 [640/2508 (25%)]	 train_loss: 0.064041
+[2020-03-18 12:31:41,375] [my_detector_modify.py] [    INFO] Epoch:31 [1280/2508 (50%)]	 train_loss: 0.053345
+[2020-03-18 12:31:44,756] [my_detector_modify.py] [    INFO] Epoch:31 [1920/2508 (75%)]	 train_loss: 0.036521
+[2020-03-18 12:32:01,122] [my_detector_modify.py] [    INFO] Evaluation loss: 0.054006
+[2020-03-18 12:32:01,122] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:32:01,426] [my_detector_modify.py] [    INFO] Epoch:32 [0/2508 (0%)]	 train_loss: 0.054027
+[2020-03-18 12:32:05,060] [my_detector_modify.py] [    INFO] Epoch:32 [640/2508 (25%)]	 train_loss: 0.036070
+[2020-03-18 12:32:08,531] [my_detector_modify.py] [    INFO] Epoch:32 [1280/2508 (50%)]	 train_loss: 0.073866
+[2020-03-18 12:32:12,002] [my_detector_modify.py] [    INFO] Epoch:32 [1920/2508 (75%)]	 train_loss: 0.039100
+[2020-03-18 12:32:28,263] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053967
+[2020-03-18 12:32:28,263] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:32:28,576] [my_detector_modify.py] [    INFO] Epoch:33 [0/2508 (0%)]	 train_loss: 0.048960
+[2020-03-18 12:32:31,821] [my_detector_modify.py] [    INFO] Epoch:33 [640/2508 (25%)]	 train_loss: 0.047194
+[2020-03-18 12:32:35,515] [my_detector_modify.py] [    INFO] Epoch:33 [1280/2508 (50%)]	 train_loss: 0.033813
+[2020-03-18 12:32:39,001] [my_detector_modify.py] [    INFO] Epoch:33 [1920/2508 (75%)]	 train_loss: 0.053898
+[2020-03-18 12:32:55,371] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053953
+[2020-03-18 12:32:55,371] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:32:55,715] [my_detector_modify.py] [    INFO] Epoch:34 [0/2508 (0%)]	 train_loss: 0.055944
+[2020-03-18 12:32:59,163] [my_detector_modify.py] [    INFO] Epoch:34 [640/2508 (25%)]	 train_loss: 0.070204
+[2020-03-18 12:33:02,965] [my_detector_modify.py] [    INFO] Epoch:34 [1280/2508 (50%)]	 train_loss: 0.050431
+[2020-03-18 12:33:06,117] [my_detector_modify.py] [    INFO] Epoch:34 [1920/2508 (75%)]	 train_loss: 0.057225
+[2020-03-18 12:33:22,460] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053884
+[2020-03-18 12:33:22,460] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:33:22,774] [my_detector_modify.py] [    INFO] Epoch:35 [0/2508 (0%)]	 train_loss: 0.041504
+[2020-03-18 12:33:26,223] [my_detector_modify.py] [    INFO] Epoch:35 [640/2508 (25%)]	 train_loss: 0.045716
+[2020-03-18 12:33:29,790] [my_detector_modify.py] [    INFO] Epoch:35 [1280/2508 (50%)]	 train_loss: 0.057168
+[2020-03-18 12:33:33,165] [my_detector_modify.py] [    INFO] Epoch:35 [1920/2508 (75%)]	 train_loss: 0.062328
+[2020-03-18 12:33:49,587] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053882
+[2020-03-18 12:33:49,587] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:33:49,952] [my_detector_modify.py] [    INFO] Epoch:36 [0/2508 (0%)]	 train_loss: 0.068993
+[2020-03-18 12:33:53,365] [my_detector_modify.py] [    INFO] Epoch:36 [640/2508 (25%)]	 train_loss: 0.050324
+[2020-03-18 12:33:56,875] [my_detector_modify.py] [    INFO] Epoch:36 [1280/2508 (50%)]	 train_loss: 0.065157
+[2020-03-18 12:34:00,352] [my_detector_modify.py] [    INFO] Epoch:36 [1920/2508 (75%)]	 train_loss: 0.051594
+[2020-03-18 12:34:16,741] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053853
+[2020-03-18 12:34:16,741] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:34:17,113] [my_detector_modify.py] [    INFO] Epoch:37 [0/2508 (0%)]	 train_loss: 0.043503
+[2020-03-18 12:34:20,574] [my_detector_modify.py] [    INFO] Epoch:37 [640/2508 (25%)]	 train_loss: 0.051182
+[2020-03-18 12:34:24,094] [my_detector_modify.py] [    INFO] Epoch:37 [1280/2508 (50%)]	 train_loss: 0.064552
+[2020-03-18 12:34:27,539] [my_detector_modify.py] [    INFO] Epoch:37 [1920/2508 (75%)]	 train_loss: 0.073102
+[2020-03-18 12:34:43,902] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053797
+[2020-03-18 12:34:43,902] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:34:44,318] [my_detector_modify.py] [    INFO] Epoch:38 [0/2508 (0%)]	 train_loss: 0.027318
+[2020-03-18 12:34:47,833] [my_detector_modify.py] [    INFO] Epoch:38 [640/2508 (25%)]	 train_loss: 0.039110
+[2020-03-18 12:34:51,262] [my_detector_modify.py] [    INFO] Epoch:38 [1280/2508 (50%)]	 train_loss: 0.076183
+[2020-03-18 12:34:54,785] [my_detector_modify.py] [    INFO] Epoch:38 [1920/2508 (75%)]	 train_loss: 0.045264
+[2020-03-18 12:35:11,065] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053757
+[2020-03-18 12:35:11,066] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:35:11,429] [my_detector_modify.py] [    INFO] Epoch:39 [0/2508 (0%)]	 train_loss: 0.058889
+[2020-03-18 12:35:14,804] [my_detector_modify.py] [    INFO] Epoch:39 [640/2508 (25%)]	 train_loss: 0.052541
+[2020-03-18 12:35:18,370] [my_detector_modify.py] [    INFO] Epoch:39 [1280/2508 (50%)]	 train_loss: 0.034407
+[2020-03-18 12:35:21,841] [my_detector_modify.py] [    INFO] Epoch:39 [1920/2508 (75%)]	 train_loss: 0.057670
+[2020-03-18 12:35:38,240] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053739
+[2020-03-18 12:35:38,240] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:35:38,572] [my_detector_modify.py] [    INFO] Epoch:40 [0/2508 (0%)]	 train_loss: 0.053867
+[2020-03-18 12:35:42,263] [my_detector_modify.py] [    INFO] Epoch:40 [640/2508 (25%)]	 train_loss: 0.052892
+[2020-03-18 12:35:45,654] [my_detector_modify.py] [    INFO] Epoch:40 [1280/2508 (50%)]	 train_loss: 0.029077
+[2020-03-18 12:35:49,035] [my_detector_modify.py] [    INFO] Epoch:40 [1920/2508 (75%)]	 train_loss: 0.042561
+[2020-03-18 12:36:05,291] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053702
+[2020-03-18 12:36:05,292] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:36:05,655] [my_detector_modify.py] [    INFO] Epoch:41 [0/2508 (0%)]	 train_loss: 0.036001
+[2020-03-18 12:36:08,907] [my_detector_modify.py] [    INFO] Epoch:41 [640/2508 (25%)]	 train_loss: 0.058442
+[2020-03-18 12:36:12,432] [my_detector_modify.py] [    INFO] Epoch:41 [1280/2508 (50%)]	 train_loss: 0.055547
+[2020-03-18 12:36:15,914] [my_detector_modify.py] [    INFO] Epoch:41 [1920/2508 (75%)]	 train_loss: 0.074683
+[2020-03-18 12:36:32,447] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053694
+[2020-03-18 12:36:32,447] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:36:32,839] [my_detector_modify.py] [    INFO] Epoch:42 [0/2508 (0%)]	 train_loss: 0.045028
+[2020-03-18 12:36:36,440] [my_detector_modify.py] [    INFO] Epoch:42 [640/2508 (25%)]	 train_loss: 0.065897
+[2020-03-18 12:36:40,020] [my_detector_modify.py] [    INFO] Epoch:42 [1280/2508 (50%)]	 train_loss: 0.050521
+[2020-03-18 12:36:43,817] [my_detector_modify.py] [    INFO] Epoch:42 [1920/2508 (75%)]	 train_loss: 0.059186
+[2020-03-18 12:36:59,961] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053621
+[2020-03-18 12:36:59,961] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:37:00,364] [my_detector_modify.py] [    INFO] Epoch:43 [0/2508 (0%)]	 train_loss: 0.037458
+[2020-03-18 12:37:03,699] [my_detector_modify.py] [    INFO] Epoch:43 [640/2508 (25%)]	 train_loss: 0.056632
+[2020-03-18 12:37:06,991] [my_detector_modify.py] [    INFO] Epoch:43 [1280/2508 (50%)]	 train_loss: 0.058742
+[2020-03-18 12:37:10,625] [my_detector_modify.py] [    INFO] Epoch:43 [1920/2508 (75%)]	 train_loss: 0.085465
+[2020-03-18 12:37:27,018] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053596
+[2020-03-18 12:37:27,018] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:37:27,358] [my_detector_modify.py] [    INFO] Epoch:44 [0/2508 (0%)]	 train_loss: 0.044360
+[2020-03-18 12:37:30,680] [my_detector_modify.py] [    INFO] Epoch:44 [640/2508 (25%)]	 train_loss: 0.061888
+[2020-03-18 12:37:34,078] [my_detector_modify.py] [    INFO] Epoch:44 [1280/2508 (50%)]	 train_loss: 0.048221
+[2020-03-18 12:37:37,775] [my_detector_modify.py] [    INFO] Epoch:44 [1920/2508 (75%)]	 train_loss: 0.059573
+[2020-03-18 12:37:54,045] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053545
+[2020-03-18 12:37:54,045] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:37:54,369] [my_detector_modify.py] [    INFO] Epoch:45 [0/2508 (0%)]	 train_loss: 0.051890
+[2020-03-18 12:37:57,721] [my_detector_modify.py] [    INFO] Epoch:45 [640/2508 (25%)]	 train_loss: 0.051350
+[2020-03-18 12:38:01,234] [my_detector_modify.py] [    INFO] Epoch:45 [1280/2508 (50%)]	 train_loss: 0.040776
+[2020-03-18 12:38:04,622] [my_detector_modify.py] [    INFO] Epoch:45 [1920/2508 (75%)]	 train_loss: 0.035383
+[2020-03-18 12:38:21,094] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053532
+[2020-03-18 12:38:21,094] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:38:21,443] [my_detector_modify.py] [    INFO] Epoch:46 [0/2508 (0%)]	 train_loss: 0.056306
+[2020-03-18 12:38:24,842] [my_detector_modify.py] [    INFO] Epoch:46 [640/2508 (25%)]	 train_loss: 0.040060
+[2020-03-18 12:38:27,960] [my_detector_modify.py] [    INFO] Epoch:46 [1280/2508 (50%)]	 train_loss: 0.060052
+[2020-03-18 12:38:31,559] [my_detector_modify.py] [    INFO] Epoch:46 [1920/2508 (75%)]	 train_loss: 0.051937
+[2020-03-18 12:38:48,142] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053476
+[2020-03-18 12:38:48,142] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:38:48,508] [my_detector_modify.py] [    INFO] Epoch:47 [0/2508 (0%)]	 train_loss: 0.045758
+[2020-03-18 12:38:51,959] [my_detector_modify.py] [    INFO] Epoch:47 [640/2508 (25%)]	 train_loss: 0.058571
+[2020-03-18 12:38:55,417] [my_detector_modify.py] [    INFO] Epoch:47 [1280/2508 (50%)]	 train_loss: 0.057529
+[2020-03-18 12:38:58,711] [my_detector_modify.py] [    INFO] Epoch:47 [1920/2508 (75%)]	 train_loss: 0.052036
+[2020-03-18 12:39:15,180] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053460
+[2020-03-18 12:39:15,180] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:39:15,537] [my_detector_modify.py] [    INFO] Epoch:48 [0/2508 (0%)]	 train_loss: 0.043073
+[2020-03-18 12:39:18,885] [my_detector_modify.py] [    INFO] Epoch:48 [640/2508 (25%)]	 train_loss: 0.050608
+[2020-03-18 12:39:22,307] [my_detector_modify.py] [    INFO] Epoch:48 [1280/2508 (50%)]	 train_loss: 0.051450
+[2020-03-18 12:39:25,854] [my_detector_modify.py] [    INFO] Epoch:48 [1920/2508 (75%)]	 train_loss: 0.054755
+[2020-03-18 12:39:42,195] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053427
+[2020-03-18 12:39:42,195] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:39:42,508] [my_detector_modify.py] [    INFO] Epoch:49 [0/2508 (0%)]	 train_loss: 0.088842
+[2020-03-18 12:39:46,022] [my_detector_modify.py] [    INFO] Epoch:49 [640/2508 (25%)]	 train_loss: 0.057655
+[2020-03-18 12:39:49,501] [my_detector_modify.py] [    INFO] Epoch:49 [1280/2508 (50%)]	 train_loss: 0.041772
+[2020-03-18 12:39:53,125] [my_detector_modify.py] [    INFO] Epoch:49 [1920/2508 (75%)]	 train_loss: 0.063565
+[2020-03-18 12:40:09,235] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053415
+[2020-03-18 12:40:09,235] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:40:09,562] [my_detector_modify.py] [    INFO] Epoch:50 [0/2508 (0%)]	 train_loss: 0.057828
+[2020-03-18 12:40:13,104] [my_detector_modify.py] [    INFO] Epoch:50 [640/2508 (25%)]	 train_loss: 0.043546
+[2020-03-18 12:40:16,435] [my_detector_modify.py] [    INFO] Epoch:50 [1280/2508 (50%)]	 train_loss: 0.040718
+[2020-03-18 12:40:19,928] [my_detector_modify.py] [    INFO] Epoch:50 [1920/2508 (75%)]	 train_loss: 0.048675
+[2020-03-18 12:40:36,304] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053344
+[2020-03-18 12:40:36,305] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:40:36,624] [my_detector_modify.py] [    INFO] Epoch:51 [0/2508 (0%)]	 train_loss: 0.047774
+[2020-03-18 12:40:39,982] [my_detector_modify.py] [    INFO] Epoch:51 [640/2508 (25%)]	 train_loss: 0.039262
+[2020-03-18 12:40:43,435] [my_detector_modify.py] [    INFO] Epoch:51 [1280/2508 (50%)]	 train_loss: 0.037729
+[2020-03-18 12:40:47,038] [my_detector_modify.py] [    INFO] Epoch:51 [1920/2508 (75%)]	 train_loss: 0.053186
+[2020-03-18 12:41:03,416] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053345
+[2020-03-18 12:41:03,416] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:41:03,809] [my_detector_modify.py] [    INFO] Epoch:52 [0/2508 (0%)]	 train_loss: 0.029083
+[2020-03-18 12:41:07,205] [my_detector_modify.py] [    INFO] Epoch:52 [640/2508 (25%)]	 train_loss: 0.058146
+[2020-03-18 12:41:10,755] [my_detector_modify.py] [    INFO] Epoch:52 [1280/2508 (50%)]	 train_loss: 0.056504
+[2020-03-18 12:41:14,106] [my_detector_modify.py] [    INFO] Epoch:52 [1920/2508 (75%)]	 train_loss: 0.052894
+[2020-03-18 12:41:30,481] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053272
+[2020-03-18 12:41:30,481] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:41:30,789] [my_detector_modify.py] [    INFO] Epoch:53 [0/2508 (0%)]	 train_loss: 0.047597
+[2020-03-18 12:41:34,298] [my_detector_modify.py] [    INFO] Epoch:53 [640/2508 (25%)]	 train_loss: 0.056916
+[2020-03-18 12:41:37,729] [my_detector_modify.py] [    INFO] Epoch:53 [1280/2508 (50%)]	 train_loss: 0.049612
+[2020-03-18 12:41:41,198] [my_detector_modify.py] [    INFO] Epoch:53 [1920/2508 (75%)]	 train_loss: 0.047270
+[2020-03-18 12:41:57,512] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053277
+[2020-03-18 12:41:57,512] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:41:57,901] [my_detector_modify.py] [    INFO] Epoch:54 [0/2508 (0%)]	 train_loss: 0.043769
+[2020-03-18 12:42:01,246] [my_detector_modify.py] [    INFO] Epoch:54 [640/2508 (25%)]	 train_loss: 0.058097
+[2020-03-18 12:42:04,809] [my_detector_modify.py] [    INFO] Epoch:54 [1280/2508 (50%)]	 train_loss: 0.050173
+[2020-03-18 12:42:08,022] [my_detector_modify.py] [    INFO] Epoch:54 [1920/2508 (75%)]	 train_loss: 0.057654
+[2020-03-18 12:42:24,592] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053215
+[2020-03-18 12:42:24,592] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:42:24,882] [my_detector_modify.py] [    INFO] Epoch:55 [0/2508 (0%)]	 train_loss: 0.058570
+[2020-03-18 12:42:28,598] [my_detector_modify.py] [    INFO] Epoch:55 [640/2508 (25%)]	 train_loss: 0.035979
+[2020-03-18 12:42:31,998] [my_detector_modify.py] [    INFO] Epoch:55 [1280/2508 (50%)]	 train_loss: 0.047345
+[2020-03-18 12:42:35,439] [my_detector_modify.py] [    INFO] Epoch:55 [1920/2508 (75%)]	 train_loss: 0.041544
+[2020-03-18 12:42:51,687] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053175
+[2020-03-18 12:42:51,688] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:42:52,045] [my_detector_modify.py] [    INFO] Epoch:56 [0/2508 (0%)]	 train_loss: 0.074765
+[2020-03-18 12:42:55,557] [my_detector_modify.py] [    INFO] Epoch:56 [640/2508 (25%)]	 train_loss: 0.049788
+[2020-03-18 12:42:59,011] [my_detector_modify.py] [    INFO] Epoch:56 [1280/2508 (50%)]	 train_loss: 0.034056
+[2020-03-18 12:43:02,562] [my_detector_modify.py] [    INFO] Epoch:56 [1920/2508 (75%)]	 train_loss: 0.046791
+[2020-03-18 12:43:18,766] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053137
+[2020-03-18 12:43:18,767] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:43:19,087] [my_detector_modify.py] [    INFO] Epoch:57 [0/2508 (0%)]	 train_loss: 0.077758
+[2020-03-18 12:43:22,696] [my_detector_modify.py] [    INFO] Epoch:57 [640/2508 (25%)]	 train_loss: 0.055549
+[2020-03-18 12:43:26,021] [my_detector_modify.py] [    INFO] Epoch:57 [1280/2508 (50%)]	 train_loss: 0.072472
+[2020-03-18 12:43:29,556] [my_detector_modify.py] [    INFO] Epoch:57 [1920/2508 (75%)]	 train_loss: 0.051786
+[2020-03-18 12:43:45,875] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053099
+[2020-03-18 12:43:45,875] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:43:46,238] [my_detector_modify.py] [    INFO] Epoch:58 [0/2508 (0%)]	 train_loss: 0.057892
+[2020-03-18 12:43:49,778] [my_detector_modify.py] [    INFO] Epoch:58 [640/2508 (25%)]	 train_loss: 0.043838
+[2020-03-18 12:43:53,266] [my_detector_modify.py] [    INFO] Epoch:58 [1280/2508 (50%)]	 train_loss: 0.060167
+[2020-03-18 12:43:56,641] [my_detector_modify.py] [    INFO] Epoch:58 [1920/2508 (75%)]	 train_loss: 0.034314
+[2020-03-18 12:44:12,929] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053063
+[2020-03-18 12:44:12,929] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:44:13,259] [my_detector_modify.py] [    INFO] Epoch:59 [0/2508 (0%)]	 train_loss: 0.063063
+[2020-03-18 12:44:16,891] [my_detector_modify.py] [    INFO] Epoch:59 [640/2508 (25%)]	 train_loss: 0.054188
+[2020-03-18 12:44:20,434] [my_detector_modify.py] [    INFO] Epoch:59 [1280/2508 (50%)]	 train_loss: 0.058085
+[2020-03-18 12:44:23,639] [my_detector_modify.py] [    INFO] Epoch:59 [1920/2508 (75%)]	 train_loss: 0.062456
+[2020-03-18 12:44:39,961] [my_detector_modify.py] [    INFO] Evaluation loss: 0.053027
+[2020-03-18 12:44:39,961] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:44:40,303] [my_detector_modify.py] [    INFO] Epoch:60 [0/2508 (0%)]	 train_loss: 0.053910
+[2020-03-18 12:44:44,107] [my_detector_modify.py] [    INFO] Epoch:60 [640/2508 (25%)]	 train_loss: 0.072902
+[2020-03-18 12:44:47,365] [my_detector_modify.py] [    INFO] Epoch:60 [1280/2508 (50%)]	 train_loss: 0.046380
+[2020-03-18 12:44:50,798] [my_detector_modify.py] [    INFO] Epoch:60 [1920/2508 (75%)]	 train_loss: 0.071269
+[2020-03-18 12:45:07,017] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052981
+[2020-03-18 12:45:07,017] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:45:07,337] [my_detector_modify.py] [    INFO] Epoch:61 [0/2508 (0%)]	 train_loss: 0.053300
+[2020-03-18 12:45:10,680] [my_detector_modify.py] [    INFO] Epoch:61 [640/2508 (25%)]	 train_loss: 0.045195
+[2020-03-18 12:45:13,990] [my_detector_modify.py] [    INFO] Epoch:61 [1280/2508 (50%)]	 train_loss: 0.050711
+[2020-03-18 12:45:17,548] [my_detector_modify.py] [    INFO] Epoch:61 [1920/2508 (75%)]	 train_loss: 0.048668
+[2020-03-18 12:45:34,095] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052961
+[2020-03-18 12:45:34,095] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:45:34,484] [my_detector_modify.py] [    INFO] Epoch:62 [0/2508 (0%)]	 train_loss: 0.058277
+[2020-03-18 12:45:37,820] [my_detector_modify.py] [    INFO] Epoch:62 [640/2508 (25%)]	 train_loss: 0.077703
+[2020-03-18 12:45:41,277] [my_detector_modify.py] [    INFO] Epoch:62 [1280/2508 (50%)]	 train_loss: 0.046430
+[2020-03-18 12:45:44,769] [my_detector_modify.py] [    INFO] Epoch:62 [1920/2508 (75%)]	 train_loss: 0.049240
+[2020-03-18 12:46:01,196] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052943
+[2020-03-18 12:46:01,197] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:46:01,533] [my_detector_modify.py] [    INFO] Epoch:63 [0/2508 (0%)]	 train_loss: 0.048331
+[2020-03-18 12:46:05,129] [my_detector_modify.py] [    INFO] Epoch:63 [640/2508 (25%)]	 train_loss: 0.045989
+[2020-03-18 12:46:08,401] [my_detector_modify.py] [    INFO] Epoch:63 [1280/2508 (50%)]	 train_loss: 0.042741
+[2020-03-18 12:46:11,952] [my_detector_modify.py] [    INFO] Epoch:63 [1920/2508 (75%)]	 train_loss: 0.088759
+[2020-03-18 12:46:28,315] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052890
+[2020-03-18 12:46:28,316] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:46:28,732] [my_detector_modify.py] [    INFO] Epoch:64 [0/2508 (0%)]	 train_loss: 0.046126
+[2020-03-18 12:46:32,066] [my_detector_modify.py] [    INFO] Epoch:64 [640/2508 (25%)]	 train_loss: 0.036648
+[2020-03-18 12:46:35,621] [my_detector_modify.py] [    INFO] Epoch:64 [1280/2508 (50%)]	 train_loss: 0.045339
+[2020-03-18 12:46:38,898] [my_detector_modify.py] [    INFO] Epoch:64 [1920/2508 (75%)]	 train_loss: 0.041975
+[2020-03-18 12:46:55,321] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052846
+[2020-03-18 12:46:55,322] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:46:55,593] [my_detector_modify.py] [    INFO] Epoch:65 [0/2508 (0%)]	 train_loss: 0.041823
+[2020-03-18 12:46:59,413] [my_detector_modify.py] [    INFO] Epoch:65 [640/2508 (25%)]	 train_loss: 0.051626
+[2020-03-18 12:47:02,859] [my_detector_modify.py] [    INFO] Epoch:65 [1280/2508 (50%)]	 train_loss: 0.058606
+[2020-03-18 12:47:06,210] [my_detector_modify.py] [    INFO] Epoch:65 [1920/2508 (75%)]	 train_loss: 0.069273
+[2020-03-18 12:47:22,372] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052837
+[2020-03-18 12:47:22,373] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:47:22,695] [my_detector_modify.py] [    INFO] Epoch:66 [0/2508 (0%)]	 train_loss: 0.057763
+[2020-03-18 12:47:26,040] [my_detector_modify.py] [    INFO] Epoch:66 [640/2508 (25%)]	 train_loss: 0.057462
+[2020-03-18 12:47:29,672] [my_detector_modify.py] [    INFO] Epoch:66 [1280/2508 (50%)]	 train_loss: 0.058452
+[2020-03-18 12:47:33,118] [my_detector_modify.py] [    INFO] Epoch:66 [1920/2508 (75%)]	 train_loss: 0.036745
+[2020-03-18 12:47:49,438] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052780
+[2020-03-18 12:47:49,438] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:47:49,780] [my_detector_modify.py] [    INFO] Epoch:67 [0/2508 (0%)]	 train_loss: 0.059287
+[2020-03-18 12:47:53,142] [my_detector_modify.py] [    INFO] Epoch:67 [640/2508 (25%)]	 train_loss: 0.048608
+[2020-03-18 12:47:56,634] [my_detector_modify.py] [    INFO] Epoch:67 [1280/2508 (50%)]	 train_loss: 0.061048
+[2020-03-18 12:48:00,224] [my_detector_modify.py] [    INFO] Epoch:67 [1920/2508 (75%)]	 train_loss: 0.028560
+[2020-03-18 12:48:16,511] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052747
+[2020-03-18 12:48:16,511] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:48:16,982] [my_detector_modify.py] [    INFO] Epoch:68 [0/2508 (0%)]	 train_loss: 0.064119
+[2020-03-18 12:48:20,295] [my_detector_modify.py] [    INFO] Epoch:68 [640/2508 (25%)]	 train_loss: 0.046077
+[2020-03-18 12:48:23,648] [my_detector_modify.py] [    INFO] Epoch:68 [1280/2508 (50%)]	 train_loss: 0.046096
+[2020-03-18 12:48:27,174] [my_detector_modify.py] [    INFO] Epoch:68 [1920/2508 (75%)]	 train_loss: 0.035455
+[2020-03-18 12:48:43,507] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052713
+[2020-03-18 12:48:43,507] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:48:43,863] [my_detector_modify.py] [    INFO] Epoch:69 [0/2508 (0%)]	 train_loss: 0.076910
+[2020-03-18 12:48:47,367] [my_detector_modify.py] [    INFO] Epoch:69 [640/2508 (25%)]	 train_loss: 0.054214
+[2020-03-18 12:48:50,720] [my_detector_modify.py] [    INFO] Epoch:69 [1280/2508 (50%)]	 train_loss: 0.051657
+[2020-03-18 12:48:54,175] [my_detector_modify.py] [    INFO] Epoch:69 [1920/2508 (75%)]	 train_loss: 0.052248
+[2020-03-18 12:49:10,514] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052676
+[2020-03-18 12:49:10,514] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:49:10,844] [my_detector_modify.py] [    INFO] Epoch:70 [0/2508 (0%)]	 train_loss: 0.046958
+[2020-03-18 12:49:14,233] [my_detector_modify.py] [    INFO] Epoch:70 [640/2508 (25%)]	 train_loss: 0.050985
+[2020-03-18 12:49:17,850] [my_detector_modify.py] [    INFO] Epoch:70 [1280/2508 (50%)]	 train_loss: 0.052278
+[2020-03-18 12:49:21,196] [my_detector_modify.py] [    INFO] Epoch:70 [1920/2508 (75%)]	 train_loss: 0.087258
+[2020-03-18 12:49:37,585] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052641
+[2020-03-18 12:49:37,585] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:49:38,005] [my_detector_modify.py] [    INFO] Epoch:71 [0/2508 (0%)]	 train_loss: 0.029708
+[2020-03-18 12:49:41,563] [my_detector_modify.py] [    INFO] Epoch:71 [640/2508 (25%)]	 train_loss: 0.070639
+[2020-03-18 12:49:44,745] [my_detector_modify.py] [    INFO] Epoch:71 [1280/2508 (50%)]	 train_loss: 0.044466
+[2020-03-18 12:49:48,270] [my_detector_modify.py] [    INFO] Epoch:71 [1920/2508 (75%)]	 train_loss: 0.057070
+[2020-03-18 12:50:04,634] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052599
+[2020-03-18 12:50:04,634] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:50:04,946] [my_detector_modify.py] [    INFO] Epoch:72 [0/2508 (0%)]	 train_loss: 0.052290
+[2020-03-18 12:50:08,654] [my_detector_modify.py] [    INFO] Epoch:72 [640/2508 (25%)]	 train_loss: 0.075742
+[2020-03-18 12:50:12,010] [my_detector_modify.py] [    INFO] Epoch:72 [1280/2508 (50%)]	 train_loss: 0.073491
+[2020-03-18 12:50:15,334] [my_detector_modify.py] [    INFO] Epoch:72 [1920/2508 (75%)]	 train_loss: 0.059495
+[2020-03-18 12:50:31,695] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052571
+[2020-03-18 12:50:31,696] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:50:31,971] [my_detector_modify.py] [    INFO] Epoch:73 [0/2508 (0%)]	 train_loss: 0.054888
+[2020-03-18 12:50:35,502] [my_detector_modify.py] [    INFO] Epoch:73 [640/2508 (25%)]	 train_loss: 0.042724
+[2020-03-18 12:50:39,034] [my_detector_modify.py] [    INFO] Epoch:73 [1280/2508 (50%)]	 train_loss: 0.059128
+[2020-03-18 12:50:42,557] [my_detector_modify.py] [    INFO] Epoch:73 [1920/2508 (75%)]	 train_loss: 0.049468
+[2020-03-18 12:50:58,742] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052521
+[2020-03-18 12:50:58,743] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:50:59,079] [my_detector_modify.py] [    INFO] Epoch:74 [0/2508 (0%)]	 train_loss: 0.059982
+[2020-03-18 12:51:02,591] [my_detector_modify.py] [    INFO] Epoch:74 [640/2508 (25%)]	 train_loss: 0.041226
+[2020-03-18 12:51:06,197] [my_detector_modify.py] [    INFO] Epoch:74 [1280/2508 (50%)]	 train_loss: 0.053494
+[2020-03-18 12:51:09,601] [my_detector_modify.py] [    INFO] Epoch:74 [1920/2508 (75%)]	 train_loss: 0.049081
+[2020-03-18 12:51:25,820] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052547
+[2020-03-18 12:51:25,820] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:51:26,121] [my_detector_modify.py] [    INFO] Epoch:75 [0/2508 (0%)]	 train_loss: 0.040576
+[2020-03-18 12:51:29,654] [my_detector_modify.py] [    INFO] Epoch:75 [640/2508 (25%)]	 train_loss: 0.042341
+[2020-03-18 12:51:33,000] [my_detector_modify.py] [    INFO] Epoch:75 [1280/2508 (50%)]	 train_loss: 0.047805
+[2020-03-18 12:51:36,649] [my_detector_modify.py] [    INFO] Epoch:75 [1920/2508 (75%)]	 train_loss: 0.051577
+[2020-03-18 12:51:52,840] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052473
+[2020-03-18 12:51:52,840] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:51:53,228] [my_detector_modify.py] [    INFO] Epoch:76 [0/2508 (0%)]	 train_loss: 0.037177
+[2020-03-18 12:51:56,835] [my_detector_modify.py] [    INFO] Epoch:76 [640/2508 (25%)]	 train_loss: 0.081200
+[2020-03-18 12:52:00,381] [my_detector_modify.py] [    INFO] Epoch:76 [1280/2508 (50%)]	 train_loss: 0.066918
+[2020-03-18 12:52:03,515] [my_detector_modify.py] [    INFO] Epoch:76 [1920/2508 (75%)]	 train_loss: 0.048358
+[2020-03-18 12:52:19,914] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052409
+[2020-03-18 12:52:19,915] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:52:20,213] [my_detector_modify.py] [    INFO] Epoch:77 [0/2508 (0%)]	 train_loss: 0.063693
+[2020-03-18 12:52:23,729] [my_detector_modify.py] [    INFO] Epoch:77 [640/2508 (25%)]	 train_loss: 0.039316
+[2020-03-18 12:52:27,416] [my_detector_modify.py] [    INFO] Epoch:77 [1280/2508 (50%)]	 train_loss: 0.038192
+[2020-03-18 12:52:30,754] [my_detector_modify.py] [    INFO] Epoch:77 [1920/2508 (75%)]	 train_loss: 0.046671
+[2020-03-18 12:52:47,010] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052389
+[2020-03-18 12:52:47,010] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:52:47,386] [my_detector_modify.py] [    INFO] Epoch:78 [0/2508 (0%)]	 train_loss: 0.037288
+[2020-03-18 12:52:50,836] [my_detector_modify.py] [    INFO] Epoch:78 [640/2508 (25%)]	 train_loss: 0.054748
+[2020-03-18 12:52:54,407] [my_detector_modify.py] [    INFO] Epoch:78 [1280/2508 (50%)]	 train_loss: 0.076240
+[2020-03-18 12:52:57,662] [my_detector_modify.py] [    INFO] Epoch:78 [1920/2508 (75%)]	 train_loss: 0.063280
+[2020-03-18 12:53:14,090] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052359
+[2020-03-18 12:53:14,090] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:53:14,468] [my_detector_modify.py] [    INFO] Epoch:79 [0/2508 (0%)]	 train_loss: 0.050273
+[2020-03-18 12:53:17,581] [my_detector_modify.py] [    INFO] Epoch:79 [640/2508 (25%)]	 train_loss: 0.049687
+[2020-03-18 12:53:21,084] [my_detector_modify.py] [    INFO] Epoch:79 [1280/2508 (50%)]	 train_loss: 0.049361
+[2020-03-18 12:53:24,714] [my_detector_modify.py] [    INFO] Epoch:79 [1920/2508 (75%)]	 train_loss: 0.071892
+[2020-03-18 12:53:41,142] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052366
+[2020-03-18 12:53:41,143] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:53:41,447] [my_detector_modify.py] [    INFO] Epoch:80 [0/2508 (0%)]	 train_loss: 0.048804
+[2020-03-18 12:53:44,971] [my_detector_modify.py] [    INFO] Epoch:80 [640/2508 (25%)]	 train_loss: 0.045407
+[2020-03-18 12:53:48,392] [my_detector_modify.py] [    INFO] Epoch:80 [1280/2508 (50%)]	 train_loss: 0.052094
+[2020-03-18 12:53:51,823] [my_detector_modify.py] [    INFO] Epoch:80 [1920/2508 (75%)]	 train_loss: 0.039298
+[2020-03-18 12:54:08,174] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052261
+[2020-03-18 12:54:08,174] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:54:08,591] [my_detector_modify.py] [    INFO] Epoch:81 [0/2508 (0%)]	 train_loss: 0.048035
+[2020-03-18 12:54:12,115] [my_detector_modify.py] [    INFO] Epoch:81 [640/2508 (25%)]	 train_loss: 0.058342
+[2020-03-18 12:54:15,553] [my_detector_modify.py] [    INFO] Epoch:81 [1280/2508 (50%)]	 train_loss: 0.060325
+[2020-03-18 12:54:18,828] [my_detector_modify.py] [    INFO] Epoch:81 [1920/2508 (75%)]	 train_loss: 0.055422
+[2020-03-18 12:54:35,187] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052240
+[2020-03-18 12:54:35,187] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:54:35,566] [my_detector_modify.py] [    INFO] Epoch:82 [0/2508 (0%)]	 train_loss: 0.048678
+[2020-03-18 12:54:39,004] [my_detector_modify.py] [    INFO] Epoch:82 [640/2508 (25%)]	 train_loss: 0.048499
+[2020-03-18 12:54:42,572] [my_detector_modify.py] [    INFO] Epoch:82 [1280/2508 (50%)]	 train_loss: 0.030855
+[2020-03-18 12:54:45,674] [my_detector_modify.py] [    INFO] Epoch:82 [1920/2508 (75%)]	 train_loss: 0.055688
+[2020-03-18 12:55:02,199] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052229
+[2020-03-18 12:55:02,199] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:55:02,562] [my_detector_modify.py] [    INFO] Epoch:83 [0/2508 (0%)]	 train_loss: 0.066454
+[2020-03-18 12:55:06,288] [my_detector_modify.py] [    INFO] Epoch:83 [640/2508 (25%)]	 train_loss: 0.073152
+[2020-03-18 12:55:09,685] [my_detector_modify.py] [    INFO] Epoch:83 [1280/2508 (50%)]	 train_loss: 0.046957
+[2020-03-18 12:55:12,888] [my_detector_modify.py] [    INFO] Epoch:83 [1920/2508 (75%)]	 train_loss: 0.046626
+[2020-03-18 12:55:29,183] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052198
+[2020-03-18 12:55:29,183] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:55:29,513] [my_detector_modify.py] [    INFO] Epoch:84 [0/2508 (0%)]	 train_loss: 0.074019
+[2020-03-18 12:55:32,725] [my_detector_modify.py] [    INFO] Epoch:84 [640/2508 (25%)]	 train_loss: 0.054774
+[2020-03-18 12:55:36,206] [my_detector_modify.py] [    INFO] Epoch:84 [1280/2508 (50%)]	 train_loss: 0.047527
+[2020-03-18 12:55:39,783] [my_detector_modify.py] [    INFO] Epoch:84 [1920/2508 (75%)]	 train_loss: 0.056940
+[2020-03-18 12:55:56,220] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052136
+[2020-03-18 12:55:56,220] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:55:56,583] [my_detector_modify.py] [    INFO] Epoch:85 [0/2508 (0%)]	 train_loss: 0.044412
+[2020-03-18 12:56:00,008] [my_detector_modify.py] [    INFO] Epoch:85 [640/2508 (25%)]	 train_loss: 0.036491
+[2020-03-18 12:56:03,566] [my_detector_modify.py] [    INFO] Epoch:85 [1280/2508 (50%)]	 train_loss: 0.040012
+[2020-03-18 12:56:06,945] [my_detector_modify.py] [    INFO] Epoch:85 [1920/2508 (75%)]	 train_loss: 0.071195
+[2020-03-18 12:56:23,272] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052121
+[2020-03-18 12:56:23,272] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:56:23,573] [my_detector_modify.py] [    INFO] Epoch:86 [0/2508 (0%)]	 train_loss: 0.051151
+[2020-03-18 12:56:26,956] [my_detector_modify.py] [    INFO] Epoch:86 [640/2508 (25%)]	 train_loss: 0.061321
+[2020-03-18 12:56:30,596] [my_detector_modify.py] [    INFO] Epoch:86 [1280/2508 (50%)]	 train_loss: 0.059499
+[2020-03-18 12:56:33,981] [my_detector_modify.py] [    INFO] Epoch:86 [1920/2508 (75%)]	 train_loss: 0.059976
+[2020-03-18 12:56:50,279] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052078
+[2020-03-18 12:56:50,279] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:56:50,556] [my_detector_modify.py] [    INFO] Epoch:87 [0/2508 (0%)]	 train_loss: 0.057565
+[2020-03-18 12:56:54,097] [my_detector_modify.py] [    INFO] Epoch:87 [640/2508 (25%)]	 train_loss: 0.045619
+[2020-03-18 12:56:57,391] [my_detector_modify.py] [    INFO] Epoch:87 [1280/2508 (50%)]	 train_loss: 0.056708
+[2020-03-18 12:57:01,087] [my_detector_modify.py] [    INFO] Epoch:87 [1920/2508 (75%)]	 train_loss: 0.057829
+[2020-03-18 12:57:17,310] [my_detector_modify.py] [    INFO] Evaluation loss: 0.052049
+[2020-03-18 12:57:17,310] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:57:17,671] [my_detector_modify.py] [    INFO] Epoch:88 [0/2508 (0%)]	 train_loss: 0.048622
+[2020-03-18 12:57:21,017] [my_detector_modify.py] [    INFO] Epoch:88 [640/2508 (25%)]	 train_loss: 0.039326
+[2020-03-18 12:57:24,436] [my_detector_modify.py] [    INFO] Epoch:88 [1280/2508 (50%)]	 train_loss: 0.068651
+[2020-03-18 12:57:27,950] [my_detector_modify.py] [    INFO] Epoch:88 [1920/2508 (75%)]	 train_loss: 0.052804
+[2020-03-18 12:57:44,355] [my_detector_modify.py] [    INFO] Evaluation loss: 0.051976
+[2020-03-18 12:57:44,355] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:57:44,697] [my_detector_modify.py] [    INFO] Epoch:89 [0/2508 (0%)]	 train_loss: 0.050999
+[2020-03-18 12:57:48,175] [my_detector_modify.py] [    INFO] Epoch:89 [640/2508 (25%)]	 train_loss: 0.059300
+[2020-03-18 12:57:51,756] [my_detector_modify.py] [    INFO] Epoch:89 [1280/2508 (50%)]	 train_loss: 0.041697
+[2020-03-18 12:57:54,983] [my_detector_modify.py] [    INFO] Epoch:89 [1920/2508 (75%)]	 train_loss: 0.045389
+[2020-03-18 12:58:11,392] [my_detector_modify.py] [    INFO] Evaluation loss: 0.051987
+[2020-03-18 12:58:11,392] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:58:11,831] [my_detector_modify.py] [    INFO] Epoch:90 [0/2508 (0%)]	 train_loss: 0.048001
+[2020-03-18 12:58:14,984] [my_detector_modify.py] [    INFO] Epoch:90 [640/2508 (25%)]	 train_loss: 0.063307
+[2020-03-18 12:58:18,449] [my_detector_modify.py] [    INFO] Epoch:90 [1280/2508 (50%)]	 train_loss: 0.037411
+[2020-03-18 12:58:22,158] [my_detector_modify.py] [    INFO] Epoch:90 [1920/2508 (75%)]	 train_loss: 0.053326
+[2020-03-18 12:58:38,483] [my_detector_modify.py] [    INFO] Evaluation loss: 0.051944
+[2020-03-18 12:58:38,484] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:58:38,817] [my_detector_modify.py] [    INFO] Epoch:91 [0/2508 (0%)]	 train_loss: 0.050441
+[2020-03-18 12:58:42,119] [my_detector_modify.py] [    INFO] Epoch:91 [640/2508 (25%)]	 train_loss: 0.056425
+[2020-03-18 12:58:45,612] [my_detector_modify.py] [    INFO] Epoch:91 [1280/2508 (50%)]	 train_loss: 0.040145
+[2020-03-18 12:58:49,452] [my_detector_modify.py] [    INFO] Epoch:91 [1920/2508 (75%)]	 train_loss: 0.051020
+[2020-03-18 12:59:05,547] [my_detector_modify.py] [    INFO] Evaluation loss: 0.051888
+[2020-03-18 12:59:05,547] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:59:05,917] [my_detector_modify.py] [    INFO] Epoch:92 [0/2508 (0%)]	 train_loss: 0.079161
+[2020-03-18 12:59:09,480] [my_detector_modify.py] [    INFO] Epoch:92 [640/2508 (25%)]	 train_loss: 0.047016
+[2020-03-18 12:59:12,785] [my_detector_modify.py] [    INFO] Epoch:92 [1280/2508 (50%)]	 train_loss: 0.067744
+[2020-03-18 12:59:16,252] [my_detector_modify.py] [    INFO] Epoch:92 [1920/2508 (75%)]	 train_loss: 0.069495
+[2020-03-18 12:59:32,630] [my_detector_modify.py] [    INFO] Evaluation loss: 0.051838
+[2020-03-18 12:59:32,630] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:59:32,963] [my_detector_modify.py] [    INFO] Epoch:93 [0/2508 (0%)]	 train_loss: 0.056906
+[2020-03-18 12:59:36,566] [my_detector_modify.py] [    INFO] Epoch:93 [640/2508 (25%)]	 train_loss: 0.049996
+[2020-03-18 12:59:40,080] [my_detector_modify.py] [    INFO] Epoch:93 [1280/2508 (50%)]	 train_loss: 0.044849
+[2020-03-18 12:59:43,295] [my_detector_modify.py] [    INFO] Epoch:93 [1920/2508 (75%)]	 train_loss: 0.050369
+[2020-03-18 12:59:59,673] [my_detector_modify.py] [    INFO] Evaluation loss: 0.051795
+[2020-03-18 12:59:59,673] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 12:59:59,975] [my_detector_modify.py] [    INFO] Epoch:94 [0/2508 (0%)]	 train_loss: 0.083387
+[2020-03-18 13:00:03,524] [my_detector_modify.py] [    INFO] Epoch:94 [640/2508 (25%)]	 train_loss: 0.060571
+[2020-03-18 13:00:06,736] [my_detector_modify.py] [    INFO] Epoch:94 [1280/2508 (50%)]	 train_loss: 0.070290
+[2020-03-18 13:00:10,261] [my_detector_modify.py] [    INFO] Epoch:94 [1920/2508 (75%)]	 train_loss: 0.034674
+[2020-03-18 13:00:26,756] [my_detector_modify.py] [    INFO] Evaluation loss: 0.051796
+[2020-03-18 13:00:26,756] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 13:00:27,094] [my_detector_modify.py] [    INFO] Epoch:95 [0/2508 (0%)]	 train_loss: 0.044212
+[2020-03-18 13:00:30,583] [my_detector_modify.py] [    INFO] Epoch:95 [640/2508 (25%)]	 train_loss: 0.054796
+[2020-03-18 13:00:33,890] [my_detector_modify.py] [    INFO] Epoch:95 [1280/2508 (50%)]	 train_loss: 0.039394
+[2020-03-18 13:00:37,338] [my_detector_modify.py] [    INFO] Epoch:95 [1920/2508 (75%)]	 train_loss: 0.041128
+[2020-03-18 13:00:53,833] [my_detector_modify.py] [    INFO] Evaluation loss: 0.051729
+[2020-03-18 13:00:53,833] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 13:00:54,118] [my_detector_modify.py] [    INFO] Epoch:96 [0/2508 (0%)]	 train_loss: 0.048092
+[2020-03-18 13:00:57,556] [my_detector_modify.py] [    INFO] Epoch:96 [640/2508 (25%)]	 train_loss: 0.042453
+[2020-03-18 13:01:00,996] [my_detector_modify.py] [    INFO] Epoch:96 [1280/2508 (50%)]	 train_loss: 0.044267
+[2020-03-18 13:01:04,396] [my_detector_modify.py] [    INFO] Epoch:96 [1920/2508 (75%)]	 train_loss: 0.030907
+[2020-03-18 13:01:20,871] [my_detector_modify.py] [    INFO] Evaluation loss: 0.051702
+[2020-03-18 13:01:20,871] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 13:01:21,186] [my_detector_modify.py] [    INFO] Epoch:97 [0/2508 (0%)]	 train_loss: 0.038796
+[2020-03-18 13:01:24,800] [my_detector_modify.py] [    INFO] Epoch:97 [640/2508 (25%)]	 train_loss: 0.048331
+[2020-03-18 13:01:28,211] [my_detector_modify.py] [    INFO] Epoch:97 [1280/2508 (50%)]	 train_loss: 0.064257
+[2020-03-18 13:01:31,578] [my_detector_modify.py] [    INFO] Epoch:97 [1920/2508 (75%)]	 train_loss: 0.040436
+[2020-03-18 13:01:47,895] [my_detector_modify.py] [    INFO] Evaluation loss: 0.051670
+[2020-03-18 13:01:47,895] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 13:01:48,266] [my_detector_modify.py] [    INFO] Epoch:98 [0/2508 (0%)]	 train_loss: 0.040424
+[2020-03-18 13:01:51,494] [my_detector_modify.py] [    INFO] Epoch:98 [640/2508 (25%)]	 train_loss: 0.040217
+[2020-03-18 13:01:54,979] [my_detector_modify.py] [    INFO] Epoch:98 [1280/2508 (50%)]	 train_loss: 0.050218
+[2020-03-18 13:01:58,388] [my_detector_modify.py] [    INFO] Epoch:98 [1920/2508 (75%)]	 train_loss: 0.030485
+[2020-03-18 13:02:14,951] [my_detector_modify.py] [    INFO] Evaluation loss: 0.051624
+[2020-03-18 13:02:14,951] [my_detector_modify.py] [    INFO] ====================================================
+[2020-03-18 13:02:15,252] [my_detector_modify.py] [    INFO] Epoch:99 [0/2508 (0%)]	 train_loss: 0.035809
+[2020-03-18 13:02:18,611] [my_detector_modify.py] [    INFO] Epoch:99 [640/2508 (25%)]	 train_loss: 0.081916
+[2020-03-18 13:02:22,197] [my_detector_modify.py] [    INFO] Epoch:99 [1280/2508 (50%)]	 train_loss: 0.065746
+[2020-03-18 13:02:25,762] [my_detector_modify.py] [    INFO] Epoch:99 [1920/2508 (75%)]	 train_loss: 0.059799
+[2020-03-18 13:02:42,009] [my_detector_modify.py] [    INFO] Evaluation loss: 0.051594
+[2020-03-18 13:02:42,009] [my_detector_modify.py] [    INFO] ====================================================

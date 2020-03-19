@@ -1,0 +1,602 @@
+[2020-03-19 14:11:06,319] [my_detector_resnet.py] [    INFO] Please check your configs:
+Namespace(batch_size=64, epochs=100, fine_tune_path='trained_models/model_best.pth', finetune_lr=0.0005, img_path='data/test_imgs', input_size=112, is_finetune=False, log_interval=10, lr=0.001, momentum=0.5, no_cuda=False, no_normalize=True, optimizer='adam', phase='Train', rotate_angle=30, save_directory='trained_models', save_model=True, seed=1, test_batch_size=64, test_set_path='./data/test.txt', train_set_path='./data/train.txt', trained_model_path='trained_models/model_best.pth')
+[2020-03-19 14:11:06,966] [my_detector_resnet.py] [    INFO] Epoch:0 [0/2508 (0%)]	 train_loss: 2918.213867
+[2020-03-19 14:11:11,610] [my_detector_resnet.py] [    INFO] Epoch:0 [640/2508 (25%)]	 train_loss: 75.802261
+[2020-03-19 14:11:16,348] [my_detector_resnet.py] [    INFO] Epoch:0 [1280/2508 (50%)]	 train_loss: 78.199821
+[2020-03-19 14:11:21,166] [my_detector_resnet.py] [    INFO] Epoch:0 [1920/2508 (75%)]	 train_loss: 66.428703
+[2020-03-19 14:11:26,719] [my_detector_resnet.py] [    INFO] Evaluation loss: 41.048560
+[2020-03-19 14:11:26,719] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:11:27,151] [my_detector_resnet.py] [    INFO] Epoch:1 [0/2508 (0%)]	 train_loss: 45.651226
+[2020-03-19 14:11:31,815] [my_detector_resnet.py] [    INFO] Epoch:1 [640/2508 (25%)]	 train_loss: 46.967175
+[2020-03-19 14:11:36,319] [my_detector_resnet.py] [    INFO] Epoch:1 [1280/2508 (50%)]	 train_loss: 51.006424
+[2020-03-19 14:11:41,189] [my_detector_resnet.py] [    INFO] Epoch:1 [1920/2508 (75%)]	 train_loss: 39.680817
+[2020-03-19 14:11:46,964] [my_detector_resnet.py] [    INFO] Evaluation loss: 35.437514
+[2020-03-19 14:11:46,964] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:11:47,482] [my_detector_resnet.py] [    INFO] Epoch:2 [0/2508 (0%)]	 train_loss: 80.467316
+[2020-03-19 14:11:52,185] [my_detector_resnet.py] [    INFO] Epoch:2 [640/2508 (25%)]	 train_loss: 54.102726
+[2020-03-19 14:11:56,864] [my_detector_resnet.py] [    INFO] Epoch:2 [1280/2508 (50%)]	 train_loss: 60.597866
+[2020-03-19 14:12:01,452] [my_detector_resnet.py] [    INFO] Epoch:2 [1920/2508 (75%)]	 train_loss: 39.038651
+[2020-03-19 14:12:07,236] [my_detector_resnet.py] [    INFO] Evaluation loss: 32.854257
+[2020-03-19 14:12:07,236] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:12:07,807] [my_detector_resnet.py] [    INFO] Epoch:3 [0/2508 (0%)]	 train_loss: 41.670723
+[2020-03-19 14:12:12,498] [my_detector_resnet.py] [    INFO] Epoch:3 [640/2508 (25%)]	 train_loss: 47.520012
+[2020-03-19 14:12:17,188] [my_detector_resnet.py] [    INFO] Epoch:3 [1280/2508 (50%)]	 train_loss: 37.408405
+[2020-03-19 14:12:21,820] [my_detector_resnet.py] [    INFO] Epoch:3 [1920/2508 (75%)]	 train_loss: 29.450138
+[2020-03-19 14:12:27,553] [my_detector_resnet.py] [    INFO] Evaluation loss: 32.481239
+[2020-03-19 14:12:27,553] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:12:28,180] [my_detector_resnet.py] [    INFO] Epoch:4 [0/2508 (0%)]	 train_loss: 26.772293
+[2020-03-19 14:12:32,961] [my_detector_resnet.py] [    INFO] Epoch:4 [640/2508 (25%)]	 train_loss: 32.309307
+[2020-03-19 14:12:37,535] [my_detector_resnet.py] [    INFO] Epoch:4 [1280/2508 (50%)]	 train_loss: 31.809048
+[2020-03-19 14:12:42,127] [my_detector_resnet.py] [    INFO] Epoch:4 [1920/2508 (75%)]	 train_loss: 49.380146
+[2020-03-19 14:12:47,957] [my_detector_resnet.py] [    INFO] Evaluation loss: 41.637506
+[2020-03-19 14:12:47,957] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:12:48,459] [my_detector_resnet.py] [    INFO] Epoch:5 [0/2508 (0%)]	 train_loss: 48.473858
+[2020-03-19 14:12:53,179] [my_detector_resnet.py] [    INFO] Epoch:5 [640/2508 (25%)]	 train_loss: 55.618607
+[2020-03-19 14:12:57,889] [my_detector_resnet.py] [    INFO] Epoch:5 [1280/2508 (50%)]	 train_loss: 28.924528
+[2020-03-19 14:13:02,406] [my_detector_resnet.py] [    INFO] Epoch:5 [1920/2508 (75%)]	 train_loss: 34.004826
+[2020-03-19 14:13:08,221] [my_detector_resnet.py] [    INFO] Evaluation loss: 29.113574
+[2020-03-19 14:13:08,222] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:13:08,836] [my_detector_resnet.py] [    INFO] Epoch:6 [0/2508 (0%)]	 train_loss: 31.326300
+[2020-03-19 14:13:13,704] [my_detector_resnet.py] [    INFO] Epoch:6 [640/2508 (25%)]	 train_loss: 18.764645
+[2020-03-19 14:13:18,493] [my_detector_resnet.py] [    INFO] Epoch:6 [1280/2508 (50%)]	 train_loss: 31.765770
+[2020-03-19 14:13:23,081] [my_detector_resnet.py] [    INFO] Epoch:6 [1920/2508 (75%)]	 train_loss: 15.480370
+[2020-03-19 14:13:28,603] [my_detector_resnet.py] [    INFO] Evaluation loss: 57.836607
+[2020-03-19 14:13:28,603] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:13:29,003] [my_detector_resnet.py] [    INFO] Epoch:7 [0/2508 (0%)]	 train_loss: 20.408964
+[2020-03-19 14:13:33,684] [my_detector_resnet.py] [    INFO] Epoch:7 [640/2508 (25%)]	 train_loss: 30.888866
+[2020-03-19 14:13:38,358] [my_detector_resnet.py] [    INFO] Epoch:7 [1280/2508 (50%)]	 train_loss: 27.258356
+[2020-03-19 14:13:43,215] [my_detector_resnet.py] [    INFO] Epoch:7 [1920/2508 (75%)]	 train_loss: 20.162960
+[2020-03-19 14:13:48,838] [my_detector_resnet.py] [    INFO] Evaluation loss: 31.500809
+[2020-03-19 14:13:48,839] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:13:49,244] [my_detector_resnet.py] [    INFO] Epoch:8 [0/2508 (0%)]	 train_loss: 26.409386
+[2020-03-19 14:13:54,158] [my_detector_resnet.py] [    INFO] Epoch:8 [640/2508 (25%)]	 train_loss: 27.283041
+[2020-03-19 14:13:58,806] [my_detector_resnet.py] [    INFO] Epoch:8 [1280/2508 (50%)]	 train_loss: 23.281948
+[2020-03-19 14:14:03,440] [my_detector_resnet.py] [    INFO] Epoch:8 [1920/2508 (75%)]	 train_loss: 36.354115
+[2020-03-19 14:14:09,076] [my_detector_resnet.py] [    INFO] Evaluation loss: 24.534917
+[2020-03-19 14:14:09,076] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:14:09,673] [my_detector_resnet.py] [    INFO] Epoch:9 [0/2508 (0%)]	 train_loss: 43.303596
+[2020-03-19 14:14:14,404] [my_detector_resnet.py] [    INFO] Epoch:9 [640/2508 (25%)]	 train_loss: 29.811573
+[2020-03-19 14:14:18,902] [my_detector_resnet.py] [    INFO] Epoch:9 [1280/2508 (50%)]	 train_loss: 11.368468
+[2020-03-19 14:14:23,695] [my_detector_resnet.py] [    INFO] Epoch:9 [1920/2508 (75%)]	 train_loss: 15.837103
+[2020-03-19 14:14:29,424] [my_detector_resnet.py] [    INFO] Evaluation loss: 24.888297
+[2020-03-19 14:14:29,424] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:14:29,906] [my_detector_resnet.py] [    INFO] Epoch:10 [0/2508 (0%)]	 train_loss: 11.130815
+[2020-03-19 14:14:34,481] [my_detector_resnet.py] [    INFO] Epoch:10 [640/2508 (25%)]	 train_loss: 52.656616
+[2020-03-19 14:14:39,192] [my_detector_resnet.py] [    INFO] Epoch:10 [1280/2508 (50%)]	 train_loss: 20.575884
+[2020-03-19 14:14:43,934] [my_detector_resnet.py] [    INFO] Epoch:10 [1920/2508 (75%)]	 train_loss: 26.140726
+[2020-03-19 14:14:49,644] [my_detector_resnet.py] [    INFO] Evaluation loss: 29.506111
+[2020-03-19 14:14:49,644] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:14:50,092] [my_detector_resnet.py] [    INFO] Epoch:11 [0/2508 (0%)]	 train_loss: 29.223627
+[2020-03-19 14:14:54,875] [my_detector_resnet.py] [    INFO] Epoch:11 [640/2508 (25%)]	 train_loss: 15.491420
+[2020-03-19 14:14:59,469] [my_detector_resnet.py] [    INFO] Epoch:11 [1280/2508 (50%)]	 train_loss: 24.247641
+[2020-03-19 14:15:04,261] [my_detector_resnet.py] [    INFO] Epoch:11 [1920/2508 (75%)]	 train_loss: 23.006754
+[2020-03-19 14:15:09,862] [my_detector_resnet.py] [    INFO] Evaluation loss: 29.499328
+[2020-03-19 14:15:09,862] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:15:10,381] [my_detector_resnet.py] [    INFO] Epoch:12 [0/2508 (0%)]	 train_loss: 34.418682
+[2020-03-19 14:15:14,997] [my_detector_resnet.py] [    INFO] Epoch:12 [640/2508 (25%)]	 train_loss: 10.994286
+[2020-03-19 14:15:19,991] [my_detector_resnet.py] [    INFO] Epoch:12 [1280/2508 (50%)]	 train_loss: 27.400766
+[2020-03-19 14:15:24,579] [my_detector_resnet.py] [    INFO] Epoch:12 [1920/2508 (75%)]	 train_loss: 18.983347
+[2020-03-19 14:15:30,091] [my_detector_resnet.py] [    INFO] Evaluation loss: 20.713902
+[2020-03-19 14:15:30,091] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:15:30,725] [my_detector_resnet.py] [    INFO] Epoch:13 [0/2508 (0%)]	 train_loss: 12.954967
+[2020-03-19 14:15:35,225] [my_detector_resnet.py] [    INFO] Epoch:13 [640/2508 (25%)]	 train_loss: 14.325850
+[2020-03-19 14:15:39,989] [my_detector_resnet.py] [    INFO] Epoch:13 [1280/2508 (50%)]	 train_loss: 30.457525
+[2020-03-19 14:15:44,855] [my_detector_resnet.py] [    INFO] Epoch:13 [1920/2508 (75%)]	 train_loss: 28.646658
+[2020-03-19 14:15:50,460] [my_detector_resnet.py] [    INFO] Evaluation loss: 23.943060
+[2020-03-19 14:15:50,460] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:15:51,017] [my_detector_resnet.py] [    INFO] Epoch:14 [0/2508 (0%)]	 train_loss: 22.258755
+[2020-03-19 14:15:55,958] [my_detector_resnet.py] [    INFO] Epoch:14 [640/2508 (25%)]	 train_loss: 22.826267
+[2020-03-19 14:16:00,419] [my_detector_resnet.py] [    INFO] Epoch:14 [1280/2508 (50%)]	 train_loss: 21.208958
+[2020-03-19 14:16:05,273] [my_detector_resnet.py] [    INFO] Epoch:14 [1920/2508 (75%)]	 train_loss: 12.128058
+[2020-03-19 14:16:11,090] [my_detector_resnet.py] [    INFO] Evaluation loss: 21.865100
+[2020-03-19 14:16:11,091] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:16:11,579] [my_detector_resnet.py] [    INFO] Epoch:15 [0/2508 (0%)]	 train_loss: 24.566101
+[2020-03-19 14:16:16,157] [my_detector_resnet.py] [    INFO] Epoch:15 [640/2508 (25%)]	 train_loss: 13.582326
+[2020-03-19 14:16:20,859] [my_detector_resnet.py] [    INFO] Epoch:15 [1280/2508 (50%)]	 train_loss: 12.228374
+[2020-03-19 14:16:25,757] [my_detector_resnet.py] [    INFO] Epoch:15 [1920/2508 (75%)]	 train_loss: 27.150574
+[2020-03-19 14:16:31,332] [my_detector_resnet.py] [    INFO] Evaluation loss: 23.390035
+[2020-03-19 14:16:31,333] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:16:31,787] [my_detector_resnet.py] [    INFO] Epoch:16 [0/2508 (0%)]	 train_loss: 14.389643
+[2020-03-19 14:16:36,371] [my_detector_resnet.py] [    INFO] Epoch:16 [640/2508 (25%)]	 train_loss: 15.504586
+[2020-03-19 14:16:41,260] [my_detector_resnet.py] [    INFO] Epoch:16 [1280/2508 (50%)]	 train_loss: 45.051411
+[2020-03-19 14:16:46,024] [my_detector_resnet.py] [    INFO] Epoch:16 [1920/2508 (75%)]	 train_loss: 14.321104
+[2020-03-19 14:16:51,612] [my_detector_resnet.py] [    INFO] Evaluation loss: 62.662398
+[2020-03-19 14:16:51,612] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:16:52,196] [my_detector_resnet.py] [    INFO] Epoch:17 [0/2508 (0%)]	 train_loss: 19.841167
+[2020-03-19 14:16:57,063] [my_detector_resnet.py] [    INFO] Epoch:17 [640/2508 (25%)]	 train_loss: 12.480799
+[2020-03-19 14:17:01,685] [my_detector_resnet.py] [    INFO] Epoch:17 [1280/2508 (50%)]	 train_loss: 16.269384
+[2020-03-19 14:17:06,158] [my_detector_resnet.py] [    INFO] Epoch:17 [1920/2508 (75%)]	 train_loss: 25.952869
+[2020-03-19 14:17:11,857] [my_detector_resnet.py] [    INFO] Evaluation loss: 26.836827
+[2020-03-19 14:17:11,857] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:17:12,300] [my_detector_resnet.py] [    INFO] Epoch:18 [0/2508 (0%)]	 train_loss: 13.822186
+[2020-03-19 14:17:17,180] [my_detector_resnet.py] [    INFO] Epoch:18 [640/2508 (25%)]	 train_loss: 18.635153
+[2020-03-19 14:17:22,074] [my_detector_resnet.py] [    INFO] Epoch:18 [1280/2508 (50%)]	 train_loss: 16.313688
+[2020-03-19 14:17:26,568] [my_detector_resnet.py] [    INFO] Epoch:18 [1920/2508 (75%)]	 train_loss: 17.910173
+[2020-03-19 14:17:32,066] [my_detector_resnet.py] [    INFO] Evaluation loss: 20.777683
+[2020-03-19 14:17:32,066] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:17:32,517] [my_detector_resnet.py] [    INFO] Epoch:19 [0/2508 (0%)]	 train_loss: 7.799975
+[2020-03-19 14:17:37,458] [my_detector_resnet.py] [    INFO] Epoch:19 [640/2508 (25%)]	 train_loss: 8.120503
+[2020-03-19 14:17:42,215] [my_detector_resnet.py] [    INFO] Epoch:19 [1280/2508 (50%)]	 train_loss: 9.284134
+[2020-03-19 14:17:46,756] [my_detector_resnet.py] [    INFO] Epoch:19 [1920/2508 (75%)]	 train_loss: 15.465181
+[2020-03-19 14:17:52,273] [my_detector_resnet.py] [    INFO] Evaluation loss: 39.788274
+[2020-03-19 14:17:52,273] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:17:52,787] [my_detector_resnet.py] [    INFO] Epoch:20 [0/2508 (0%)]	 train_loss: 27.452820
+[2020-03-19 14:17:57,387] [my_detector_resnet.py] [    INFO] Epoch:20 [640/2508 (25%)]	 train_loss: 19.813837
+[2020-03-19 14:18:02,261] [my_detector_resnet.py] [    INFO] Epoch:20 [1280/2508 (50%)]	 train_loss: 16.791117
+[2020-03-19 14:18:06,895] [my_detector_resnet.py] [    INFO] Epoch:20 [1920/2508 (75%)]	 train_loss: 13.009295
+[2020-03-19 14:18:12,490] [my_detector_resnet.py] [    INFO] Evaluation loss: 15.677548
+[2020-03-19 14:18:12,490] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:18:13,132] [my_detector_resnet.py] [    INFO] Epoch:21 [0/2508 (0%)]	 train_loss: 18.261501
+[2020-03-19 14:18:17,961] [my_detector_resnet.py] [    INFO] Epoch:21 [640/2508 (25%)]	 train_loss: 9.885426
+[2020-03-19 14:18:22,584] [my_detector_resnet.py] [    INFO] Epoch:21 [1280/2508 (50%)]	 train_loss: 15.535756
+[2020-03-19 14:18:27,176] [my_detector_resnet.py] [    INFO] Epoch:21 [1920/2508 (75%)]	 train_loss: 7.931750
+[2020-03-19 14:18:32,830] [my_detector_resnet.py] [    INFO] Evaluation loss: 21.562924
+[2020-03-19 14:18:32,830] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:18:33,340] [my_detector_resnet.py] [    INFO] Epoch:22 [0/2508 (0%)]	 train_loss: 16.244167
+[2020-03-19 14:18:38,238] [my_detector_resnet.py] [    INFO] Epoch:22 [640/2508 (25%)]	 train_loss: 9.612858
+[2020-03-19 14:18:42,940] [my_detector_resnet.py] [    INFO] Epoch:22 [1280/2508 (50%)]	 train_loss: 10.309518
+[2020-03-19 14:18:47,453] [my_detector_resnet.py] [    INFO] Epoch:22 [1920/2508 (75%)]	 train_loss: 9.868904
+[2020-03-19 14:18:53,048] [my_detector_resnet.py] [    INFO] Evaluation loss: 17.536733
+[2020-03-19 14:18:53,049] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:18:53,446] [my_detector_resnet.py] [    INFO] Epoch:23 [0/2508 (0%)]	 train_loss: 21.171013
+[2020-03-19 14:18:58,327] [my_detector_resnet.py] [    INFO] Epoch:23 [640/2508 (25%)]	 train_loss: 6.294739
+[2020-03-19 14:19:03,235] [my_detector_resnet.py] [    INFO] Epoch:23 [1280/2508 (50%)]	 train_loss: 8.980410
+[2020-03-19 14:19:07,687] [my_detector_resnet.py] [    INFO] Epoch:23 [1920/2508 (75%)]	 train_loss: 11.766515
+[2020-03-19 14:19:13,327] [my_detector_resnet.py] [    INFO] Evaluation loss: 19.125105
+[2020-03-19 14:19:13,328] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:19:13,817] [my_detector_resnet.py] [    INFO] Epoch:24 [0/2508 (0%)]	 train_loss: 11.647276
+[2020-03-19 14:19:18,611] [my_detector_resnet.py] [    INFO] Epoch:24 [640/2508 (25%)]	 train_loss: 6.846005
+[2020-03-19 14:19:23,143] [my_detector_resnet.py] [    INFO] Epoch:24 [1280/2508 (50%)]	 train_loss: 9.019135
+[2020-03-19 14:19:27,831] [my_detector_resnet.py] [    INFO] Epoch:24 [1920/2508 (75%)]	 train_loss: 12.038580
+[2020-03-19 14:19:33,559] [my_detector_resnet.py] [    INFO] Evaluation loss: 18.152137
+[2020-03-19 14:19:33,559] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:19:34,047] [my_detector_resnet.py] [    INFO] Epoch:25 [0/2508 (0%)]	 train_loss: 10.625499
+[2020-03-19 14:19:38,642] [my_detector_resnet.py] [    INFO] Epoch:25 [640/2508 (25%)]	 train_loss: 10.492593
+[2020-03-19 14:19:43,253] [my_detector_resnet.py] [    INFO] Epoch:25 [1280/2508 (50%)]	 train_loss: 12.645485
+[2020-03-19 14:19:48,222] [my_detector_resnet.py] [    INFO] Epoch:25 [1920/2508 (75%)]	 train_loss: 13.136556
+[2020-03-19 14:19:53,813] [my_detector_resnet.py] [    INFO] Evaluation loss: 22.309159
+[2020-03-19 14:19:53,813] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:19:54,229] [my_detector_resnet.py] [    INFO] Epoch:26 [0/2508 (0%)]	 train_loss: 17.891819
+[2020-03-19 14:19:59,025] [my_detector_resnet.py] [    INFO] Epoch:26 [640/2508 (25%)]	 train_loss: 7.885514
+[2020-03-19 14:20:03,553] [my_detector_resnet.py] [    INFO] Epoch:26 [1280/2508 (50%)]	 train_loss: 9.185666
+[2020-03-19 14:20:08,156] [my_detector_resnet.py] [    INFO] Epoch:26 [1920/2508 (75%)]	 train_loss: 8.016458
+[2020-03-19 14:20:14,038] [my_detector_resnet.py] [    INFO] Evaluation loss: 19.361905
+[2020-03-19 14:20:14,038] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:20:14,576] [my_detector_resnet.py] [    INFO] Epoch:27 [0/2508 (0%)]	 train_loss: 12.330772
+[2020-03-19 14:20:19,428] [my_detector_resnet.py] [    INFO] Epoch:27 [640/2508 (25%)]	 train_loss: 7.963917
+[2020-03-19 14:20:24,133] [my_detector_resnet.py] [    INFO] Epoch:27 [1280/2508 (50%)]	 train_loss: 12.229952
+[2020-03-19 14:20:29,057] [my_detector_resnet.py] [    INFO] Epoch:27 [1920/2508 (75%)]	 train_loss: 10.342348
+[2020-03-19 14:20:35,101] [my_detector_resnet.py] [    INFO] Evaluation loss: 25.586284
+[2020-03-19 14:20:35,101] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:20:35,510] [my_detector_resnet.py] [    INFO] Epoch:28 [0/2508 (0%)]	 train_loss: 11.534105
+[2020-03-19 14:20:40,331] [my_detector_resnet.py] [    INFO] Epoch:28 [640/2508 (25%)]	 train_loss: 10.276579
+[2020-03-19 14:20:45,271] [my_detector_resnet.py] [    INFO] Epoch:28 [1280/2508 (50%)]	 train_loss: 9.733894
+[2020-03-19 14:20:50,502] [my_detector_resnet.py] [    INFO] Epoch:28 [1920/2508 (75%)]	 train_loss: 7.369443
+[2020-03-19 14:20:56,362] [my_detector_resnet.py] [    INFO] Evaluation loss: 17.453822
+[2020-03-19 14:20:56,362] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:20:56,892] [my_detector_resnet.py] [    INFO] Epoch:29 [0/2508 (0%)]	 train_loss: 15.706209
+[2020-03-19 14:21:01,693] [my_detector_resnet.py] [    INFO] Epoch:29 [640/2508 (25%)]	 train_loss: 12.674669
+[2020-03-19 14:21:06,469] [my_detector_resnet.py] [    INFO] Epoch:29 [1280/2508 (50%)]	 train_loss: 5.806678
+[2020-03-19 14:21:10,960] [my_detector_resnet.py] [    INFO] Epoch:29 [1920/2508 (75%)]	 train_loss: 8.425218
+[2020-03-19 14:21:16,706] [my_detector_resnet.py] [    INFO] Evaluation loss: 19.138070
+[2020-03-19 14:21:16,706] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:21:17,173] [my_detector_resnet.py] [    INFO] Epoch:30 [0/2508 (0%)]	 train_loss: 8.603458
+[2020-03-19 14:21:21,750] [my_detector_resnet.py] [    INFO] Epoch:30 [640/2508 (25%)]	 train_loss: 10.883626
+[2020-03-19 14:21:26,653] [my_detector_resnet.py] [    INFO] Epoch:30 [1280/2508 (50%)]	 train_loss: 8.351576
+[2020-03-19 14:21:31,189] [my_detector_resnet.py] [    INFO] Epoch:30 [1920/2508 (75%)]	 train_loss: 6.782788
+[2020-03-19 14:21:36,899] [my_detector_resnet.py] [    INFO] Evaluation loss: 10.491608
+[2020-03-19 14:21:36,899] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:21:37,494] [my_detector_resnet.py] [    INFO] Epoch:31 [0/2508 (0%)]	 train_loss: 6.238334
+[2020-03-19 14:21:42,083] [my_detector_resnet.py] [    INFO] Epoch:31 [640/2508 (25%)]	 train_loss: 6.205043
+[2020-03-19 14:21:46,759] [my_detector_resnet.py] [    INFO] Epoch:31 [1280/2508 (50%)]	 train_loss: 7.336804
+[2020-03-19 14:21:51,321] [my_detector_resnet.py] [    INFO] Epoch:31 [1920/2508 (75%)]	 train_loss: 10.710633
+[2020-03-19 14:21:57,206] [my_detector_resnet.py] [    INFO] Evaluation loss: 14.498700
+[2020-03-19 14:21:57,207] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:21:57,663] [my_detector_resnet.py] [    INFO] Epoch:32 [0/2508 (0%)]	 train_loss: 7.862592
+[2020-03-19 14:22:02,374] [my_detector_resnet.py] [    INFO] Epoch:32 [640/2508 (25%)]	 train_loss: 7.791935
+[2020-03-19 14:22:07,208] [my_detector_resnet.py] [    INFO] Epoch:32 [1280/2508 (50%)]	 train_loss: 7.279471
+[2020-03-19 14:22:11,797] [my_detector_resnet.py] [    INFO] Epoch:32 [1920/2508 (75%)]	 train_loss: 7.863429
+[2020-03-19 14:22:17,400] [my_detector_resnet.py] [    INFO] Evaluation loss: 15.368711
+[2020-03-19 14:22:17,400] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:22:17,868] [my_detector_resnet.py] [    INFO] Epoch:33 [0/2508 (0%)]	 train_loss: 6.448891
+[2020-03-19 14:22:22,427] [my_detector_resnet.py] [    INFO] Epoch:33 [640/2508 (25%)]	 train_loss: 4.917295
+[2020-03-19 14:22:27,286] [my_detector_resnet.py] [    INFO] Epoch:33 [1280/2508 (50%)]	 train_loss: 3.890471
+[2020-03-19 14:22:32,000] [my_detector_resnet.py] [    INFO] Epoch:33 [1920/2508 (75%)]	 train_loss: 7.428530
+[2020-03-19 14:22:37,598] [my_detector_resnet.py] [    INFO] Evaluation loss: 13.134719
+[2020-03-19 14:22:37,598] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:22:38,086] [my_detector_resnet.py] [    INFO] Epoch:34 [0/2508 (0%)]	 train_loss: 6.947421
+[2020-03-19 14:22:42,656] [my_detector_resnet.py] [    INFO] Epoch:34 [640/2508 (25%)]	 train_loss: 5.256987
+[2020-03-19 14:22:47,215] [my_detector_resnet.py] [    INFO] Epoch:34 [1280/2508 (50%)]	 train_loss: 8.181013
+[2020-03-19 14:22:51,919] [my_detector_resnet.py] [    INFO] Epoch:34 [1920/2508 (75%)]	 train_loss: 5.643171
+[2020-03-19 14:22:57,789] [my_detector_resnet.py] [    INFO] Evaluation loss: 19.321590
+[2020-03-19 14:22:57,789] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:22:58,242] [my_detector_resnet.py] [    INFO] Epoch:35 [0/2508 (0%)]	 train_loss: 7.393284
+[2020-03-19 14:23:02,997] [my_detector_resnet.py] [    INFO] Epoch:35 [640/2508 (25%)]	 train_loss: 5.353701
+[2020-03-19 14:23:07,586] [my_detector_resnet.py] [    INFO] Epoch:35 [1280/2508 (50%)]	 train_loss: 5.201656
+[2020-03-19 14:23:12,364] [my_detector_resnet.py] [    INFO] Epoch:35 [1920/2508 (75%)]	 train_loss: 6.490304
+[2020-03-19 14:23:17,980] [my_detector_resnet.py] [    INFO] Evaluation loss: 13.180145
+[2020-03-19 14:23:17,980] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:23:18,533] [my_detector_resnet.py] [    INFO] Epoch:36 [0/2508 (0%)]	 train_loss: 7.963078
+[2020-03-19 14:23:23,312] [my_detector_resnet.py] [    INFO] Epoch:36 [640/2508 (25%)]	 train_loss: 7.163507
+[2020-03-19 14:23:27,976] [my_detector_resnet.py] [    INFO] Epoch:36 [1280/2508 (50%)]	 train_loss: 7.138805
+[2020-03-19 14:23:32,577] [my_detector_resnet.py] [    INFO] Epoch:36 [1920/2508 (75%)]	 train_loss: 5.421660
+[2020-03-19 14:23:38,190] [my_detector_resnet.py] [    INFO] Evaluation loss: 19.575263
+[2020-03-19 14:23:38,190] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:23:38,671] [my_detector_resnet.py] [    INFO] Epoch:37 [0/2508 (0%)]	 train_loss: 15.494399
+[2020-03-19 14:23:43,214] [my_detector_resnet.py] [    INFO] Epoch:37 [640/2508 (25%)]	 train_loss: 9.857962
+[2020-03-19 14:23:47,912] [my_detector_resnet.py] [    INFO] Epoch:37 [1280/2508 (50%)]	 train_loss: 7.870936
+[2020-03-19 14:23:52,696] [my_detector_resnet.py] [    INFO] Epoch:37 [1920/2508 (75%)]	 train_loss: 5.617722
+[2020-03-19 14:23:58,432] [my_detector_resnet.py] [    INFO] Evaluation loss: 15.525325
+[2020-03-19 14:23:58,432] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:23:58,874] [my_detector_resnet.py] [    INFO] Epoch:38 [0/2508 (0%)]	 train_loss: 6.938890
+[2020-03-19 14:24:03,561] [my_detector_resnet.py] [    INFO] Epoch:38 [640/2508 (25%)]	 train_loss: 5.721064
+[2020-03-19 14:24:08,235] [my_detector_resnet.py] [    INFO] Epoch:38 [1280/2508 (50%)]	 train_loss: 3.981077
+[2020-03-19 14:24:13,470] [my_detector_resnet.py] [    INFO] Epoch:38 [1920/2508 (75%)]	 train_loss: 5.052746
+[2020-03-19 14:24:19,430] [my_detector_resnet.py] [    INFO] Evaluation loss: 11.143194
+[2020-03-19 14:24:19,430] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:24:19,901] [my_detector_resnet.py] [    INFO] Epoch:39 [0/2508 (0%)]	 train_loss: 6.667254
+[2020-03-19 14:24:24,772] [my_detector_resnet.py] [    INFO] Epoch:39 [640/2508 (25%)]	 train_loss: 5.387429
+[2020-03-19 14:24:29,737] [my_detector_resnet.py] [    INFO] Epoch:39 [1280/2508 (50%)]	 train_loss: 5.139260
+[2020-03-19 14:24:34,217] [my_detector_resnet.py] [    INFO] Epoch:39 [1920/2508 (75%)]	 train_loss: 5.029270
+[2020-03-19 14:24:40,099] [my_detector_resnet.py] [    INFO] Evaluation loss: 10.707905
+[2020-03-19 14:24:40,099] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:24:40,570] [my_detector_resnet.py] [    INFO] Epoch:40 [0/2508 (0%)]	 train_loss: 6.977543
+[2020-03-19 14:24:45,386] [my_detector_resnet.py] [    INFO] Epoch:40 [640/2508 (25%)]	 train_loss: 7.026643
+[2020-03-19 14:24:49,797] [my_detector_resnet.py] [    INFO] Epoch:40 [1280/2508 (50%)]	 train_loss: 5.882817
+[2020-03-19 14:24:54,580] [my_detector_resnet.py] [    INFO] Epoch:40 [1920/2508 (75%)]	 train_loss: 9.982045
+[2020-03-19 14:25:00,312] [my_detector_resnet.py] [    INFO] Evaluation loss: 11.032500
+[2020-03-19 14:25:00,312] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:25:00,762] [my_detector_resnet.py] [    INFO] Epoch:41 [0/2508 (0%)]	 train_loss: 4.471673
+[2020-03-19 14:25:05,488] [my_detector_resnet.py] [    INFO] Epoch:41 [640/2508 (25%)]	 train_loss: 5.861434
+[2020-03-19 14:25:10,255] [my_detector_resnet.py] [    INFO] Epoch:41 [1280/2508 (50%)]	 train_loss: 4.997282
+[2020-03-19 14:25:15,020] [my_detector_resnet.py] [    INFO] Epoch:41 [1920/2508 (75%)]	 train_loss: 4.162939
+[2020-03-19 14:25:20,527] [my_detector_resnet.py] [    INFO] Evaluation loss: 10.773161
+[2020-03-19 14:25:20,527] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:25:21,038] [my_detector_resnet.py] [    INFO] Epoch:42 [0/2508 (0%)]	 train_loss: 5.039875
+[2020-03-19 14:25:25,648] [my_detector_resnet.py] [    INFO] Epoch:42 [640/2508 (25%)]	 train_loss: 4.536147
+[2020-03-19 14:25:30,446] [my_detector_resnet.py] [    INFO] Epoch:42 [1280/2508 (50%)]	 train_loss: 6.032214
+[2020-03-19 14:25:34,979] [my_detector_resnet.py] [    INFO] Epoch:42 [1920/2508 (75%)]	 train_loss: 8.111623
+[2020-03-19 14:25:40,721] [my_detector_resnet.py] [    INFO] Evaluation loss: 10.004918
+[2020-03-19 14:25:40,721] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:25:41,306] [my_detector_resnet.py] [    INFO] Epoch:43 [0/2508 (0%)]	 train_loss: 4.304221
+[2020-03-19 14:25:46,096] [my_detector_resnet.py] [    INFO] Epoch:43 [640/2508 (25%)]	 train_loss: 3.818523
+[2020-03-19 14:25:50,684] [my_detector_resnet.py] [    INFO] Epoch:43 [1280/2508 (50%)]	 train_loss: 6.544675
+[2020-03-19 14:25:55,318] [my_detector_resnet.py] [    INFO] Epoch:43 [1920/2508 (75%)]	 train_loss: 3.577562
+[2020-03-19 14:26:01,074] [my_detector_resnet.py] [    INFO] Evaluation loss: 11.167804
+[2020-03-19 14:26:01,074] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:26:01,517] [my_detector_resnet.py] [    INFO] Epoch:44 [0/2508 (0%)]	 train_loss: 4.998179
+[2020-03-19 14:26:06,209] [my_detector_resnet.py] [    INFO] Epoch:44 [640/2508 (25%)]	 train_loss: 4.895778
+[2020-03-19 14:26:10,759] [my_detector_resnet.py] [    INFO] Epoch:44 [1280/2508 (50%)]	 train_loss: 3.877939
+[2020-03-19 14:26:15,421] [my_detector_resnet.py] [    INFO] Epoch:44 [1920/2508 (75%)]	 train_loss: 4.153435
+[2020-03-19 14:26:21,255] [my_detector_resnet.py] [    INFO] Evaluation loss: 9.957358
+[2020-03-19 14:26:21,256] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:26:21,832] [my_detector_resnet.py] [    INFO] Epoch:45 [0/2508 (0%)]	 train_loss: 4.969517
+[2020-03-19 14:26:26,440] [my_detector_resnet.py] [    INFO] Epoch:45 [640/2508 (25%)]	 train_loss: 4.455344
+[2020-03-19 14:26:31,139] [my_detector_resnet.py] [    INFO] Epoch:45 [1280/2508 (50%)]	 train_loss: 6.784547
+[2020-03-19 14:26:36,050] [my_detector_resnet.py] [    INFO] Epoch:45 [1920/2508 (75%)]	 train_loss: 4.381380
+[2020-03-19 14:26:41,751] [my_detector_resnet.py] [    INFO] Evaluation loss: 11.983944
+[2020-03-19 14:26:41,752] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:26:42,249] [my_detector_resnet.py] [    INFO] Epoch:46 [0/2508 (0%)]	 train_loss: 3.931222
+[2020-03-19 14:26:47,066] [my_detector_resnet.py] [    INFO] Epoch:46 [640/2508 (25%)]	 train_loss: 4.698682
+[2020-03-19 14:26:51,654] [my_detector_resnet.py] [    INFO] Epoch:46 [1280/2508 (50%)]	 train_loss: 4.348738
+[2020-03-19 14:26:56,495] [my_detector_resnet.py] [    INFO] Epoch:46 [1920/2508 (75%)]	 train_loss: 4.362252
+[2020-03-19 14:27:01,958] [my_detector_resnet.py] [    INFO] Evaluation loss: 9.962534
+[2020-03-19 14:27:01,958] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:27:02,392] [my_detector_resnet.py] [    INFO] Epoch:47 [0/2508 (0%)]	 train_loss: 3.364680
+[2020-03-19 14:27:07,117] [my_detector_resnet.py] [    INFO] Epoch:47 [640/2508 (25%)]	 train_loss: 3.748019
+[2020-03-19 14:27:11,978] [my_detector_resnet.py] [    INFO] Epoch:47 [1280/2508 (50%)]	 train_loss: 4.634054
+[2020-03-19 14:27:16,656] [my_detector_resnet.py] [    INFO] Epoch:47 [1920/2508 (75%)]	 train_loss: 7.089364
+[2020-03-19 14:27:22,152] [my_detector_resnet.py] [    INFO] Evaluation loss: 9.389098
+[2020-03-19 14:27:22,152] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:27:22,773] [my_detector_resnet.py] [    INFO] Epoch:48 [0/2508 (0%)]	 train_loss: 3.297908
+[2020-03-19 14:27:27,620] [my_detector_resnet.py] [    INFO] Epoch:48 [640/2508 (25%)]	 train_loss: 3.023337
+[2020-03-19 14:27:32,093] [my_detector_resnet.py] [    INFO] Epoch:48 [1280/2508 (50%)]	 train_loss: 3.507174
+[2020-03-19 14:27:36,714] [my_detector_resnet.py] [    INFO] Epoch:48 [1920/2508 (75%)]	 train_loss: 7.042799
+[2020-03-19 14:27:42,501] [my_detector_resnet.py] [    INFO] Evaluation loss: 11.299089
+[2020-03-19 14:27:42,501] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:27:42,977] [my_detector_resnet.py] [    INFO] Epoch:49 [0/2508 (0%)]	 train_loss: 7.263033
+[2020-03-19 14:27:47,559] [my_detector_resnet.py] [    INFO] Epoch:49 [640/2508 (25%)]	 train_loss: 6.921977
+[2020-03-19 14:27:52,306] [my_detector_resnet.py] [    INFO] Epoch:49 [1280/2508 (50%)]	 train_loss: 6.444267
+[2020-03-19 14:27:56,931] [my_detector_resnet.py] [    INFO] Epoch:49 [1920/2508 (75%)]	 train_loss: 6.577520
+[2020-03-19 14:28:02,687] [my_detector_resnet.py] [    INFO] Evaluation loss: 16.945773
+[2020-03-19 14:28:02,687] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:28:03,099] [my_detector_resnet.py] [    INFO] Epoch:50 [0/2508 (0%)]	 train_loss: 8.980023
+[2020-03-19 14:28:07,913] [my_detector_resnet.py] [    INFO] Epoch:50 [640/2508 (25%)]	 train_loss: 5.033686
+[2020-03-19 14:28:12,462] [my_detector_resnet.py] [    INFO] Epoch:50 [1280/2508 (50%)]	 train_loss: 8.670267
+[2020-03-19 14:28:17,326] [my_detector_resnet.py] [    INFO] Epoch:50 [1920/2508 (75%)]	 train_loss: 6.290543
+[2020-03-19 14:28:22,885] [my_detector_resnet.py] [    INFO] Evaluation loss: 10.174499
+[2020-03-19 14:28:22,886] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:28:23,408] [my_detector_resnet.py] [    INFO] Epoch:51 [0/2508 (0%)]	 train_loss: 5.959360
+[2020-03-19 14:28:28,005] [my_detector_resnet.py] [    INFO] Epoch:51 [640/2508 (25%)]	 train_loss: 8.740357
+[2020-03-19 14:28:32,820] [my_detector_resnet.py] [    INFO] Epoch:51 [1280/2508 (50%)]	 train_loss: 5.242051
+[2020-03-19 14:28:37,451] [my_detector_resnet.py] [    INFO] Epoch:51 [1920/2508 (75%)]	 train_loss: 4.439781
+[2020-03-19 14:28:43,084] [my_detector_resnet.py] [    INFO] Evaluation loss: 13.495006
+[2020-03-19 14:28:43,084] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:28:43,544] [my_detector_resnet.py] [    INFO] Epoch:52 [0/2508 (0%)]	 train_loss: 6.145268
+[2020-03-19 14:28:48,171] [my_detector_resnet.py] [    INFO] Epoch:52 [640/2508 (25%)]	 train_loss: 3.717104
+[2020-03-19 14:28:52,905] [my_detector_resnet.py] [    INFO] Epoch:52 [1280/2508 (50%)]	 train_loss: 4.078273
+[2020-03-19 14:28:57,541] [my_detector_resnet.py] [    INFO] Epoch:52 [1920/2508 (75%)]	 train_loss: 5.304905
+[2020-03-19 14:29:03,268] [my_detector_resnet.py] [    INFO] Evaluation loss: 11.757036
+[2020-03-19 14:29:03,268] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:29:03,694] [my_detector_resnet.py] [    INFO] Epoch:53 [0/2508 (0%)]	 train_loss: 6.249455
+[2020-03-19 14:29:08,332] [my_detector_resnet.py] [    INFO] Epoch:53 [640/2508 (25%)]	 train_loss: 5.880436
+[2020-03-19 14:29:12,940] [my_detector_resnet.py] [    INFO] Epoch:53 [1280/2508 (50%)]	 train_loss: 4.108726
+[2020-03-19 14:29:17,452] [my_detector_resnet.py] [    INFO] Epoch:53 [1920/2508 (75%)]	 train_loss: 4.081371
+[2020-03-19 14:29:23,435] [my_detector_resnet.py] [    INFO] Evaluation loss: 8.911826
+[2020-03-19 14:29:23,435] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:29:24,064] [my_detector_resnet.py] [    INFO] Epoch:54 [0/2508 (0%)]	 train_loss: 3.600791
+[2020-03-19 14:29:28,880] [my_detector_resnet.py] [    INFO] Epoch:54 [640/2508 (25%)]	 train_loss: 4.609846
+[2020-03-19 14:29:33,511] [my_detector_resnet.py] [    INFO] Epoch:54 [1280/2508 (50%)]	 train_loss: 4.554074
+[2020-03-19 14:29:38,130] [my_detector_resnet.py] [    INFO] Epoch:54 [1920/2508 (75%)]	 train_loss: 3.216959
+[2020-03-19 14:29:43,778] [my_detector_resnet.py] [    INFO] Evaluation loss: 12.382122
+[2020-03-19 14:29:43,778] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:29:44,342] [my_detector_resnet.py] [    INFO] Epoch:55 [0/2508 (0%)]	 train_loss: 6.899835
+[2020-03-19 14:29:48,968] [my_detector_resnet.py] [    INFO] Epoch:55 [640/2508 (25%)]	 train_loss: 2.940890
+[2020-03-19 14:29:53,589] [my_detector_resnet.py] [    INFO] Epoch:55 [1280/2508 (50%)]	 train_loss: 4.266486
+[2020-03-19 14:29:58,352] [my_detector_resnet.py] [    INFO] Epoch:55 [1920/2508 (75%)]	 train_loss: 3.448024
+[2020-03-19 14:30:03,980] [my_detector_resnet.py] [    INFO] Evaluation loss: 9.038284
+[2020-03-19 14:30:03,980] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:30:04,440] [my_detector_resnet.py] [    INFO] Epoch:56 [0/2508 (0%)]	 train_loss: 4.018481
+[2020-03-19 14:30:08,934] [my_detector_resnet.py] [    INFO] Epoch:56 [640/2508 (25%)]	 train_loss: 4.558295
+[2020-03-19 14:30:13,757] [my_detector_resnet.py] [    INFO] Epoch:56 [1280/2508 (50%)]	 train_loss: 4.808932
+[2020-03-19 14:30:18,857] [my_detector_resnet.py] [    INFO] Epoch:56 [1920/2508 (75%)]	 train_loss: 3.450692
+[2020-03-19 14:30:24,174] [my_detector_resnet.py] [    INFO] Evaluation loss: 10.570274
+[2020-03-19 14:30:24,174] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:30:24,632] [my_detector_resnet.py] [    INFO] Epoch:57 [0/2508 (0%)]	 train_loss: 3.442489
+[2020-03-19 14:30:29,180] [my_detector_resnet.py] [    INFO] Epoch:57 [640/2508 (25%)]	 train_loss: 2.842590
+[2020-03-19 14:30:33,875] [my_detector_resnet.py] [    INFO] Epoch:57 [1280/2508 (50%)]	 train_loss: 4.464344
+[2020-03-19 14:30:38,457] [my_detector_resnet.py] [    INFO] Epoch:57 [1920/2508 (75%)]	 train_loss: 4.367001
+[2020-03-19 14:30:44,374] [my_detector_resnet.py] [    INFO] Evaluation loss: 9.530434
+[2020-03-19 14:30:44,374] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:30:44,807] [my_detector_resnet.py] [    INFO] Epoch:58 [0/2508 (0%)]	 train_loss: 3.731562
+[2020-03-19 14:30:49,540] [my_detector_resnet.py] [    INFO] Epoch:58 [640/2508 (25%)]	 train_loss: 4.433900
+[2020-03-19 14:30:54,437] [my_detector_resnet.py] [    INFO] Epoch:58 [1280/2508 (50%)]	 train_loss: 4.583921
+[2020-03-19 14:30:59,026] [my_detector_resnet.py] [    INFO] Epoch:58 [1920/2508 (75%)]	 train_loss: 3.135693
+[2020-03-19 14:31:04,573] [my_detector_resnet.py] [    INFO] Evaluation loss: 9.988175
+[2020-03-19 14:31:04,574] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:31:05,007] [my_detector_resnet.py] [    INFO] Epoch:59 [0/2508 (0%)]	 train_loss: 3.295323
+[2020-03-19 14:31:09,730] [my_detector_resnet.py] [    INFO] Epoch:59 [640/2508 (25%)]	 train_loss: 3.635688
+[2020-03-19 14:31:14,294] [my_detector_resnet.py] [    INFO] Epoch:59 [1280/2508 (50%)]	 train_loss: 8.799699
+[2020-03-19 14:31:18,839] [my_detector_resnet.py] [    INFO] Epoch:59 [1920/2508 (75%)]	 train_loss: 5.340365
+[2020-03-19 14:31:24,769] [my_detector_resnet.py] [    INFO] Evaluation loss: 10.235431
+[2020-03-19 14:31:24,769] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:31:25,187] [my_detector_resnet.py] [    INFO] Epoch:60 [0/2508 (0%)]	 train_loss: 2.646384
+[2020-03-19 14:31:29,836] [my_detector_resnet.py] [    INFO] Epoch:60 [640/2508 (25%)]	 train_loss: 6.618200
+[2020-03-19 14:31:34,925] [my_detector_resnet.py] [    INFO] Epoch:60 [1280/2508 (50%)]	 train_loss: 3.791730
+[2020-03-19 14:31:40,166] [my_detector_resnet.py] [    INFO] Epoch:60 [1920/2508 (75%)]	 train_loss: 4.154882
+[2020-03-19 14:31:46,074] [my_detector_resnet.py] [    INFO] Evaluation loss: 10.475972
+[2020-03-19 14:31:46,074] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:31:46,598] [my_detector_resnet.py] [    INFO] Epoch:61 [0/2508 (0%)]	 train_loss: 5.005145
+[2020-03-19 14:31:51,096] [my_detector_resnet.py] [    INFO] Epoch:61 [640/2508 (25%)]	 train_loss: 3.766207
+[2020-03-19 14:31:55,939] [my_detector_resnet.py] [    INFO] Epoch:61 [1280/2508 (50%)]	 train_loss: 3.131371
+[2020-03-19 14:32:00,671] [my_detector_resnet.py] [    INFO] Epoch:61 [1920/2508 (75%)]	 train_loss: 5.907871
+[2020-03-19 14:32:06,285] [my_detector_resnet.py] [    INFO] Evaluation loss: 9.670957
+[2020-03-19 14:32:06,285] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:32:06,830] [my_detector_resnet.py] [    INFO] Epoch:62 [0/2508 (0%)]	 train_loss: 4.536148
+[2020-03-19 14:32:11,562] [my_detector_resnet.py] [    INFO] Epoch:62 [640/2508 (25%)]	 train_loss: 4.388138
+[2020-03-19 14:32:16,171] [my_detector_resnet.py] [    INFO] Epoch:62 [1280/2508 (50%)]	 train_loss: 4.772128
+[2020-03-19 14:32:20,983] [my_detector_resnet.py] [    INFO] Epoch:62 [1920/2508 (75%)]	 train_loss: 3.460171
+[2020-03-19 14:32:26,569] [my_detector_resnet.py] [    INFO] Evaluation loss: 12.073516
+[2020-03-19 14:32:26,569] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:32:26,999] [my_detector_resnet.py] [    INFO] Epoch:63 [0/2508 (0%)]	 train_loss: 7.720095
+[2020-03-19 14:32:31,606] [my_detector_resnet.py] [    INFO] Epoch:63 [640/2508 (25%)]	 train_loss: 5.106330
+[2020-03-19 14:32:36,411] [my_detector_resnet.py] [    INFO] Epoch:63 [1280/2508 (50%)]	 train_loss: 3.875904
+[2020-03-19 14:32:41,216] [my_detector_resnet.py] [    INFO] Epoch:63 [1920/2508 (75%)]	 train_loss: 3.798101
+[2020-03-19 14:32:46,829] [my_detector_resnet.py] [    INFO] Evaluation loss: 12.919579
+[2020-03-19 14:32:46,829] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:32:47,289] [my_detector_resnet.py] [    INFO] Epoch:64 [0/2508 (0%)]	 train_loss: 8.074018
+[2020-03-19 14:32:51,927] [my_detector_resnet.py] [    INFO] Epoch:64 [640/2508 (25%)]	 train_loss: 6.182864
+[2020-03-19 14:32:56,585] [my_detector_resnet.py] [    INFO] Epoch:64 [1280/2508 (50%)]	 train_loss: 3.651167
+[2020-03-19 14:33:01,308] [my_detector_resnet.py] [    INFO] Epoch:64 [1920/2508 (75%)]	 train_loss: 3.532050
+[2020-03-19 14:33:07,042] [my_detector_resnet.py] [    INFO] Evaluation loss: 12.038984
+[2020-03-19 14:33:07,043] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:33:07,465] [my_detector_resnet.py] [    INFO] Epoch:65 [0/2508 (0%)]	 train_loss: 5.418578
+[2020-03-19 14:33:12,119] [my_detector_resnet.py] [    INFO] Epoch:65 [640/2508 (25%)]	 train_loss: 3.027295
+[2020-03-19 14:33:16,718] [my_detector_resnet.py] [    INFO] Epoch:65 [1280/2508 (50%)]	 train_loss: 3.226001
+[2020-03-19 14:33:21,300] [my_detector_resnet.py] [    INFO] Epoch:65 [1920/2508 (75%)]	 train_loss: 3.333087
+[2020-03-19 14:33:27,240] [my_detector_resnet.py] [    INFO] Evaluation loss: 10.173542
+[2020-03-19 14:33:27,240] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:33:27,728] [my_detector_resnet.py] [    INFO] Epoch:66 [0/2508 (0%)]	 train_loss: 2.898505
+[2020-03-19 14:33:32,234] [my_detector_resnet.py] [    INFO] Epoch:66 [640/2508 (25%)]	 train_loss: 4.486517
+[2020-03-19 14:33:36,846] [my_detector_resnet.py] [    INFO] Epoch:66 [1280/2508 (50%)]	 train_loss: 4.621998
+[2020-03-19 14:33:41,862] [my_detector_resnet.py] [    INFO] Epoch:66 [1920/2508 (75%)]	 train_loss: 4.749261
+[2020-03-19 14:33:47,446] [my_detector_resnet.py] [    INFO] Evaluation loss: 11.189722
+[2020-03-19 14:33:47,446] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:33:48,022] [my_detector_resnet.py] [    INFO] Epoch:67 [0/2508 (0%)]	 train_loss: 5.270617
+[2020-03-19 14:33:52,843] [my_detector_resnet.py] [    INFO] Epoch:67 [640/2508 (25%)]	 train_loss: 5.479849
+[2020-03-19 14:33:57,499] [my_detector_resnet.py] [    INFO] Epoch:67 [1280/2508 (50%)]	 train_loss: 6.325392
+[2020-03-19 14:34:02,083] [my_detector_resnet.py] [    INFO] Epoch:67 [1920/2508 (75%)]	 train_loss: 3.177912
+[2020-03-19 14:34:07,684] [my_detector_resnet.py] [    INFO] Evaluation loss: 9.983511
+[2020-03-19 14:34:07,684] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:34:08,159] [my_detector_resnet.py] [    INFO] Epoch:68 [0/2508 (0%)]	 train_loss: 4.137027
+[2020-03-19 14:34:12,756] [my_detector_resnet.py] [    INFO] Epoch:68 [640/2508 (25%)]	 train_loss: 3.184084
+[2020-03-19 14:34:17,293] [my_detector_resnet.py] [    INFO] Epoch:68 [1280/2508 (50%)]	 train_loss: 3.423497
+[2020-03-19 14:34:22,209] [my_detector_resnet.py] [    INFO] Epoch:68 [1920/2508 (75%)]	 train_loss: 4.165490
+[2020-03-19 14:34:27,935] [my_detector_resnet.py] [    INFO] Evaluation loss: 13.563974
+[2020-03-19 14:34:27,935] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:34:28,413] [my_detector_resnet.py] [    INFO] Epoch:69 [0/2508 (0%)]	 train_loss: 8.460752
+[2020-03-19 14:34:33,155] [my_detector_resnet.py] [    INFO] Epoch:69 [640/2508 (25%)]	 train_loss: 3.457919
+[2020-03-19 14:34:37,852] [my_detector_resnet.py] [    INFO] Epoch:69 [1280/2508 (50%)]	 train_loss: 3.018220
+[2020-03-19 14:34:42,454] [my_detector_resnet.py] [    INFO] Epoch:69 [1920/2508 (75%)]	 train_loss: 3.584440
+[2020-03-19 14:34:48,190] [my_detector_resnet.py] [    INFO] Evaluation loss: 10.236223
+[2020-03-19 14:34:48,190] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:34:48,667] [my_detector_resnet.py] [    INFO] Epoch:70 [0/2508 (0%)]	 train_loss: 3.860346
+[2020-03-19 14:34:53,280] [my_detector_resnet.py] [    INFO] Epoch:70 [640/2508 (25%)]	 train_loss: 2.790545
+[2020-03-19 14:34:58,072] [my_detector_resnet.py] [    INFO] Epoch:70 [1280/2508 (50%)]	 train_loss: 3.824755
+[2020-03-19 14:35:02,691] [my_detector_resnet.py] [    INFO] Epoch:70 [1920/2508 (75%)]	 train_loss: 2.846723
+[2020-03-19 14:35:08,435] [my_detector_resnet.py] [    INFO] Evaluation loss: 13.194100
+[2020-03-19 14:35:08,436] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:35:09,073] [my_detector_resnet.py] [    INFO] Epoch:71 [0/2508 (0%)]	 train_loss: 8.292488
+[2020-03-19 14:35:13,609] [my_detector_resnet.py] [    INFO] Epoch:71 [640/2508 (25%)]	 train_loss: 2.976871
+[2020-03-19 14:35:18,347] [my_detector_resnet.py] [    INFO] Epoch:71 [1280/2508 (50%)]	 train_loss: 2.894302
+[2020-03-19 14:35:23,108] [my_detector_resnet.py] [    INFO] Epoch:71 [1920/2508 (75%)]	 train_loss: 3.717783
+[2020-03-19 14:35:28,661] [my_detector_resnet.py] [    INFO] Evaluation loss: 12.104627
+[2020-03-19 14:35:28,661] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:35:29,192] [my_detector_resnet.py] [    INFO] Epoch:72 [0/2508 (0%)]	 train_loss: 5.760676
+[2020-03-19 14:35:33,636] [my_detector_resnet.py] [    INFO] Epoch:72 [640/2508 (25%)]	 train_loss: 2.724034
+[2020-03-19 14:35:38,310] [my_detector_resnet.py] [    INFO] Epoch:72 [1280/2508 (50%)]	 train_loss: 3.606665
+[2020-03-19 14:35:43,137] [my_detector_resnet.py] [    INFO] Epoch:72 [1920/2508 (75%)]	 train_loss: 3.218110
+[2020-03-19 14:35:48,885] [my_detector_resnet.py] [    INFO] Evaluation loss: 10.360204
+[2020-03-19 14:35:48,885] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:35:49,362] [my_detector_resnet.py] [    INFO] Epoch:73 [0/2508 (0%)]	 train_loss: 4.429179
+[2020-03-19 14:35:53,967] [my_detector_resnet.py] [    INFO] Epoch:73 [640/2508 (25%)]	 train_loss: 4.652966
+[2020-03-19 14:35:58,752] [my_detector_resnet.py] [    INFO] Epoch:73 [1280/2508 (50%)]	 train_loss: 3.215317
+[2020-03-19 14:36:03,341] [my_detector_resnet.py] [    INFO] Epoch:73 [1920/2508 (75%)]	 train_loss: 2.859763
+[2020-03-19 14:36:09,122] [my_detector_resnet.py] [    INFO] Evaluation loss: 9.970266
+[2020-03-19 14:36:09,122] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:36:09,714] [my_detector_resnet.py] [    INFO] Epoch:74 [0/2508 (0%)]	 train_loss: 3.112502
+[2020-03-19 14:36:14,572] [my_detector_resnet.py] [    INFO] Epoch:74 [640/2508 (25%)]	 train_loss: 4.111663
+[2020-03-19 14:36:19,201] [my_detector_resnet.py] [    INFO] Epoch:74 [1280/2508 (50%)]	 train_loss: 3.327880
+[2020-03-19 14:36:23,850] [my_detector_resnet.py] [    INFO] Epoch:74 [1920/2508 (75%)]	 train_loss: 4.327535
+[2020-03-19 14:36:29,353] [my_detector_resnet.py] [    INFO] Evaluation loss: 9.653002
+[2020-03-19 14:36:29,353] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:36:29,786] [my_detector_resnet.py] [    INFO] Epoch:75 [0/2508 (0%)]	 train_loss: 6.418746
+[2020-03-19 14:36:34,324] [my_detector_resnet.py] [    INFO] Epoch:75 [640/2508 (25%)]	 train_loss: 2.942364
+[2020-03-19 14:36:39,061] [my_detector_resnet.py] [    INFO] Epoch:75 [1280/2508 (50%)]	 train_loss: 4.719971
+[2020-03-19 14:36:43,910] [my_detector_resnet.py] [    INFO] Epoch:75 [1920/2508 (75%)]	 train_loss: 3.016320
+[2020-03-19 14:36:49,535] [my_detector_resnet.py] [    INFO] Evaluation loss: 8.641579
+[2020-03-19 14:36:49,535] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:36:50,011] [my_detector_resnet.py] [    INFO] Epoch:76 [0/2508 (0%)]	 train_loss: 2.676101
+[2020-03-19 14:36:54,767] [my_detector_resnet.py] [    INFO] Epoch:76 [640/2508 (25%)]	 train_loss: 2.673701
+[2020-03-19 14:36:59,468] [my_detector_resnet.py] [    INFO] Epoch:76 [1280/2508 (50%)]	 train_loss: 3.361328
+[2020-03-19 14:37:04,297] [my_detector_resnet.py] [    INFO] Epoch:76 [1920/2508 (75%)]	 train_loss: 3.017245
+[2020-03-19 14:37:09,778] [my_detector_resnet.py] [    INFO] Evaluation loss: 8.996184
+[2020-03-19 14:37:09,778] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:37:10,221] [my_detector_resnet.py] [    INFO] Epoch:77 [0/2508 (0%)]	 train_loss: 4.100786
+[2020-03-19 14:37:14,833] [my_detector_resnet.py] [    INFO] Epoch:77 [640/2508 (25%)]	 train_loss: 6.376694
+[2020-03-19 14:37:19,413] [my_detector_resnet.py] [    INFO] Epoch:77 [1280/2508 (50%)]	 train_loss: 3.646008
+[2020-03-19 14:37:24,131] [my_detector_resnet.py] [    INFO] Epoch:77 [1920/2508 (75%)]	 train_loss: 2.990105
+[2020-03-19 14:37:29,958] [my_detector_resnet.py] [    INFO] Evaluation loss: 7.970948
+[2020-03-19 14:37:29,959] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:37:30,575] [my_detector_resnet.py] [    INFO] Epoch:78 [0/2508 (0%)]	 train_loss: 4.114510
+[2020-03-19 14:37:35,483] [my_detector_resnet.py] [    INFO] Epoch:78 [640/2508 (25%)]	 train_loss: 2.362458
+[2020-03-19 14:37:40,250] [my_detector_resnet.py] [    INFO] Epoch:78 [1280/2508 (50%)]	 train_loss: 3.679020
+[2020-03-19 14:37:45,131] [my_detector_resnet.py] [    INFO] Epoch:78 [1920/2508 (75%)]	 train_loss: 4.066512
+[2020-03-19 14:37:51,352] [my_detector_resnet.py] [    INFO] Evaluation loss: 10.228930
+[2020-03-19 14:37:51,352] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:37:51,787] [my_detector_resnet.py] [    INFO] Epoch:79 [0/2508 (0%)]	 train_loss: 3.812235
+[2020-03-19 14:37:56,714] [my_detector_resnet.py] [    INFO] Epoch:79 [640/2508 (25%)]	 train_loss: 4.182484
+[2020-03-19 14:38:01,745] [my_detector_resnet.py] [    INFO] Epoch:79 [1280/2508 (50%)]	 train_loss: 2.353424
+[2020-03-19 14:38:06,383] [my_detector_resnet.py] [    INFO] Epoch:79 [1920/2508 (75%)]	 train_loss: 5.653542
+[2020-03-19 14:38:12,334] [my_detector_resnet.py] [    INFO] Evaluation loss: 8.266238
+[2020-03-19 14:38:12,334] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:38:12,903] [my_detector_resnet.py] [    INFO] Epoch:80 [0/2508 (0%)]	 train_loss: 2.524559
+[2020-03-19 14:38:17,805] [my_detector_resnet.py] [    INFO] Epoch:80 [640/2508 (25%)]	 train_loss: 2.664644
+[2020-03-19 14:38:23,262] [my_detector_resnet.py] [    INFO] Epoch:80 [1280/2508 (50%)]	 train_loss: 3.448317
+[2020-03-19 14:38:28,356] [my_detector_resnet.py] [    INFO] Epoch:80 [1920/2508 (75%)]	 train_loss: 3.535184
+[2020-03-19 14:38:34,241] [my_detector_resnet.py] [    INFO] Evaluation loss: 9.433047
+[2020-03-19 14:38:34,241] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:38:34,775] [my_detector_resnet.py] [    INFO] Epoch:81 [0/2508 (0%)]	 train_loss: 3.294309
+[2020-03-19 14:38:39,919] [my_detector_resnet.py] [    INFO] Epoch:81 [640/2508 (25%)]	 train_loss: 2.407895
+[2020-03-19 14:38:45,072] [my_detector_resnet.py] [    INFO] Epoch:81 [1280/2508 (50%)]	 train_loss: 2.763607
+[2020-03-19 14:38:50,448] [my_detector_resnet.py] [    INFO] Epoch:81 [1920/2508 (75%)]	 train_loss: 2.406458
+[2020-03-19 14:38:57,240] [my_detector_resnet.py] [    INFO] Evaluation loss: 8.347754
+[2020-03-19 14:38:57,240] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:38:57,831] [my_detector_resnet.py] [    INFO] Epoch:82 [0/2508 (0%)]	 train_loss: 2.684017
+[2020-03-19 14:39:02,740] [my_detector_resnet.py] [    INFO] Epoch:82 [640/2508 (25%)]	 train_loss: 2.403952
+[2020-03-19 14:39:08,311] [my_detector_resnet.py] [    INFO] Epoch:82 [1280/2508 (50%)]	 train_loss: 2.505295
+[2020-03-19 14:39:13,512] [my_detector_resnet.py] [    INFO] Epoch:82 [1920/2508 (75%)]	 train_loss: 2.518627
+[2020-03-19 14:39:20,178] [my_detector_resnet.py] [    INFO] Evaluation loss: 10.894024
+[2020-03-19 14:39:20,178] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:39:20,739] [my_detector_resnet.py] [    INFO] Epoch:83 [0/2508 (0%)]	 train_loss: 4.478452
+[2020-03-19 14:39:26,149] [my_detector_resnet.py] [    INFO] Epoch:83 [640/2508 (25%)]	 train_loss: 2.790326
+[2020-03-19 14:39:31,368] [my_detector_resnet.py] [    INFO] Epoch:83 [1280/2508 (50%)]	 train_loss: 2.141828
+[2020-03-19 14:39:36,482] [my_detector_resnet.py] [    INFO] Epoch:83 [1920/2508 (75%)]	 train_loss: 2.491702
+[2020-03-19 14:39:42,389] [my_detector_resnet.py] [    INFO] Evaluation loss: 8.912865
+[2020-03-19 14:39:42,389] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:39:42,891] [my_detector_resnet.py] [    INFO] Epoch:84 [0/2508 (0%)]	 train_loss: 4.866576
+[2020-03-19 14:39:48,090] [my_detector_resnet.py] [    INFO] Epoch:84 [640/2508 (25%)]	 train_loss: 4.416574
+[2020-03-19 14:39:53,566] [my_detector_resnet.py] [    INFO] Epoch:84 [1280/2508 (50%)]	 train_loss: 2.989483
+[2020-03-19 14:39:58,787] [my_detector_resnet.py] [    INFO] Epoch:84 [1920/2508 (75%)]	 train_loss: 2.740211
+[2020-03-19 14:40:04,794] [my_detector_resnet.py] [    INFO] Evaluation loss: 11.800943
+[2020-03-19 14:40:04,794] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:40:05,256] [my_detector_resnet.py] [    INFO] Epoch:85 [0/2508 (0%)]	 train_loss: 5.981122
+[2020-03-19 14:40:10,159] [my_detector_resnet.py] [    INFO] Epoch:85 [640/2508 (25%)]	 train_loss: 5.248744
+[2020-03-19 14:40:15,270] [my_detector_resnet.py] [    INFO] Epoch:85 [1280/2508 (50%)]	 train_loss: 2.448100
+[2020-03-19 14:40:20,264] [my_detector_resnet.py] [    INFO] Epoch:85 [1920/2508 (75%)]	 train_loss: 5.025259
+[2020-03-19 14:40:26,675] [my_detector_resnet.py] [    INFO] Evaluation loss: 9.653894
+[2020-03-19 14:40:26,675] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:40:27,153] [my_detector_resnet.py] [    INFO] Epoch:86 [0/2508 (0%)]	 train_loss: 3.072104
+[2020-03-19 14:40:32,164] [my_detector_resnet.py] [    INFO] Epoch:86 [640/2508 (25%)]	 train_loss: 3.751432
+[2020-03-19 14:40:37,846] [my_detector_resnet.py] [    INFO] Epoch:86 [1280/2508 (50%)]	 train_loss: 2.176889
+[2020-03-19 14:40:43,593] [my_detector_resnet.py] [    INFO] Epoch:86 [1920/2508 (75%)]	 train_loss: 2.288471
+[2020-03-19 14:40:49,763] [my_detector_resnet.py] [    INFO] Evaluation loss: 8.522439
+[2020-03-19 14:40:49,763] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:40:50,330] [my_detector_resnet.py] [    INFO] Epoch:87 [0/2508 (0%)]	 train_loss: 2.555459
+[2020-03-19 14:40:55,830] [my_detector_resnet.py] [    INFO] Epoch:87 [640/2508 (25%)]	 train_loss: 1.908049
+[2020-03-19 14:41:01,175] [my_detector_resnet.py] [    INFO] Epoch:87 [1280/2508 (50%)]	 train_loss: 4.072383
+[2020-03-19 14:41:06,391] [my_detector_resnet.py] [    INFO] Epoch:87 [1920/2508 (75%)]	 train_loss: 2.913141
+[2020-03-19 14:41:12,143] [my_detector_resnet.py] [    INFO] Evaluation loss: 7.990964
+[2020-03-19 14:41:12,143] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:41:12,663] [my_detector_resnet.py] [    INFO] Epoch:88 [0/2508 (0%)]	 train_loss: 2.250608
+[2020-03-19 14:41:17,432] [my_detector_resnet.py] [    INFO] Epoch:88 [640/2508 (25%)]	 train_loss: 2.815024
+[2020-03-19 14:41:22,297] [my_detector_resnet.py] [    INFO] Epoch:88 [1280/2508 (50%)]	 train_loss: 2.669076
+[2020-03-19 14:41:27,439] [my_detector_resnet.py] [    INFO] Epoch:88 [1920/2508 (75%)]	 train_loss: 2.941591
+[2020-03-19 14:41:33,368] [my_detector_resnet.py] [    INFO] Evaluation loss: 9.308716
+[2020-03-19 14:41:33,369] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:41:33,851] [my_detector_resnet.py] [    INFO] Epoch:89 [0/2508 (0%)]	 train_loss: 4.198351
+[2020-03-19 14:41:38,897] [my_detector_resnet.py] [    INFO] Epoch:89 [640/2508 (25%)]	 train_loss: 5.158491
+[2020-03-19 14:41:43,933] [my_detector_resnet.py] [    INFO] Epoch:89 [1280/2508 (50%)]	 train_loss: 2.708313
+[2020-03-19 14:41:48,800] [my_detector_resnet.py] [    INFO] Epoch:89 [1920/2508 (75%)]	 train_loss: 3.069747
+[2020-03-19 14:41:54,891] [my_detector_resnet.py] [    INFO] Evaluation loss: 8.184048
+[2020-03-19 14:41:54,891] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:41:55,363] [my_detector_resnet.py] [    INFO] Epoch:90 [0/2508 (0%)]	 train_loss: 2.442878
+[2020-03-19 14:42:00,410] [my_detector_resnet.py] [    INFO] Epoch:90 [640/2508 (25%)]	 train_loss: 3.517140
+[2020-03-19 14:42:05,495] [my_detector_resnet.py] [    INFO] Epoch:90 [1280/2508 (50%)]	 train_loss: 4.285639
+[2020-03-19 14:42:10,463] [my_detector_resnet.py] [    INFO] Epoch:90 [1920/2508 (75%)]	 train_loss: 3.472976
+[2020-03-19 14:42:16,613] [my_detector_resnet.py] [    INFO] Evaluation loss: 8.818764
+[2020-03-19 14:42:16,613] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:42:17,043] [my_detector_resnet.py] [    INFO] Epoch:91 [0/2508 (0%)]	 train_loss: 3.781022
+[2020-03-19 14:42:22,059] [my_detector_resnet.py] [    INFO] Epoch:91 [640/2508 (25%)]	 train_loss: 3.306634
+[2020-03-19 14:42:26,854] [my_detector_resnet.py] [    INFO] Epoch:91 [1280/2508 (50%)]	 train_loss: 2.514240
+[2020-03-19 14:42:31,784] [my_detector_resnet.py] [    INFO] Epoch:91 [1920/2508 (75%)]	 train_loss: 3.243749
+[2020-03-19 14:42:37,669] [my_detector_resnet.py] [    INFO] Evaluation loss: 9.937683
+[2020-03-19 14:42:37,670] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:42:38,109] [my_detector_resnet.py] [    INFO] Epoch:92 [0/2508 (0%)]	 train_loss: 4.244428
+[2020-03-19 14:42:42,882] [my_detector_resnet.py] [    INFO] Epoch:92 [640/2508 (25%)]	 train_loss: 3.396747
+[2020-03-19 14:42:48,058] [my_detector_resnet.py] [    INFO] Epoch:92 [1280/2508 (50%)]	 train_loss: 2.360003
+[2020-03-19 14:42:52,959] [my_detector_resnet.py] [    INFO] Epoch:92 [1920/2508 (75%)]	 train_loss: 2.366231
+[2020-03-19 14:42:58,989] [my_detector_resnet.py] [    INFO] Evaluation loss: 9.488754
+[2020-03-19 14:42:58,989] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:42:59,500] [my_detector_resnet.py] [    INFO] Epoch:93 [0/2508 (0%)]	 train_loss: 4.688941
+[2020-03-19 14:43:04,617] [my_detector_resnet.py] [    INFO] Epoch:93 [640/2508 (25%)]	 train_loss: 2.920741
+[2020-03-19 14:43:09,599] [my_detector_resnet.py] [    INFO] Epoch:93 [1280/2508 (50%)]	 train_loss: 3.554173
+[2020-03-19 14:43:14,397] [my_detector_resnet.py] [    INFO] Epoch:93 [1920/2508 (75%)]	 train_loss: 2.452481
+[2020-03-19 14:43:20,547] [my_detector_resnet.py] [    INFO] Evaluation loss: 9.824724
+[2020-03-19 14:43:20,547] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:43:21,036] [my_detector_resnet.py] [    INFO] Epoch:94 [0/2508 (0%)]	 train_loss: 3.506603
+[2020-03-19 14:43:25,783] [my_detector_resnet.py] [    INFO] Epoch:94 [640/2508 (25%)]	 train_loss: 4.141369
+[2020-03-19 14:43:30,984] [my_detector_resnet.py] [    INFO] Epoch:94 [1280/2508 (50%)]	 train_loss: 2.648316
+[2020-03-19 14:43:35,649] [my_detector_resnet.py] [    INFO] Epoch:94 [1920/2508 (75%)]	 train_loss: 1.914791
+[2020-03-19 14:43:41,620] [my_detector_resnet.py] [    INFO] Evaluation loss: 10.088749
+[2020-03-19 14:43:41,621] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:43:42,063] [my_detector_resnet.py] [    INFO] Epoch:95 [0/2508 (0%)]	 train_loss: 7.866466
+[2020-03-19 14:43:46,783] [my_detector_resnet.py] [    INFO] Epoch:95 [640/2508 (25%)]	 train_loss: 5.550769
+[2020-03-19 14:43:51,787] [my_detector_resnet.py] [    INFO] Epoch:95 [1280/2508 (50%)]	 train_loss: 3.634614
+[2020-03-19 14:43:56,505] [my_detector_resnet.py] [    INFO] Epoch:95 [1920/2508 (75%)]	 train_loss: 4.849417
+[2020-03-19 14:44:02,509] [my_detector_resnet.py] [    INFO] Evaluation loss: 8.914493
+[2020-03-19 14:44:02,509] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:44:03,022] [my_detector_resnet.py] [    INFO] Epoch:96 [0/2508 (0%)]	 train_loss: 3.921350
+[2020-03-19 14:44:08,207] [my_detector_resnet.py] [    INFO] Epoch:96 [640/2508 (25%)]	 train_loss: 4.475489
+[2020-03-19 14:44:13,137] [my_detector_resnet.py] [    INFO] Epoch:96 [1280/2508 (50%)]	 train_loss: 5.536364
+[2020-03-19 14:44:17,896] [my_detector_resnet.py] [    INFO] Epoch:96 [1920/2508 (75%)]	 train_loss: 6.619781
+[2020-03-19 14:44:23,890] [my_detector_resnet.py] [    INFO] Evaluation loss: 8.202907
+[2020-03-19 14:44:23,890] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:44:24,285] [my_detector_resnet.py] [    INFO] Epoch:97 [0/2508 (0%)]	 train_loss: 2.338882
+[2020-03-19 14:44:29,246] [my_detector_resnet.py] [    INFO] Epoch:97 [640/2508 (25%)]	 train_loss: 2.832698
+[2020-03-19 14:44:34,367] [my_detector_resnet.py] [    INFO] Epoch:97 [1280/2508 (50%)]	 train_loss: 3.989062
+[2020-03-19 14:44:38,930] [my_detector_resnet.py] [    INFO] Epoch:97 [1920/2508 (75%)]	 train_loss: 2.967299
+[2020-03-19 14:44:44,832] [my_detector_resnet.py] [    INFO] Evaluation loss: 8.697264
+[2020-03-19 14:44:44,832] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:44:45,342] [my_detector_resnet.py] [    INFO] Epoch:98 [0/2508 (0%)]	 train_loss: 2.472595
+[2020-03-19 14:44:49,927] [my_detector_resnet.py] [    INFO] Epoch:98 [640/2508 (25%)]	 train_loss: 3.580776
+[2020-03-19 14:44:54,909] [my_detector_resnet.py] [    INFO] Epoch:98 [1280/2508 (50%)]	 train_loss: 2.173896
+[2020-03-19 14:44:59,757] [my_detector_resnet.py] [    INFO] Epoch:98 [1920/2508 (75%)]	 train_loss: 2.510049
+[2020-03-19 14:45:05,751] [my_detector_resnet.py] [    INFO] Evaluation loss: 7.148863
+[2020-03-19 14:45:05,751] [my_detector_resnet.py] [    INFO] ====================================================
+[2020-03-19 14:45:06,370] [my_detector_resnet.py] [    INFO] Epoch:99 [0/2508 (0%)]	 train_loss: 1.811752
+[2020-03-19 14:45:11,338] [my_detector_resnet.py] [    INFO] Epoch:99 [640/2508 (25%)]	 train_loss: 3.479683
+[2020-03-19 14:45:15,946] [my_detector_resnet.py] [    INFO] Epoch:99 [1280/2508 (50%)]	 train_loss: 2.575077
+[2020-03-19 14:45:21,247] [my_detector_resnet.py] [    INFO] Epoch:99 [1920/2508 (75%)]	 train_loss: 3.387311
+[2020-03-19 14:45:27,219] [my_detector_resnet.py] [    INFO] Evaluation loss: 8.571273
+[2020-03-19 14:45:27,219] [my_detector_resnet.py] [    INFO] ====================================================
