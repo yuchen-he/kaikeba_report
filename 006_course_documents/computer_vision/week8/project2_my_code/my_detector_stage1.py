@@ -5,9 +5,8 @@ import time
 import torch
 import torch.nn as nn
 import torch.optim as optim
+import torchvision
 from torch.utils.data.sampler import SubsetRandomSampler
-
-
 try:
     from tensorboardX import SummaryWriter
     USE_TENSORBOARDX = True
@@ -18,11 +17,11 @@ except:
 
 
 from networks.network_stage1 import Net_Original
+from networks.resnet import resnet18
 import my_dataloader
 from utils import utils
 from my_predictor import predictor
 import pdb
-
 
 def train(args, train_loader, valid_loader, model, my_criterion, device, logger, tf_writer):
     num_epoch = args.epochs
@@ -35,7 +34,13 @@ def train(args, train_loader, valid_loader, model, my_criterion, device, logger,
     if args.is_finetune:
         utils.load_state(args.fine_tune_path, model)
         args.lr = args.finetune_lr
-        finetune_layers = ['ip1', 'ip2', 'ip3']     # change to config file later
+        if args.model == 'OrigNet':
+            finetune_layers = ['fc_1', 'fc_2']     # change to config file later
+        elif args.model == 'Resnet18':
+            finetune_layers = ['ip1', 'ip2', 'ip3']
+        else:
+            raise KeyError("No such backbone supported!")
+
         for p in model.parameters():
             p.requires_grad = False
 
@@ -47,8 +52,14 @@ def train(args, train_loader, valid_loader, model, my_criterion, device, logger,
             for p in getattr(model, finetune_layer_name).parameters():
                 p.requires_grad = True
         # pdb.set_trace()
-    optimizer = optim.SGD(filter(lambda p: p.requires_grad, model.parameters()),
-                          lr=args.lr, momentum=args.momentum)
+    if args.optimizer == "sgd":
+        optimizer = optim.SGD(filter(lambda p: p.requires_grad, model.parameters()),
+                              lr=args.lr, momentum=args.momentum)
+    elif args.optimizer == "adam":
+        b1 = 0.9    # for momentom
+        b2 = 0.999  # for RMSProp
+        optimizer = optim.Adam(filter(lambda p: p.requires_grad, model.parameters()),
+                               lr=args.lr*5, betas=(b1, b2))
 
     logger.info("Please check your configs:\n{}".format(args))
     for epoch_id in range(num_epoch):
@@ -128,7 +139,6 @@ def train(args, train_loader, valid_loader, model, my_criterion, device, logger,
 
     return train_losses, loss_best
 
-
 def test(args, valid_loader, model, my_criterion, device):
     val_step = 0
     valid_losses = 0
@@ -162,7 +172,6 @@ def test(args, valid_loader, model, my_criterion, device):
         print('Evaluation loss: {:.6f}\nBatch {} process time: {}'.format(
             valid_losses, args.test_batch_size, batch_time))
 
-
 def main(args):
     torch.manual_seed(args.seed)
 
@@ -181,16 +190,28 @@ def main(args):
 
     # step3: set networks
     print('===> Step3: Building Model')
-    model = Net_Original()  # for later stage, change it to be selected by config
+    if args.model == 'OrigNet':
+        model = Net_Original()  # for later stage, change it to be selected by config
+    elif args.model == 'Resnet18':
+        model = resnet18(pretrained=False)
+    else:
+        raise KeyError("No such backbone supported!")
     print('step3 done!')
 
     # step4: set optimizer
     # //todo: add lr_warmup function later to compare the results
     print('===> Step4: Set Optimizer')
     my_criterion = nn.MSELoss()
+    # my_criterion = nn.SmoothL1Loss()
     print('step4 done!')
 
     # step5: train or test or demo
+    args.save_directory = os.path.join(args.save_directory, str(args.model) + "_NoNormalize_" + str(args.no_normalize)
+                                       + "_" + args.optimizer + "_finetune_" + str(args.is_finetune))
+    if not os.path.exists(args.save_directory):
+        os.system("mkdir -p {}".format(args.save_directory))
+
+    # Enter different phase
     if args.phase == 'Train' or args.phase == 'train':
         print('===> Step5: Start Training')
         logger = utils.create_logger('my_logger', os.path.join(args.save_directory, 'log.txt'))

@@ -14,16 +14,18 @@ from torch.utils.data import Dataset
 
 input_size = 112
 
-
 def parse_oneline(line):
     line = line.strip().split()
     image_path = line[0]
-    bbox = list(map(int, list(map(float, line[1:5]))))  # list: [x1, y1, x2, y2]
-    x = list(map(float, line[5::2]))
-    y = list(map(float, line[6::2]))
-    landmarks = list(zip(x, y))  # list: [[x1,y1], [x2,y2], ...]
-    return image_path, bbox, landmarks
-
+    is_face = line[1]
+    bbox = list(map(int, list(map(float, line[2:6]))))  # list: [x1, y1, x2, y2]
+    if is_face == '1':
+        x = list(map(float, line[6::2]))
+        y = list(map(float, line[7::2]))
+        landmarks = list(zip(x, y))  # list: [[x1,y1], [x2,y2], ...]
+    elif is_face == '0':
+        landmarks = np.zeros((21, 2)).tolist()
+    return image_path, is_face, bbox, landmarks
 
 def channel_norm(img):
     # img: ndarray, float32
@@ -49,7 +51,7 @@ class Normalize(object):
     """
 
     def __call__(self, sample):
-        img_crop, landmarks_orig = sample['image'], sample['landmarks']
+        img_crop, is_face, landmarks_orig = sample['image'], sample['is_face'], sample['landmarks']
         image = np.asarray(
             img_crop.resize((input_size, input_size), Image.BILINEAR),
             dtype=np.float32)  # Image.ANTIALIAS)
@@ -62,6 +64,7 @@ class Normalize(object):
         landmarks = channel_norm(landmarks)
         # landmarks = landmarks.flatten()
         return {'image': image,
+                'is_face': is_face,
                 'landmarks': landmarks
                 }
 
@@ -71,7 +74,7 @@ class Rotation(object):
     """
 
     def __call__(self, sample):
-        image, landmarks = sample['image'], sample['landmarks']
+        image, is_face, landmarks = sample['image'], sample['is_face'], sample['landmarks']
         angle = np.random.random_integers(-20, 20)
         mat = cv2.getRotationMatrix2D((image.shape[0]//2, image.shape[1]//2), angle, 1)
         image = cv2.warpAffine(image, mat, (image.shape[0], image.shape[1]))
@@ -83,19 +86,8 @@ class Rotation(object):
                         mat[1][0]*landmark[0]+mat[1][1]*landmark[1]+mat[1][2])
             landmarks_rotate.append(landmark)
         return {'image': image,
+                'is_face': is_face,
                 'landmarks': landmarks_rotate
-                }
-
-class Flip(object):
-    """
-        Input: ndarrays
-    """
-
-    def __call__(self, sample):
-        image, landmarks = sample['image'], sample['landmarks']
-
-        return {'image': image,
-                'landmarks': landmarks
                 }
 
 class ToTensor(object):
@@ -107,7 +99,7 @@ class ToTensor(object):
     # the batch_size "N" will be added automatically by torch.utils.data.DataLoader()
 
     def __call__(self, sample):
-        image, landmarks = sample['image'], sample['landmarks']
+        image, is_face, landmarks = sample['image'], sample['is_face'], sample['landmarks']
         # swap color axis because
         # numpy image: H x W x C
         # torch image: C X H X W
@@ -117,6 +109,7 @@ class ToTensor(object):
         landmarks = np.array(landmarks).astype(np.float32)
         landmarks = landmarks.flatten()
         return {'image': torch.from_numpy(image),
+                'is_face': torch.LongTensor([int(is_face)]),
                 'landmarks': torch.from_numpy(landmarks)}
 
 class FaceLandmarksDataset(Dataset):
@@ -134,7 +127,7 @@ class FaceLandmarksDataset(Dataset):
         :return single_sample: information dict of one single image
         '''
 
-        image_path, bbox, landmarks = parse_oneline(self.lines[index])
+        image_path, is_face, bbox, landmarks = parse_oneline(self.lines[index])
         # print("img_path: ", image_path)
         img = Image.open(image_path).convert('L')  # gray_scale (for calculating mean & std)
         img_crop = img.crop(tuple(bbox))  # img.crop(tuple(x1,y1,x2,y2))
@@ -146,6 +139,7 @@ class FaceLandmarksDataset(Dataset):
             landmarks = convert_landmarks(landmarks, input_size, img_crop.size)
             single_sample = {
                 'image': img_resize,
+                'is_face': is_face,
                 'landmarks': landmarks
             }
             single_sample = self.transformer(single_sample)
@@ -157,12 +151,14 @@ class FaceLandmarksDataset(Dataset):
                 landmarks = convert_landmarks(landmarks, input_size, img_crop.size)
                 single_sample = {
                     'image': img_resize,
+                    'is_face': is_face,
                     'landmarks': landmarks
                 }
                 single_sample = self.transformer(single_sample)
             else:        # train with normalize
                 single_sample = {
                     'image': img_crop,
+                    'is_face': is_face,
                     'landmarks': landmarks
                 }
                 single_sample = self.transformer(single_sample)
@@ -177,14 +173,14 @@ def load_data(args, phase):
     '''
 
     if phase == 'Test' or phase == 'test':
-        data_path = args.test_set_path
+        data_path = args.test_set_path_stage3
         with open(data_path, 'r') as f:
             lines = f.readlines()
         transformer = transforms.Compose([
             ToTensor()
         ])
     else:
-        data_path = args.train_set_path
+        data_path = args.train_set_path_stage3
         with open(data_path, 'r') as f:
             lines = f.readlines()
         if not args.no_normalize:
@@ -212,18 +208,24 @@ def dataloader(args):
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser(description="Face_Landmarks_Detection")
     args = my_args_parser(argparser)
-    train_set = load_data(args, 'Train')
+    train_set = load_data(args, 'Test')
     for i in range(1, len(train_set)):
         sample = train_set[i]
         img = sample['image']
+        is_face = sample['is_face']
         landmarks = sample['landmarks']       # shape = (42,)
 
-        # need to supress Normalize, since it will normalize the pixels to around 1 (not 0~255)
-        img = np.squeeze(np.array(img, dtype=np.uint8))
-        landmarks = landmarks.reshape(21, 2)
-        for landmark in landmarks:
-            landmark = np.uint8(landmark).tolist()
-            img = cv2.circle(img, tuple(landmark), 3, (0, 0, 255), -1)
+        if is_face.numpy() == 1:
+            img = np.squeeze(np.array(img, dtype=np.uint8))
+            landmarks = landmarks.reshape(21, 2)
+            for landmark in landmarks:
+                landmark = np.uint8(landmark).tolist()
+                img = cv2.circle(img, tuple(landmark), 3, (0, 0, 255), -1)
+        elif is_face.numpy() == 0:
+            print(i, landmarks)
+            img = np.squeeze(np.array(img, dtype=np.uint8))
+            msg = 'No face!'
+            img_bbox = cv2.putText(img, msg, (5, 5), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 0, 255), 3)
         cv2.imshow("face_landmarks", img)
         key = cv2.waitKey()
         if key == 27:

@@ -42,6 +42,9 @@ def predictor(args, model, device):
 
             for landmarks in landmarks_output:
                 cv2.circle(img_resize_1, tuple(landmarks), 2, (0, 255, 255), -1)
+            # show img in full screen
+            cv2.namedWindow(str(img_name), cv2.WINDOW_NORMAL)
+            cv2.setWindowProperty(str(img_name), cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
             cv2.imshow(str(img_name), img_resize_1)
             key = cv2.waitKey()
             if key == 27:
