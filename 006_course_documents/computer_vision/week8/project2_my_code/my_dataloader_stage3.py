@@ -17,7 +17,7 @@ input_size = 112
 def parse_oneline(line):
     line = line.strip().split()
     image_path = line[0]
-    is_face = line[1]
+    is_face = line[1]      # 0/1
     bbox = list(map(int, list(map(float, line[2:6]))))  # list: [x1, y1, x2, y2]
     if is_face == '1':
         x = list(map(float, line[6::2]))
@@ -128,7 +128,6 @@ class FaceLandmarksDataset(Dataset):
         '''
 
         image_path, is_face, bbox, landmarks = parse_oneline(self.lines[index])
-        # print("img_path: ", image_path)
         img = Image.open(image_path).convert('L')  # gray_scale (for calculating mean & std)
         img_crop = img.crop(tuple(bbox))  # img.crop(tuple(x1,y1,x2,y2))
 
@@ -208,7 +207,7 @@ def dataloader(args):
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser(description="Face_Landmarks_Detection")
     args = my_args_parser(argparser)
-    train_set = load_data(args, 'Test')
+    train_set = load_data(args, 'Train')
     for i in range(1, len(train_set)):
         sample = train_set[i]
         img = sample['image']

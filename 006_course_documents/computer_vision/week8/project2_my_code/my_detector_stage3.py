@@ -1,6 +1,7 @@
 from __future__ import print_function
 import os
 import argparse
+import numpy as np
 import time
 import torch
 import torch.nn as nn
@@ -28,7 +29,6 @@ def train(args, train_loader, valid_loader, model, my_criterion, device, logger,
     num_epoch = args.epochs
     save_path = args.save_directory
     loss_best = 1e10
-    # total_step = int(len(train_loader) / args.batch_size * num_epoch)
     model.to(device)
 
     # finetune
@@ -55,27 +55,26 @@ def train(args, train_loader, valid_loader, model, my_criterion, device, logger,
         b2 = 0.999  # for RMSProp
         optimizer = optim.Adam(filter(lambda p: p.requires_grad, model.parameters()),
                                lr=args.lr * 5, betas=(b1, b2))
+    else:
+        raise KeyError("No optimizer supported!")
 
     logger.info("Please check your configs:\n{}".format(args))
     for epoch_id in range(num_epoch):
-        train_losses = 0
-        valid_losses_kp = 0
-        valid_losses_face = 0
-        train_step = 0
-        val_step = 0
 
         ########################
         ### training process ###
         ########################
+        train_losses = 0
+        train_step = 0
         model.train()
         for batch_idx, batch in enumerate(train_loader):
             train_step += 1
+            face_pos_pred, face_pos_gt, face_neg_pred, face_neg_gt = 0, 0, 0, 0
 
             # ground truth
             input_img = batch['image'].to(device)  # input_img shape: N x C x H x W
             face_gt = batch['is_face'].to(device)
             landmarks_gt = batch['landmarks'].to(device)
-            # print(f"input_size: {input_img.size()},\n gt_size: {landmarks_gt.size()}")
 
             # zero grad
             optimizer.zero_grad()
@@ -87,37 +86,79 @@ def train(args, train_loader, valid_loader, model, my_criterion, device, logger,
             # 1. face_loss
             face_gt = torch.squeeze(face_gt)
             face_loss = my_criterion['face'](face_output, face_gt)
-            # 2. kp_loss
+
             is_face_mask = torch.cuda.ByteTensor(landmarks_gt.size()).bool()
             is_face_mask.zero_()
             face_gt_list = face_gt.cpu().numpy().tolist()
-            for i in range(len(face_gt_list)):
+            for i in range(len(face_gt_list)):          # 1 batch size
+                face_output_index = torch.argmax(face_output[i])
                 if face_gt[i] == 1:
-                    is_face_mask[i] = 1
+                    is_face_mask[i] = True              # set is_face_mask be true for face_img
+                    # Monitor classification accuracy
+                    face_pos_gt += 1
+                    if face_gt[i] == face_output_index:
+                        face_pos_pred += 1
+                elif face_gt[i] == 0:
+                    # Monitor classification accuracy
+                    face_neg_gt += 1
+                    if face_gt[i] == face_output_index:
+                        face_neg_pred += 1
+            if face_pos_gt != 0:
+                face_pos_acc = face_pos_pred / face_pos_gt
+            else:
+                face_pos_acc = 0
+            if face_neg_gt != 0:
+                face_neg_acc = face_neg_pred / face_neg_gt
+            else:
+                face_neg_acc = 0
+
+            # 2. kp_loss
             kp_pred = kp_output[is_face_mask].view(-1, 42)
             kp_gt = landmarks_gt[is_face_mask].view(-1, 42)
-            kp_loss = my_criterion['landmark'](kp_pred, kp_gt)
+            # if none kp_gt (mask all false), set the kp_loss to be 0
+            if kp_gt.size()[0] == 0:
+                kp_loss = 0
+            else:
+                kp_loss = my_criterion['landmark'](kp_pred, kp_gt)
 
+            # train_loss (grad_fn=<AddBackward0>), so the loss calculation will automatically to kp and face
             train_loss = kp_loss + 2 * face_loss
             train_loss.backward()
             optimizer.step()
-            train_losses += train_loss.item()
+            train_losses += train_loss.item()   # do we need to monitor both face and landmarks loss?
+
+            # if epoch_id == 7:
+            #     print(f"face_gt: {face_gt.size(), face_gt}")
+            #     print(f"kp_output: {kp_output.size(), kp_output}")
+            #     print(f"landmarks_gt: {landmarks_gt.size(), landmarks_gt}")
+            #     print(f"is_face_mask: {is_face_mask.size(), is_face_mask}")
+            #     print(f"kp_pred: {kp_pred.size(), kp_pred}")
+            #     print(f"kp_gt: {kp_gt.size(), kp_gt}")
+            #     print(f"kp_loss: {kp_loss}")
 
             # save logs
             if batch_idx % args.log_interval == 0:
-                logger.info("Epoch:{} [{}/{} ({:.0f}%)]\t kp_loss: {:.6f} face_loss: {:.6f}".format(
+                logger.info("Epoch:{} [{}/{} ({:.0f}%)]\t".format(
                     epoch_id,
                     batch_idx * len(input_img),
                     len(train_loader.dataset),
-                    100. * batch_idx / len(train_loader),
+                    100. * batch_idx / len(train_loader)
+                ))
+                logger.info("kp_loss: {:.4f} face_loss: {:.4f} pos_acc: {:.1f}({}/{}) neg_acc: {:.1f}({}/{})".format(
                     kp_loss.item(),
-                    face_loss.item()
+                    face_loss.item(),
+                    face_pos_acc, face_pos_pred, face_pos_gt,
+                    face_neg_acc, face_neg_pred, face_neg_gt
                 ))
         train_losses /= 1.0 * train_step
 
         ########################
         ## validation process ##
         ########################
+        valid_losses_kp = 0
+        valid_losses_face = 0
+        val_step = 0
+        face_pos_pred_val, face_pos_gt_val, face_neg_pred_val, face_neg_gt_val = 0, 0, 0, 0
         model.eval()
         with torch.no_grad():
             for batch_idx, batch in enumerate(valid_loader):
@@ -126,16 +167,29 @@ def train(args, train_loader, valid_loader, model, my_criterion, device, logger,
                 face_gt = batch['is_face'].to(device)
                 landmarks_gt = batch['landmarks'].to(device)
                 kp_output, face_output = model(input_img)
+
                 # 1. face_loss
                 face_gt = torch.squeeze(face_gt)
                 face_loss = my_criterion['face'](face_output, face_gt)
-                # 2. kp_loss
+
                 is_face_mask = torch.cuda.ByteTensor(landmarks_gt.size()).bool()
                 is_face_mask.zero_()
                 face_gt_list = face_gt.cpu().numpy().tolist()
-                for i in range(len(face_gt_list)):
+                for i in range(len(face_gt_list)):  # 1 batch size
+                    face_output_index = torch.argmax(face_output[i])
                     if face_gt[i] == 1:
-                        is_face_mask[i] = 1
+                        is_face_mask[i] = True  # set is_face_mask be true for face_img
+                        # Monitor classification accuracy
+                        face_pos_gt_val += 1
+                        if face_gt[i] == face_output_index:
+                            face_pos_pred_val += 1
+                    elif face_gt[i] == 0:
+                        # Monitor classification accuracy
+                        face_neg_gt_val += 1
+                        if face_gt[i] == face_output_index:
+                            face_neg_pred_val += 1
+
+                # 2. kp_loss
                 kp_pred = kp_output[is_face_mask].view(-1, 42)
                 kp_gt = landmarks_gt[is_face_mask].view(-1, 42)
                 kp_loss = my_criterion['landmark'](kp_pred, kp_gt)
@@ -145,9 +199,23 @@ def train(args, train_loader, valid_loader, model, my_criterion, device, logger,
 
             valid_losses_kp /= val_step * 1.0
             valid_losses_face /= val_step * 1.0
+            if face_pos_gt_val != 0:
+                face_pos_acc_val = face_pos_pred_val / face_pos_gt_val
+            else:
+                face_pos_acc_val = 0
+            if face_neg_gt_val != 0:
+                face_neg_acc_val = face_neg_pred_val / face_neg_gt_val
+            else:
+                face_neg_acc_val = 0
+
             # save logs per epoch
+            logger.info('Average train loss in 1 epoch: {:.6f}'.format(train_losses))
             logger.info('Landmark Evaluation loss: {:.6f}'.format(valid_losses_kp))
             logger.info('face Evaluation loss: {:.6f}'.format(valid_losses_face))
+            logger.info("pos_acc_val: {:.1f}({}/{}) neg_acc_val: {:.1f}({}/{})".format(
+                face_pos_acc_val, face_pos_pred_val, face_pos_gt_val,
+                face_neg_acc_val, face_neg_pred_val, face_neg_gt_val
+            ))
             logger.info('====================================================')
 
         # save model only when loss_best
@@ -160,17 +228,20 @@ def train(args, train_loader, valid_loader, model, my_criterion, device, logger,
                     saved_model_name = os.path.join(save_path, 'model_best.pth')
                 torch.save(model.state_dict(), saved_model_name)
 
-        # save tensorboardX info //todo: count true/false samples, then get accurage for each
-        # tf_writer.add_scalar("train_loss", train_losses, epoch_id)
-        # tf_writer.add_scalar("val_loss_landmark", valid_losses_kp, epoch_id)
-        # tf_writer.add_scalar("val_loss_face", valid_losses_face, epoch_id)
+        # save tensorboardX info
+        tf_writer.add_scalar("train_loss", train_losses, epoch_id)
+        tf_writer.add_scalar("val_loss_landmark", valid_losses_kp, epoch_id)
+        tf_writer.add_scalar("val_face_pos_acc", face_pos_acc_val, epoch_id)
+        tf_writer.add_scalar("val_face_neg_acc", face_neg_acc_val, epoch_id)
 
     return train_losses, loss_best
 
 
 def test(args, valid_loader, model, my_criterion, device):
+    valid_losses_kp = 0
+    valid_losses_face = 0
     val_step = 0
-    valid_losses = 0
+    face_pos_pred_val, face_pos_gt_val, face_neg_pred_val, face_neg_gt_val = 0, 0, 0, 0
     batch_time = 0
 
     utils.load_state(args.trained_model_path, model)
@@ -184,22 +255,60 @@ def test(args, valid_loader, model, my_criterion, device):
 
             # process image
             input_img = batch['image'].to(device)  # input_img shape: N x C x H x W
+            face_gt = batch['is_face'].to(device)
             landmarks_gt = batch['landmarks'].to(device)
-            output = model(input_img)
-            valid_loss = my_criterion(output, landmarks_gt)
+            kp_output, face_output = model(input_img)
 
-            # loss calculation
-            valid_losses += valid_loss.item()
+            # loss
+            # 1. face_loss
+            face_gt = torch.squeeze(face_gt)
+            face_loss = my_criterion['face'](face_output, face_gt)
+
+            is_face_mask = torch.cuda.ByteTensor(landmarks_gt.size()).bool()
+            is_face_mask.zero_()
+            face_gt_list = face_gt.cpu().numpy().tolist()
+            for i in range(len(face_gt_list)):  # 1 batch size
+                face_output_index = torch.argmax(face_output[i])
+                if face_gt[i] == 1:
+                    is_face_mask[i] = True  # set is_face_mask be true for face_img
+                    # Monitor classification accuracy
+                    face_pos_gt_val += 1
+                    if face_gt[i] == face_output_index:
+                        face_pos_pred_val += 1
+                elif face_gt[i] == 0:
+                    # Monitor classification accuracy
+                    face_neg_gt_val += 1
+                    if face_gt[i] == face_output_index:
+                        face_neg_pred_val += 1
+
+            # 2. kp_loss
+            kp_pred = kp_output[is_face_mask].view(-1, 42)
+            kp_gt = landmarks_gt[is_face_mask].view(-1, 42)
+            kp_loss = my_criterion['landmark'](kp_pred, kp_gt)
+
+            valid_losses_kp += kp_loss.item()
+            valid_losses_face += face_loss.item()
 
             # batch time calculate
             torch.cuda.synchronize()
             batch_process_t = time.time() - start_time
             batch_time += batch_process_t
 
-        valid_losses /= val_step * 1.0
         batch_time /= val_step * 1.0
-        print('Evaluation loss: {:.6f}\nBatch {} process time: {}'.format(
-            valid_losses, args.test_batch_size, batch_time))
+        valid_losses_kp /= val_step * 1.0
+        valid_losses_face /= val_step * 1.0
+        if face_pos_gt_val != 0:
+            face_pos_acc_val = face_pos_pred_val / face_pos_gt_val
+        else:
+            face_pos_acc_val = 0
+        if face_neg_gt_val != 0:
+            face_neg_acc_val = face_neg_pred_val / face_neg_gt_val
+        else:
+            face_neg_acc_val = 0
+
+        print('Landmarks loss: {:.4f}, Face_pos accuracy: {:.4f}, Face_neg accuracy: {:.4f}'.format(
+            valid_losses_kp, face_pos_acc_val, face_neg_acc_val))
+        print('Batch_size {} process time: {}'.format(args.test_batch_size, batch_time))
 
 
 def main(args):
@@ -238,6 +347,10 @@ def main(args):
                                        "_" + args.optimizer + "_finetune_" + str(args.is_finetune))
     if not os.path.exists(args.save_directory):
         os.system("mkdir -p {}".format(args.save_directory))
+    # if os.path.exists(args.save_directory):
+    #     args.save_directory = os.path.join(args.save_directory, "_new")
+    #     os.system("mkdir -p {}".format(args.save_directory))
+
     if args.phase == 'Train' or args.phase == 'train':
         print('===> Step5: Start Training')
         logger = utils.create_logger('my_logger', os.path.join(args.save_directory, 'log.txt'))
