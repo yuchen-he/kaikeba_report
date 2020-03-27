@@ -297,8 +297,7 @@ def main():
     my_parser = argparse.ArgumentParser(description="Face_Landmarks_Detection")
     args = my_args_parser(my_parser)
     gen_data = Generate_dataset(args)
-    # gen_data.generate_train_test_set()
-    # gen_data.show_gt_image()   # check the original gt on image
+
     if args.gen_data == 'stage1':
         gen_data.generate_train_test_set()
     elif args.gen_data == 'stage1_inspect':
@@ -307,6 +306,8 @@ def main():
         gen_data.generate_train_test_set_stage3()
     elif args.gen_data == 'stage3_inspect':
         gen_data.inspect_output_stage3()
+    elif args.gen_data == 'show_gt':
+        gen_data.show_gt_image()   # check the original gt on image
     else:
         raise KeyError("No valid argument for args.gen_data")
 

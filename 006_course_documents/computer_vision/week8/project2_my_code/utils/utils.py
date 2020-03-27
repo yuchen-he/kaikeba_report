@@ -28,7 +28,7 @@ def my_args_parser(argparser):
     # train configs
     argparser.add_argument('--stage', type=str, default='3',
                            help='1/3')
-    argparser.add_argument('--model', type=str, default='Resnet18',  # Resnet18/OrigNet
+    argparser.add_argument('--model', type=str, default='OrigNet',  # Resnet18/OrigNet
                            help='backbone model')
     argparser.add_argument('--batch_size', type=int, default=64, metavar='N',
                            help='input batch size for training (default: 64)')
@@ -38,7 +38,7 @@ def my_args_parser(argparser):
                            help='number of epochs to train (default: 100)')
     argparser.add_argument('--lr', type=float, default=0.001, metavar='LR',
                            help='learning rate (default: 0.001)')
-    argparser.add_argument('--optimizer', type=str, default='adam',
+    argparser.add_argument('--optimizer', type=str, default='sgd',
                            help='sgd/adam')
     argparser.add_argument('--momentum', type=float, default=0.5, metavar='M',
                            help='SGD momentum (default: 0.5)')

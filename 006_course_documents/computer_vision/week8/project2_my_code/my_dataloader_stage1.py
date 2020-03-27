@@ -24,7 +24,6 @@ def parse_oneline(line):
     landmarks = list(zip(x, y))  # list: [[x1,y1], [x2,y2], ...]
     return image_path, bbox, landmarks
 
-
 def channel_norm(img):
     # img: ndarray, float32
     mean = np.mean(img)
@@ -212,7 +211,7 @@ def dataloader(args):
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser(description="Face_Landmarks_Detection")
     args = my_args_parser(argparser)
-    train_set = load_data(args, 'Train')
+    train_set = load_data(args, 'Test')
     for i in range(1, len(train_set)):
         sample = train_set[i]
         img = sample['image']
